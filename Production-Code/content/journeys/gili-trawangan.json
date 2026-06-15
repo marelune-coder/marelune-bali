@@ -1,6 +1,6 @@
 {
   "title": "Gili Trawangan Escape",
-  "slug": "gili-trawangan",
+  "slug": "gili-trawangan-private-yacht",
   "order": 3,
   "location": "Gili Trawangan",
   "summary": "A longer blue-water escape for guests seeking a more adventurous private yacht route.",
@@ -10,5 +10,10 @@
   "idealFor": "Groups, adventure, island escape",
   "transport": "Private Yacht",
   "image": "/uploads/marelune-assets/IMG-20260602-WA0077.jpg",
-  "highlights": ["Custom timing", "Longer cruising route", "Group-friendly", "Premium itinerary planning"]
+  "highlights": [
+    "Custom timing",
+    "Longer cruising route",
+    "Group-friendly",
+    "Premium itinerary planning"
+  ]
 }
