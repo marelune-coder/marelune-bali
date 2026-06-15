@@ -1,0 +1,25 @@
+{
+  "colors": {
+    "navy950": "#03182b",
+    "navy900": "#06233d",
+    "navy800": "#0a3458",
+    "navy700": "#12486e",
+    "mist": "#edf2f5",
+    "white": "#ffffff",
+    "ink": "#142033",
+    "muted": "#667385",
+    "gold": "#d8b86f",
+    "reef": "#1d9a9a",
+    "sand": "#d8c7a3"
+  },
+  "typography": {
+    "headingFont": "Gentium Book Plus",
+    "bodyFont": "Inter"
+  },
+  "visualDefaults": {
+    "heroOverlayStrength": "strong",
+    "cardShadow": "premium",
+    "buttonStyle": "glass-square",
+    "motion": "scroll-reveal"
+  }
+}

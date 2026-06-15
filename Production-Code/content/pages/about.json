@@ -1,0 +1,37 @@
+{
+  "title": "About Marelune Bali",
+  "description": "Meet Marelune Bali, a private yacht agency focused on refined ocean journeys around Bali.",
+  "hero": {
+    "title": "ABOUT US",
+    "subtitle": "We turn Bali sea days into private, well-composed journeys with local route knowledge and premium service standards.",
+    "image": "/uploads/marelune-assets/IMG-20260602-WA0066.jpg"
+  },
+  "story": {
+    "eyebrow": "Journeys",
+    "title": "Built for guests who want calm luxury",
+    "body": "Marelune Bali exists for travelers who want the ocean experience to feel handled, beautiful, and personal. The focus is simple: clear options, fast confirmation, refined presentation, and routes that make sense for Bali's real conditions."
+  },
+  "team": [
+    { "name": "Raka Aditya", "role": "Journey Consultant" },
+    { "name": "Maya Prameswari", "role": "Guest Experience Lead" },
+    { "name": "Dewa Mahendra", "role": "Route Coordinator" }
+  ],
+  "faq": [
+    {
+      "question": "How do I book?",
+      "answer": "Choose a preferred route or package, submit the booking form, and the team will confirm availability by WhatsApp."
+    },
+    {
+      "question": "Can the trip be customized?",
+      "answer": "Yes. Date, route, guest count, celebration setup, and yacht tier can be adjusted after the first request."
+    },
+    {
+      "question": "What should I prepare?",
+      "answer": "Prepare your desired date, number of guests, preferred departure area, and occasion details if the trip is for a celebration."
+    },
+    {
+      "question": "Is payment handled on the website?",
+      "answer": "Not yet. The website captures leads and routes the request to the team for manual confirmation and payment instructions."
+    }
+  ]
+}

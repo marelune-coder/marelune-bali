@@ -1,0 +1,84 @@
+{
+  "endpoint": "/api/leads",
+  "successMessage": "Request received. Marelune will follow up on WhatsApp.",
+  "fallbackMessage": "Preview mode: please continue via WhatsApp.",
+  "submitLabel": "Request Private Charter",
+  "fields": [
+    {
+      "name": "name",
+      "label": "Full Name",
+      "type": "text",
+      "required": true,
+      "placeholder": "Your name"
+    },
+    {
+      "name": "whatsapp",
+      "label": "WhatsApp Number",
+      "type": "tel",
+      "required": true,
+      "placeholder": "62812xxxxxxx"
+    },
+    {
+      "name": "date",
+      "label": "Preferred Date",
+      "type": "date",
+      "required": true,
+      "placeholder": ""
+    },
+    {
+      "name": "journey",
+      "label": "Journey",
+      "type": "select",
+      "required": true,
+      "placeholder": "Select journey",
+      "optionsFrom": "journeys",
+      "extraOptions": [
+        { "label": "Custom / Not sure yet", "value": "custom" }
+      ]
+    },
+    {
+      "name": "guest_count",
+      "label": "Guest Count",
+      "type": "number",
+      "required": false,
+      "placeholder": "6"
+    },
+    {
+      "name": "occasion",
+      "label": "Occasion",
+      "type": "text",
+      "required": false,
+      "placeholder": "Birthday, proposal, family trip"
+    },
+    {
+      "name": "notes",
+      "label": "Notes",
+      "type": "textarea",
+      "required": false,
+      "placeholder": "Tell us your preferred route, mood, or special request"
+    }
+  ],
+  "crmColumns": [
+    "lead_id",
+    "created_at",
+    "status",
+    "name",
+    "whatsapp",
+    "date",
+    "journey",
+    "guest_count",
+    "occasion",
+    "notes",
+    "source_page",
+    "utm_source",
+    "next_follow_up",
+    "deal_value"
+  ],
+  "statusOptions": [
+    "New",
+    "Contacted",
+    "Quoted",
+    "Booked",
+    "Lost"
+  ]
+}
