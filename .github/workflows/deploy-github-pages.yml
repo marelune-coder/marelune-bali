@@ -27,9 +27,6 @@ jobs:
         with:
           node-version: 22
 
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
-
       - name: Build static site
         working-directory: Production-Code
         run: |
@@ -44,7 +41,7 @@ jobs:
           touch dist/.nojekyll
 
       - name: Upload GitHub Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: Production-Code/dist
 
