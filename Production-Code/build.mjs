@@ -31,6 +31,83 @@ const applyBasePath = (html) => {
     .replace(/url=\/(?!\/)/g, `url=${basePath}/`);
 };
 
+/**
+ * Flatten to Nested Converter
+ * Converts flat JSON structure (home_title, home_subtitle) to nested ({ home: { title, subtitle } })
+ * This allows CMS to use flat field names while build.mjs uses nested access
+ */
+const flattenToNested = (flat, prefix) => {
+  const nested = {};
+  const prefixWithUnderscore = prefix + "_";
+
+  for (const [key, value] of Object.entries(flat)) {
+    if (key.startsWith(prefixWithUnderscore)) {
+      const newKey = key.slice(prefixWithUnderscore.length);
+      // Handle nested objects like meta: [{label, value}]
+      if (typeof value === "object" && value !== null && !Array.isArray(value)) {
+        nested[newKey] = flattenToNested(value, newKey);
+      } else {
+        nested[newKey] = value;
+      }
+    } else if (!key.startsWith("_")) {
+      nested[key] = value;
+    }
+  }
+  return nested;
+};
+
+/**
+ * Process flat JSON with specific prefixes to nested structure
+ */
+const processFlatPage = (flat) => {
+  // Group fields by prefix
+  const groups = {
+    hero: {},
+    trust: {},
+    intro: {},
+    journeySection: {},
+    stepsSection: {},
+    servicesSection: {},
+    whySection: {},
+    testimonialsSection: {},
+    journalSection: {},
+    faqSection: {},
+    newsletter: {},
+    stats: flat.stats || [],
+    steps: flat.steps || [],
+    services: flat.services || [],
+    why: flat.why || [],
+    testimonials: flat.testimonials || [],
+    faq: flat.faq || []
+  };
+
+  // Process each field
+  for (const [key, value] of Object.entries(flat)) {
+    if (key.startsWith("_")) continue; // Skip comments
+
+    // Direct fields
+    if (!key.includes("_")) {
+      groups[key] = value;
+      continue;
+    }
+
+    // Find matching prefix
+    for (const prefix of Object.keys(groups)) {
+      if (prefix === "stats" || prefix === "steps" || prefix === "services" ||
+          prefix === "why" || prefix === "testimonials" || prefix === "faq") continue;
+
+      const prefixWithUnderscore = prefix + "_";
+      if (key.startsWith(prefixWithUnderscore)) {
+        const newKey = key.slice(prefixWithUnderscore.length);
+        groups[prefix][newKey] = value;
+        break;
+      }
+    }
+  }
+
+  return groups;
+};
+
 const readCollection = async (folder) => {
   const dir = path.join(contentDir, folder);
   const files = await readdir(dir);
@@ -146,10 +223,10 @@ const writePage = async (route, html) => {
 };
 
 const designTokens = (design) => {
-  if (!design?.colors) return "";
-  const c = design.colors;
-  const headingFont = safeCss(design.typography?.headingFont || "Gentium Book Plus");
-  const bodyFont = safeCss(design.typography?.bodyFont || "Inter");
+  // Support both flat structure (new) and nested structure (old)
+  const c = design?.colors || design || {};
+  const headingFont = safeCss(design?.headingFont || design?.typography?.headingFont || "Gentium Book Plus");
+  const bodyFont = safeCss(design?.bodyFont || design?.typography?.bodyFont || "Inter");
 
   return `<style id="cms-design-tokens">
     :root {
@@ -173,14 +250,16 @@ const designTokens = (design) => {
 /**
  * CMS Design Override Generator
  * Mengenerate CSS override berdasarkan Design Settings CMS
- * Semua perubahan warna/typography di CMS akan apply secara real-time
- * Compatible dengan GitHub Pages & Cloudflare Pages
+ * Support both flat and nested structure
  */
 const designOverrides = (design) => {
-  if (!design?.colors) return "";
-
-  const c = design.colors;
-  const v = design.visualDefaults || {};
+  // Support both flat and nested structure
+  const c = design?.colors || design || {};
+  const v = design?.visualDefaults || {
+    heroOverlayStrength: design?.heroOverlay || "strong",
+    cardShadow: design?.cardShadow || "premium",
+    motion: design?.animation || "scroll-reveal"
+  };
 
   // Hero overlay strength
   const overlayStrengths = {
@@ -1084,9 +1163,12 @@ ${routes.map((route) => `  <url><loc>${site.domain}${route}</loc></url>`).join("
 const main = async () => {
   const site = await readJson("site.json");
   site.design = await readJson("design.json");
-  const home = await readJson("pages/home.json");
-  const about = await readJson("pages/about.json");
-  const book = await readJson("pages/book.json");
+
+  // Process flat JSON to nested structure for CMS compatibility
+  const home = processFlatPage(await readJson("pages/home.json"));
+  const about = processFlatPage(await readJson("pages/about.json"));
+  const book = processFlatPage(await readJson("pages/book.json"));
+
   const leads = await readJson("leads.json");
   const journeys = await readCollection("journeys");
   const posts = await readPosts();
