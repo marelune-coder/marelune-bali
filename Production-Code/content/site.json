@@ -1,19 +1,9 @@
 {
-  "_comment": "========================================",
-  "_description": "Site Settings - MARELUNE BALI CMS",
-  "_lastUpdated": "2026-06-18",
-  "_usage": "Brand, navigation, contact, dan SEO utama",
-  "_affects": "Seluruh website - Header, Footer, Meta Tags",
-  "========================================",
-
   "brand": "Marelune Bali",
   "domain": "https://marelunebali.com",
   "description": "Private yacht charter agency in Bali for intimate celebrations, island escapes, and premium sea experiences.",
-
-  "_logoNote": "Upload logo via Media tab di CMS, lalu paste URL di field ini. Ukuran ideal: 200x200px, PNG/SVG dengan transparan background.",
   "logo": "/uploads/marelune-assets/Logo%20MB%20Putih.png",
 
-  "_contactNote": "Informasi kontak yang muncul di Footer website",
   "contact": {
     "email": "hello@marelunebali.com",
     "phone": "+62 812 3456 7890",
@@ -21,7 +11,6 @@
     "location": "Nusa Dua, Bali"
   },
 
-  "_navNote": "Menu utama di Header. Jangan ubah href kecuali Anda tahu URL structure.",
   "nav": [
     { "label": "Home", "href": "/" },
     { "label": "Journeys", "href": "/journeys/" },
@@ -29,14 +18,12 @@
     { "label": "About us", "href": "/about/" }
   ],
 
-  "_socialsNote": "Link social media yang muncul di Footer",
   "socials": [
     { "label": "Instagram", "href": "https://instagram.com/" },
     { "label": "Facebook", "href": "https://facebook.com/" },
     { "label": "TikTok", "href": "https://tiktok.com/" }
   ],
 
-  "_heroCategoriesNote": "Tab di bawah hero image di homepage. Max 5 tabs recommended untuk mobile-friendly.",
   "heroCategories": [
     { "label": "Nusa Penida", "caption": "Crystal bay . cliffs" },
     { "label": "Nusa Dua", "caption": "Calm water . sunset" },
@@ -45,7 +32,6 @@
     { "label": "Private Event", "caption": "Proposal . celebration" }
   ],
 
-  "_tickerNote": "Teks berjalan di atas footer. Minimal 2 item agar ticker terlihat. Affect ke semua page.",
   "ticker": [
     "Travel Better",
     "Unforgettable Stays",
@@ -53,6 +39,5 @@
     "Reserve Now"
   ],
 
-  "_seoNote": "Keyword utama untuk SEO meta tag. Pisahkan dengan koma. Update secara berkala berdasarkan keyword research.",
   "seoKeywords": "private yacht Bali, yacht charter Bali, sewa yacht Bali, Nusa Penida yacht, Nusa Dua yacht, Bali honeymoon yacht, Bali private charter"
 }
