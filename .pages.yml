@@ -181,6 +181,9 @@ content:
       - { name: submitLabel, label: Submit Button Text, type: string }
       - { name: crmColumns, label: CRM Columns, type: string, list: true }
       - { name: statusOptions, label: Status Options, type: string, list: true }
+      - { name: fields, label: Form Fields (Edit in Code), type: string, disabled: true }
+      # Note: Form fields structure is managed in leads.json for build system
+      # To edit form fields, edit Production-Code/content/leads.json directly in GitHub
 
   # ============================================================
   # JOURNEYS
