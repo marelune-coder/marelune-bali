@@ -1,0 +1,124 @@
+media:
+  input: public/uploads
+  output: /uploads
+
+content:
+  - name: site
+    label: Site Settings
+    type: file
+    path: content/site.json
+    fields:
+      - { name: brand, label: Brand, type: string }
+      - { name: domain, label: Production Domain, type: string }
+      - { name: description, label: Description, type: text }
+      - { name: logo, label: Logo, type: image }
+      - { name: contact, label: Contact, type: object }
+      - { name: nav, label: Navigation, type: object, list: true }
+      - { name: socials, label: Social Links, type: object, list: true }
+      - { name: heroCategories, label: Hero Category Tabs, type: object, list: true }
+      - { name: ticker, label: Footer Ticker Items, type: string, list: true }
+      - { name: seoKeywords, label: SEO Keywords, type: text }
+
+  - name: design
+    label: Design Settings
+    type: file
+    path: content/design.json
+    fields:
+      - { name: colors, label: Brand Colors, type: object }
+      - { name: typography, label: Typography, type: object }
+      - { name: visualDefaults, label: Visual Defaults, type: object }
+
+  - name: home
+    label: Home Page
+    type: file
+    path: content/pages/home.json
+    fields:
+      - { name: title, label: SEO Title, type: string }
+      - { name: description, label: SEO Description, type: text }
+      - { name: hero, label: Hero, type: object }
+      - { name: trust, label: Trust Bar, type: object }
+      - { name: intro, label: Editorial Statement, type: object }
+      - { name: stats, label: Image Stats, type: object, list: true }
+      - { name: journeySection, label: Journey Section Heading, type: object }
+      - { name: stepsSection, label: Steps Section Heading, type: object }
+      - { name: steps, label: Booking Steps, type: object, list: true }
+      - { name: servicesSection, label: Services Section Settings, type: object }
+      - { name: services, label: Services, type: object, list: true }
+      - { name: whySection, label: Why Section Heading, type: object }
+      - { name: why, label: Why Marelune Items, type: object, list: true }
+      - { name: testimonialsSection, label: Testimonials Heading, type: object }
+      - { name: testimonials, label: Testimonials, type: object, list: true }
+      - { name: journalSection, label: Journal Teaser Heading, type: object }
+      - { name: faqSection, label: FAQ Heading, type: object }
+      - { name: faq, label: FAQ Items, type: object, list: true }
+      - { name: newsletter, label: Newsletter Section, type: object }
+
+  - name: about
+    label: About Page
+    type: file
+    path: content/pages/about.json
+    fields:
+      - { name: title, label: SEO Title, type: string }
+      - { name: description, label: SEO Description, type: text }
+      - { name: hero, label: Hero, type: object }
+      - { name: story, label: Story, type: object }
+      - { name: team, label: Team, type: object, list: true }
+      - { name: faqSection, label: FAQ Heading, type: object }
+      - { name: faq, label: FAQ Items, type: object, list: true }
+
+  - name: book
+    label: Booking Page
+    type: file
+    path: content/pages/book.json
+    fields:
+      - { name: title, label: SEO Title, type: string }
+      - { name: description, label: SEO Description, type: text }
+      - { name: hero, label: Hero, type: object }
+
+  - name: leads
+    label: Lead Form and CRM Settings
+    type: file
+    path: content/leads.json
+    fields:
+      - { name: endpoint, label: Lead Endpoint, type: string }
+      - { name: successMessage, label: Success Message, type: text }
+      - { name: fallbackMessage, label: Fallback Message, type: text }
+      - { name: submitLabel, label: Submit Button Label, type: string }
+      - { name: fields, label: Form Fields, type: object, list: true }
+      - { name: crmColumns, label: CRM Columns, type: string, list: true }
+      - { name: statusOptions, label: Lead Status Options, type: string, list: true }
+
+  - name: journeys
+    label: Journeys
+    type: collection
+    path: content/journeys
+    filename: "{fields.slug}.json"
+    fields:
+      - { name: title, label: Title, type: string }
+      - { name: slug, label: Slug, type: string }
+      - { name: order, label: Display Order, type: number }
+      - { name: location, label: Location, type: string }
+      - { name: summary, label: Summary, type: text }
+      - { name: description, label: Description, type: text }
+      - { name: price, label: Price, type: string }
+      - { name: duration, label: Duration, type: string }
+      - { name: idealFor, label: Ideal For, type: string }
+      - { name: transport, label: Transport, type: string }
+      - { name: image, label: Image, type: image }
+      - { name: highlights, label: Highlights, type: string, list: true }
+
+  - name: blog
+    label: Journal Articles
+    type: collection
+    path: content/blog
+    filename: "{fields.slug}.md"
+    fields:
+      - { name: title, label: Title, type: string }
+      - { name: slug, label: Slug, type: string }
+      - { name: description, label: SEO Description, type: text }
+      - { name: date, label: Publish Date, type: date }
+      - { name: updated, label: Updated Date, type: date }
+      - { name: category, label: Category, type: string }
+      - { name: readingTime, label: Reading Time, type: string }
+      - { name: thumbnail, label: Thumbnail, type: image }
+      - { name: body, label: Content, type: rich-text }
