@@ -1,14 +1,45 @@
 {
+  "_comment": "========================================",
+  "_description": "Nusa Penida Journey - MARELUNE BALI CMS",
+  "_lastUpdated": "2026-06-18",
+  "_usage": "Journey page: /journeys/nusa-penida/",
+  "_affects": "Homepage showcase, Journeys collection page, detail page",
+  "_slugNote": "URL slug - harus UNIQUE, tidak ada spasi, lowercase",
+  "========================================",
+
   "title": "Nusa Penida Private Yacht",
   "slug": "nusa-penida",
   "order": 1,
+
+  "_locationTip": "Nama lokasi utama - muncul di hero dan cards",
   "location": "Nusa Penida",
+
+  "_summaryTip": "Deskripsi singkat untuk card (1-2 sentences max)",
   "summary": "A scenic full-day yacht escape toward cliffs, blue water, and photogenic island stops.",
+
+  "_descriptionTip": "Deskripsi lengkap untuk detail page",
   "description": "Sail from Bali toward Nusa Penida with a route designed for island views, swimming windows, and a private onboard pace.",
+
+  "_priceTip": "Format: 'From RpXX.XXX.XXX' atau 'Custom Quote'",
   "price": "From Rp18.500.000",
+
+  "_durationTip": "Durasi trip",
   "duration": "1 Day Trip",
+
+  "_idealForTip": "Target audience - siapa yang paling cocok untuk journey ini",
   "idealFor": "Couples, families, content trips",
+
+  "_transportTip": "Tipe transportasi - biasanya 'Private Yacht'",
   "transport": "Private Yacht",
+
+  "_imageTip": "Hero image - gunakan gambar yang stunning, landscape, high quality",
   "image": "/uploads/marelune-assets/IMG-20260602-WA0083.jpg",
-  "highlights": ["Private route planning", "Island-view cruising", "Swimming and photo stops", "Onboard hospitality"]
+
+  "_highlightsTip": "4 highlights ideal. Points yang membedakan journey ini.",
+  "highlights": [
+    "Private route planning",
+    "Island-view cruising",
+    "Swimming and photo stops",
+    "Onboard hospitality"
+  ]
 }
