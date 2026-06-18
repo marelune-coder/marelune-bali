@@ -1,0 +1,55 @@
+{
+  "_comment": "========================================",
+  "_description": "Design Settings - MARELUNE BALI CMS",
+  "_lastUpdated": "2026-06-18",
+  "_usage": "Color palette, typography, dan visual defaults",
+  "_important": "Perubahan di sini akan mengubah tampilan website SECARA REAL-TIME setelah rebuild!",
+  "_rebuildNote": "Trigger manual rebuild di GitHub Actions: Settings > Actions > deploy-github-pages > Run workflow",
+  "_cloudflareNote": "Compatible dengan GitHub Pages & Cloudflare Pages hosting",
+  "_colorPreview": "Preview colors di: https://coolors.co/ atau https://htmlcolorcodes.com/",
+  "========================================",
+
+  "_colorsNote": "Klik expand di bawah untuk edit tiap warna individual",
+  "colors": {
+    "_section": "Color Palette - Mengubah warna brand utama",
+
+    "_navySection": "Navy Blues - Primary colors untuk backgrounds dan headers",
+    "navy950": "#03182b",
+    "navy900": "#06233d",
+    "navy800": "#0a3458",
+    "navy700": "#12486e",
+
+    "_neutralSection": "Neutrals - Warna netral untuk backgrounds dan teks",
+    "mist": "#edf2f5",
+    "white": "#ffffff",
+    "ink": "#142033",
+    "muted": "#667385",
+
+    "_accentSection": "Accent Colors - Warna aksen untuk highlight dan buttons",
+    "gold": "#d8b86f",
+    "reef": "#1d9a9a",
+    "sand": "#d8c7a3"
+  },
+
+  "_typographyNote": "Font settings - Changes memerlukan Google Fonts preload di head",
+  "typography": {
+    "_fontNote": "Gunakan font names yang tersedia di Google Fonts. Default: Gentium Book Plus untuk headings, Inter untuk body",
+    "headingFont": "Gentium Book Plus",
+    "bodyFont": "Inter"
+  },
+
+  "_visualDefaultsNote": "Component-level styling preferences",
+  "visualDefaults": {
+    "_overlayNote": "Seberapa gelap overlay di hero image",
+    "heroOverlayStrength": "strong",
+
+    "_shadowNote": "Style shadow di card components",
+    "cardShadow": "premium",
+
+    "_buttonNote": "Style default untuk buttons",
+    "buttonStyle": "glass-square",
+
+    "_motionNote": "Style animasi scroll reveal",
+    "motion": "scroll-reveal"
+  }
+}

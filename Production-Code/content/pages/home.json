@@ -1,0 +1,297 @@
+{
+  "_comment": "========================================",
+  "_description": "Home Page Content - MARELUNE BALI CMS",
+  "_lastUpdated": "2026-06-18",
+  "_usage": "Content untuk homepage (/)",
+  "_affects": "HANYA homepage - tidak affect page lain",
+  "_seoNote": "Title dan Description untuk meta tags - tidak muncul di page visual",
+  "========================================",
+
+  "title": "Marelune Bali - Private Yacht Agency",
+  "description": "Book private yacht journeys across Bali with curated routes, premium hospitality, and fast WhatsApp confirmation.",
+
+  "_heroNote": "Hero Section - Gambar besar di atas page dengan text overlay",
+  "hero": {
+    "_imageTip": "Gunakan gambar landscape high quality, minimal 1920x1080px",
+    "title": "MARELUNE",
+    "subtitle": "Private yacht journeys across Bali, curated for quiet luxury, clear water, and moments worth keeping.",
+    "ctaLabel": "Book Your Trip",
+    "ctaHref": "/book/",
+    "image": "/uploads/marelune-assets/IMG-20260602-WA0078.jpg"
+  },
+
+  "_trustNote": "Trust Bar - Social proof elements di bawah hero",
+  "trust": {
+    "_ratingTip": "Rating berdasarkan review tamu. Bisa dari Google, TripAdvisor, dll",
+    "rating": "4.9/5",
+    "_textTip": "Deskripsi singkat tentang trust",
+    "text": "Trusted planning experience for couples, families, and private groups.",
+    "_avatarsTip": "Foto kecil bulat yang merepresentasikan guest types. 3 foto ideal.",
+    "avatars": [
+      "/uploads/marelune-assets/IMG-20260602-WA0061.jpg",
+      "/uploads/marelune-assets/IMG-20260602-WA0051.jpg",
+      "/uploads/marelune-assets/IMG-20260602-WA0067.jpg"
+    ],
+    "_partnersTip": "Kata kunci yang menunjukkan partner/trust signals",
+    "partners": [
+      "Private Yacht",
+      "Island Route",
+      "Guest Concierge",
+      "Celebration Setup",
+      "Bali Sea Day"
+    ]
+  },
+
+  "_introNote": "Editorial Statement - Headline utama yang ingin diutamakan",
+  "intro": {
+    "eyebrow": "Private Yacht Agency",
+    "title": "Since every sea day should feel personal, Marelune designs Bali yacht journeys around your timing, mood, and occasion.",
+    "body": "From Nusa Penida day trips to calm sunset charters in Nusa Dua, every request is handled with clear options, fast confirmation, and a premium first impression before guests ever step onboard."
+  },
+
+  "_statsNote": "Stats Cards - Angka besar dengan image background untuk visual impact",
+  "stats": [
+    {
+      "value": "3",
+      "label": "Core Bali Routes",
+      "_imageTip": "Background image untuk stat card ini",
+      "image": "/uploads/marelune-assets/IMG-20260602-WA0024.jpg"
+    },
+    {
+      "value": "24h",
+      "label": "Fast Follow-Up",
+      "image": "/uploads/marelune-assets/IMG-20260602-WA0039.jpg"
+    },
+    {
+      "value": "Private",
+      "label": "Guest Experience",
+      "image": "/uploads/marelune-assets/IMG-20260602-WA0051.jpg"
+    },
+    {
+      "value": "SEO",
+      "label": "Journal Support",
+      "image": "/uploads/marelune-assets/IMG-20260602-WA0033.jpg"
+    }
+  ],
+
+  "_journeySectionNote": "Section heading untuk Journey showcase di bawah",
+  "journeySection": {
+    "eyebrow": "Popular Journeys",
+    "title": "Explore Bali's most requested private yacht routes",
+    "body": "Cinematic route pages built to sell the experience first, then move qualified guests into booking."
+  },
+
+  "_stepsNote": "How It Works - 4 steps booking process",
+  "stepsSection": {
+    "eyebrow": "How It Works",
+    "title": "Your dream journey in four simple steps",
+    "body": "A simple booking flow that keeps the experience premium without adding friction."
+  },
+
+  "_stepsListTip": "4 langkah booking process - step numbers harus unique (01, 02, 03, 04)",
+  "steps": [
+    {
+      "number": "01",
+      "title": "Discuss Vision",
+      "text": "Share your date, guest count, preferred route, and occasion."
+    },
+    {
+      "number": "02",
+      "title": "We Plan",
+      "text": "Marelune suggests the best yacht tier, timing, and route setup."
+    },
+    {
+      "number": "03",
+      "title": "Confirm Trip",
+      "text": "Availability, package details, and payment instructions are confirmed by WhatsApp."
+    },
+    {
+      "number": "04",
+      "title": "Begin Journey",
+      "text": "Arrive with the details already handled and the onboard mood already shaped."
+    }
+  ],
+
+  "_servicesNote": "Services Section - Tabbed service showcase",
+  "servicesSection": {
+    "eyebrow": "Curated Services",
+    "title": "Curated travel services for every journey",
+    "body": "Each service is written for both user trust and future CMS control.",
+    "_categoriesTip": "Tab labels untuk filter services. Max 4 tabs recommended.",
+    "categories": [
+      { "label": "Charter Planning", "value": "planning" },
+      { "label": "Celebrations", "value": "celebration" },
+      { "label": "Concierge", "value": "concierge" },
+      { "label": "Content Trips", "value": "content" }
+    ]
+  },
+
+  "_servicesListTip": "Service cards dengan images. category value harus match dengan categories di atas.",
+  "services": [
+    {
+      "category": "planning",
+      "kicker": "Route Design",
+      "title": "Private Charter Planning",
+      "text": "Route, tide window, yacht tier, and guest flow are matched before the booking is confirmed.",
+      "image": "/uploads/marelune-assets/IMG-20260602-WA0073.jpg",
+      "ctaLabel": "Plan My Charter",
+      "ctaHref": "/book/",
+      "_metaTip": "Meta info yang muncul di card. 3 items ideal.",
+      "meta": [
+        { "label": "Best for", "value": "First-time guests" },
+        { "label": "Flow", "value": "Consultation first" },
+        { "label": "Output", "value": "Clear route option" }
+      ]
+    },
+    {
+      "category": "celebration",
+      "kicker": "Occasion Setup",
+      "title": "Proposal and Celebration Setup",
+      "text": "Birthday, proposal, honeymoon, and family moments can be shaped with the right onboard details.",
+      "image": "/uploads/marelune-assets/IMG-20260602-WA0061.jpg",
+      "ctaLabel": "Create Occasion",
+      "ctaHref": "/book/",
+      "meta": [
+        { "label": "Best for", "value": "Couples and families" },
+        { "label": "Mood", "value": "Quiet luxury" },
+        { "label": "Support", "value": "Setup guidance" }
+      ]
+    },
+    {
+      "category": "concierge",
+      "kicker": "Guest Logistics",
+      "title": "Island Concierge Support",
+      "text": "Marelune helps reduce decision fatigue with departure guidance, guest notes, and simple next steps.",
+      "image": "/uploads/marelune-assets/IMG-20260602-WA0050.jpg",
+      "ctaLabel": "Ask Concierge",
+      "ctaHref": "/book/",
+      "meta": [
+        { "label": "Best for", "value": "Groups" },
+        { "label": "Focus", "value": "Smooth arrival" },
+        { "label": "Channel", "value": "WhatsApp" }
+      ]
+    },
+    {
+      "category": "content",
+      "kicker": "Visual Route",
+      "title": "Content-Friendly Sea Days",
+      "text": "For creators, honeymooners, and brands who need scenery, timing, and photo stops to feel intentional.",
+      "image": "/uploads/marelune-assets/IMG-20260602-WA0067.jpg",
+      "ctaLabel": "Build Content Route",
+      "ctaHref": "/book/",
+      "meta": [
+        { "label": "Best for", "value": "Photos and reels" },
+        { "label": "Timing", "value": "Golden windows" },
+        { "label": "Route", "value": "Scenic stops" }
+      ]
+    }
+  ],
+
+  "_whyNote": "Why Choose Us Section - Feature grid dengan icons",
+  "whySection": {
+    "eyebrow": "Why Travelers Choose Marelune",
+    "title": "Why travelers choose Marelune every time",
+    "body": "Trust signals that should stay visible without making the homepage feel busy."
+  },
+
+  "_whyListTip": "6 items dalam 2-column grid. Images harus kecil (88x74px ideal).",
+  "why": [
+    {
+      "title": "Expert Guidance",
+      "text": "Bali-specific route advice before guests commit.",
+      "image": "/uploads/marelune-assets/IMG-20260602-WA0038.jpg"
+    },
+    {
+      "title": "Fast Support",
+      "text": "Leads move quickly into WhatsApp follow-up.",
+      "image": "/uploads/marelune-assets/IMG-20260602-WA0052.jpg"
+    },
+    {
+      "title": "Private Journeys",
+      "text": "The trip is framed around guest mood and occasion.",
+      "image": "/uploads/marelune-assets/IMG-20260602-WA0053.jpg"
+    },
+    {
+      "title": "Flexible Plans",
+      "text": "Routes can adapt around timing and sea conditions.",
+      "image": "/uploads/marelune-assets/IMG-20260602-WA0034.jpg"
+    },
+    {
+      "title": "Global Reach",
+      "text": "English-first content makes international guests feel understood.",
+      "image": "/uploads/marelune-assets/IMG-20260602-WA0033.jpg"
+    },
+    {
+      "title": "Safe Booking Flow",
+      "text": "The website captures details before manual confirmation.",
+      "image": "/uploads/marelune-assets/IMG-20260602-WA0074.jpg"
+    }
+  ],
+
+  "_testimonialsNote": "Testimonials - Social proof quotes dari past guests",
+  "testimonialsSection": {
+    "eyebrow": "Testimonials",
+    "title": "What our happy travelers say",
+    "body": "Short, high-trust social proof near the booking decision."
+  },
+
+  "_testimonialsListTip": "2-3 testimonials ideal. Photos harus genuine - real guests lebih convincing.",
+  "testimonials": [
+    {
+      "quote": "The route felt calm, private, and beautifully prepared. We did not have to overthink the details.",
+      "name": "Michelle Tan",
+      "role": "Honeymoon guest",
+      "image": "/uploads/marelune-assets/IMG-20260602-WA0061.jpg"
+    },
+    {
+      "quote": "The planning flow was simple and fast. The team helped us choose the right timing for our group.",
+      "name": "Arman Lee",
+      "role": "Private group charter",
+      "image": "/uploads/marelune-assets/IMG-20260602-WA0051.jpg"
+    }
+  ],
+
+  "_journalNote": "Journal Section - Preview 4 latest articles",
+  "journalSection": {
+    "eyebrow": "Journal",
+    "title": "New adventures and travel tips daily",
+    "body": "A clean editorial section that supports SEO without making the homepage feel like a blog archive."
+  },
+
+  "_faqNote": "FAQ Section - Accordion-style Q&A untuk pre-booking questions",
+  "faqSection": {
+    "eyebrow": "FAQ",
+    "title": "Everything you need to know",
+    "body": "Useful answers before a guest sends a booking request."
+  },
+
+  "_faqListTip": "4-6 FAQ items ideal. Questions harus actual questions yang guest sering ask.",
+  "faq": [
+    {
+      "question": "How do I book?",
+      "answer": "Submit the request form with your preferred date, route, and guest count. The Marelune team will follow up on WhatsApp."
+    },
+    {
+      "question": "Can the route be customized?",
+      "answer": "Yes. Route, timing, onboard mood, yacht tier, and celebration setup can be adjusted after consultation."
+    },
+    {
+      "question": "Is payment handled on the website?",
+      "answer": "Not yet. The website captures qualified leads, then the team confirms availability and payment instructions manually."
+    },
+    {
+      "question": "Which route should I choose?",
+      "answer": "Nusa Penida is best for scenery, Nusa Dua for shorter sunset moments, and Gili for a longer blue-water escape."
+    }
+  ],
+
+  "_newsletterNote": "Newsletter Section - Email subscription dengan background image",
+  "newsletter": {
+    "_imageTip": "Background image untuk newsletter section. Sebaiknya ocean/sunset themed.",
+    "title": "STAY UPDATED",
+    "body": "Receive new Bali yacht guides, route notes, and quiet-luxury travel ideas.",
+    "placeholder": "Email address",
+    "buttonLabel": "Subscribe",
+    "image": "/uploads/marelune-assets/IMG-20260602-WA0033.jpg"
+  }
+}
