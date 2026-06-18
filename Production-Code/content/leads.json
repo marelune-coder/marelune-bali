@@ -1,69 +1,172 @@
 {
+  "_comment": "========================================",
+  "_description": "Booking Form Configuration - MARELUNE BALI",
+  "_lastUpdated": "2026-06-18",
+  "_docs": "Setup Guide: Production-Code/CMS-GUIDE.md",
+  "_spreadsheet": "https://docs.google.com/spreadsheets/d/1rWlvNO-E6cC01SV4a20jrfFvE4sZIzMTSx4rHGQeb-8/edit",
+  "_sheetName": "Leads",
+  "_contact": "For questions, contact: hello@marelunebali.com",
+  "_important": "Field names (name property) MUST match Google Sheets column headers EXACTLY",
+  "_integrationFlow": "Form → /api/leads → Make.com Webhook → Google Sheets + WhatsApp",
+  "========================================",
+
   "endpoint": "/api/leads",
-  "successMessage": "Request received. Marelune will follow up on WhatsApp.",
+  "successMessage": "Request received! Marelune will follow up via WhatsApp within 24 hours.",
   "fallbackMessage": "Preview mode: please continue via WhatsApp.",
   "submitLabel": "Request Private Charter",
+
   "fields": [
+    {
+      "name": "lead_id",
+      "label": "Lead ID",
+      "type": "text",
+      "required": false,
+      "placeholder": "",
+      "description": "Auto-generated ID - DO NOT EDIT",
+      "showInForm": false
+    },
+    {
+      "name": "created_at",
+      "label": "Created At",
+      "type": "text",
+      "required": false,
+      "placeholder": "",
+      "description": "Timestamp - DO NOT EDIT",
+      "showInForm": false
+    },
+    {
+      "name": "status",
+      "label": "Status",
+      "type": "text",
+      "required": false,
+      "placeholder": "",
+      "description": "Lead status - DO NOT EDIT",
+      "showInForm": false
+    },
     {
       "name": "name",
       "label": "Full Name",
       "type": "text",
       "required": true,
-      "placeholder": "Your name"
+      "placeholder": "Your full name",
+      "description": "Required - Guest's full name"
     },
     {
       "name": "whatsapp",
       "label": "WhatsApp Number",
       "type": "tel",
       "required": true,
-      "placeholder": "62812xxxxxxx"
+      "placeholder": "62812xxxxxxx",
+      "description": "Required - With country code, no + sign"
+    },
+    {
+      "name": "email",
+      "label": "Email Address",
+      "type": "email",
+      "required": false,
+      "placeholder": "your@email.com",
+      "description": "Optional - For follow-up emails"
     },
     {
       "name": "date",
       "label": "Preferred Date",
       "type": "date",
       "required": true,
-      "placeholder": ""
+      "placeholder": "",
+      "description": "Required - When guest wants to charter"
     },
     {
       "name": "journey",
-      "label": "Journey",
+      "label": "Journey Route",
       "type": "select",
       "required": true,
-      "placeholder": "Select journey",
+      "placeholder": "Select journey route",
       "optionsFrom": "journeys",
       "extraOptions": [
         { "label": "Custom / Not sure yet", "value": "custom" }
-      ]
+      ],
+      "description": "Required - Select from available journeys"
     },
     {
       "name": "guest_count",
-      "label": "Guest Count",
+      "label": "Number of Guests",
       "type": "number",
       "required": false,
-      "placeholder": "6"
+      "placeholder": "6",
+      "description": "Optional - How many people will join"
     },
     {
       "name": "occasion",
-      "label": "Occasion",
-      "type": "text",
+      "label": "Occasion / Purpose",
+      "type": "select",
       "required": false,
-      "placeholder": "Birthday, proposal, family trip"
+      "placeholder": "Select occasion",
+      "optionsFrom": "none",
+      "extraOptions": [
+        { "label": "Birthday Celebration", "value": "birthday" },
+        { "label": "Marriage Proposal", "value": "proposal" },
+        { "label": "Honeymoon / Romantic", "value": "honeymoon" },
+        { "label": "Family Trip", "value": "family" },
+        { "label": "Friends Gathering", "value": "friends" },
+        { "label": "Corporate Event", "value": "corporate" },
+        { "label": "Content Creation / Photoshoot", "value": "content" },
+        { "label": "Just Exploring", "value": "exploring" }
+      ],
+      "description": "Optional - What's the occasion for this trip"
     },
     {
       "name": "notes",
-      "label": "Notes",
+      "label": "Special Requests / Notes",
       "type": "textarea",
       "required": false,
-      "placeholder": "Tell us your preferred route, mood, or special request"
+      "placeholder": "Tell us your preferred route, special requests, dietary requirements, or any questions...",
+      "description": "Optional - Any special requests or additional information"
+    },
+    {
+      "name": "source_page",
+      "label": "Source Page",
+      "type": "text",
+      "required": false,
+      "placeholder": "",
+      "description": "Which page they submitted from - AUTO CAPTURED",
+      "showInForm": false
+    },
+    {
+      "name": "utm_source",
+      "label": "UTM Source",
+      "type": "text",
+      "required": false,
+      "placeholder": "",
+      "description": "Traffic source tracking - AUTO CAPTURED",
+      "showInForm": false
+    },
+    {
+      "name": "next_follow_up",
+      "label": "Next Follow-up",
+      "type": "text",
+      "required": false,
+      "placeholder": "",
+      "description": "Date for next follow-up - EDIT IN SHEETS",
+      "showInForm": false
+    },
+    {
+      "name": "deal_value",
+      "label": "Estimated Deal Value",
+      "type": "text",
+      "required": false,
+      "placeholder": "",
+      "description": "Estimated booking value - EDIT IN SHEETS",
+      "showInForm": false
     }
   ],
+
   "crmColumns": [
     "lead_id",
     "created_at",
     "status",
     "name",
     "whatsapp",
+    "email",
     "date",
     "journey",
     "guest_count",
@@ -74,11 +177,67 @@
     "next_follow_up",
     "deal_value"
   ],
+
   "statusOptions": [
     "New",
     "Contacted",
     "Quoted",
+    "Negotiating",
     "Booked",
+    "Completed",
     "Lost"
-  ]
+  ],
+
+  "_makecomInstructions": {
+    "webhookURL": "Paste this URL in Make.com webhook module",
+    "steps": [
+      "1. Create new Scenario in Make.com",
+      "2. Add 'Webhook' as first module",
+      "3. Paste webhook URL in website config (environment variable: MAKE_WEBHOOK_URL)",
+      "4. Add 'Google Sheets - Add a Row' module",
+      "5. Map fields from webhook to your Google Sheets columns",
+      "6. Optional: Add WhatsApp/Telegram notification module"
+    ],
+    "fieldMapping": {
+      "name": "Name",
+      "whatsapp": "WhatsApp",
+      "email": "Email",
+      "date": "Date",
+      "journey": "Journey",
+      "guest_count": "Guest Count",
+      "occasion": "Occasion",
+      "notes": "Notes",
+      "source_page": "Source Page",
+      "utm_source": "UTM Source"
+    }
+  },
+
+  "_spreadsheetSetup": {
+    "url": "https://docs.google.com/spreadsheets/d/1rWlvNO-E6cC01SV4a20jrfFvE4sZIzMTSx4rHGQeb-8/edit",
+    "sheetName": "Leads",
+    "requiredColumns": [
+      "lead_id",
+      "created_at",
+      "status",
+      "name",
+      "whatsapp",
+      "email",
+      "date",
+      "journey",
+      "guest_count",
+      "occasion",
+      "notes",
+      "source_page",
+      "utm_source",
+      "next_follow_up",
+      "deal_value"
+    ],
+    "instructions": [
+      "1. Open your Google Sheets",
+      "2. Make sure row 1 has these exact column headers:",
+      "   lead_id, created_at, status, name, whatsapp, email, date, journey, guest_count, occasion, notes, source_page, utm_source, next_follow_up, deal_value",
+      "3. Column order DOES NOT matter - Make.com will map by name",
+      "4. Freeze row 1 (Format > Freeze > 1 row)"
+    ]
+  }
 }
