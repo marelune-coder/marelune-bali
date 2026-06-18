@@ -1,21 +1,38 @@
 {
+  "_comment": "========================================",
+  "_description": "About Page Content - MARELUNE BALI CMS",
+  "_lastUpdated": "2026-06-18",
+  "_usage": "Content untuk halaman About (/about/)",
+  "_affects": "HANYA About page",
+  "========================================",
+
   "title": "About Marelune Bali",
   "description": "Meet Marelune Bali, a private yacht agency focused on refined ocean journeys around Bali.",
+
+  "_heroNote": "Hero section dengan background image besar",
   "hero": {
+    "_imageTip": "Gunakan gambar yang merepresentasikan brand - yacht, ocean, Bali scenery",
     "title": "ABOUT US",
     "subtitle": "We turn Bali sea days into private, well-composed journeys with local route knowledge and premium service standards.",
     "image": "/uploads/marelune-assets/IMG-20260602-WA0066.jpg"
   },
+
+  "_storyNote": "Brand story section - Kenapa Marelune exists",
   "story": {
     "eyebrow": "Journeys",
     "title": "Built for guests who want calm luxury",
     "body": "Marelune Bali exists for travelers who want the ocean experience to feel handled, beautiful, and personal. The focus is simple: clear options, fast confirmation, refined presentation, and routes that make sense for Bali's real conditions."
   },
+
+  "_teamNote": "Team section - Key people di balik Marelune",
+  "_teamTip": "3-4 team members ideal. Photos harus professional.",
   "team": [
     { "name": "Raka Aditya", "role": "Journey Consultant" },
     { "name": "Maya Prameswari", "role": "Guest Experience Lead" },
     { "name": "Dewa Mahendra", "role": "Route Coordinator" }
   ],
+
+  "_faqNote": "FAQ section untuk About page - Specific questions tentang brand/process",
   "faq": [
     {
       "question": "How do I book?",
