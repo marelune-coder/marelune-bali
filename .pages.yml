@@ -1,124 +1,529 @@
+# ============================================================
+# MARELUNE BALI - Pages CMS Configuration
+# ============================================================
+# Version: 2.0 - Enhanced with Media Upload & SEO Support
+# Last Updated: 2026-06-18
+# ============================================================
+
+# MEDIA CONFIGURATION
+# Images yang diupload di CMS akan disimpan di folder ini
+# Upload dilakukan via Media tab di Pages CMS
 media:
   input: Production-Code/public/uploads
   output: /uploads
 
+# ============================================================
+# CONTENT COLLECTIONS
+# Setiap collection = satu section di CMS sidebar
+# ============================================================
+
 content:
+
+  # ============================================================
+  # 🔧 SITE SETTINGS
+  # ============================================================
+  # Brand, navigation, contact, dan SEO utama
+  # Appears first di CMS - yang paling sering diedit
+  # ============================================================
   - name: site
-    label: Site Settings
+    label: ⚙️ Site Settings
+    description: |
+      Pengaturan utama brand: logo, navigasi, kontak, dan meta SEO.
+      Perubahan di sini akan affect seluruh website.
     type: file
     path: Production-Code/content/site.json
     fields:
-      - { name: brand, label: Brand, type: string }
-      - { name: domain, label: Production Domain, type: string }
-      - { name: description, label: Description, type: text }
-      - { name: logo, label: Logo, type: image }
-      - { name: contact, label: Contact, type: object }
-      - { name: nav, label: Navigation, type: object, list: true }
-      - { name: socials, label: Social Links, type: object, list: true }
-      - { name: heroCategories, label: Hero Category Tabs, type: object, list: true }
-      - { name: ticker, label: Footer Ticker Items, type: string, list: true }
-      - { name: seoKeywords, label: SEO Keywords, type: text }
 
+      # --- Basic Info ---
+      - { name: brand, label: Brand Name, type: string, description: "Nama brand (muncul di header & footer)" }
+      - { name: domain, label: Domain, type: string, description: "URL production, contoh: https://marelunebali.com" }
+      - { name: description, label: Site Description, type: text, description: "Meta description untuk SEO (max 160 karakter)" }
+      - { name: logo, label: Logo 🔗, type: image, description: "Upload logo PNG/SVG dengan background transparan. Ukuran ideal: 200x200px" }
+
+      # --- Contact Section ---
+      - { name: contact, label: 📞 Contact Information, type: section }
+
+      - { name: contact.email, label: Email, type: string, description: "Email resmi untuk inquiries" }
+      - { name: contact.phone, label: Phone, type: string, description: "Nomor telepon dengan kode negara" }
+      - { name: contact.whatsapp, label: WhatsApp Number, type: string, description: "Tanpa + atau spasi. Contoh: 6281234567890" }
+      - { name: contact.location, label: Location, type: string, description: "Lokasi HQ, contoh: Nusa Dua, Bali" }
+
+      # --- Navigation ---
+      - { name: nav, label: 🧭 Navigation Menu, type: section, description: "Menu utama yang muncul di header website" }
+      - { name: nav, label: Navigation Items, type: object, list: true }
+        fields:
+          - { name: label, label: Menu Label, type: string, description: "Teks yang ditampilkan di menu" }
+          - { name: href, label: URL Path, type: string, description: "Path URL. Contoh: /about/ atau /journal/" }
+
+      # --- Social Media ---
+      - { name: socials, label: 📱 Social Media Links, type: section }
+      - { name: socials, label: Social Links, type: object, list: true }
+        fields:
+          - { name: label, label: Platform, type: string, description: "Nama platform: Instagram, Facebook, TikTok" }
+          - { name: href, label: Profile URL, type: string, description: "URL lengkap profile social media" }
+
+      # --- Hero Categories ---
+      - { name: heroCategories, label: 🏷️ Hero Category Tabs, type: section, description: "Tab di bawah hero image di homepage - max 5 tabs" }
+      - { name: heroCategories, label: Category Tabs, type: object, list: true }
+        fields:
+          - { name: label, label: Category Name, type: string, description: "Nama category besar. Contoh: Nusa Penida, Private Event" }
+          - { name: caption, label: Caption, type: string, description: "Teks deskripsi kecil. Contoh: Crystal bay . cliffs" }
+
+      # --- Footer Ticker ---
+      - { name: ticker, label: 📜 Footer Ticker, type: section, description: "Teks berjalan di atas footer. Affect ke semua page." }
+      - name: ticker, label: Ticker Items, type: string, list: true
+        description: "Teks yang berjalan. Minimal 2 item agar ticker terlihat."
+
+      # --- SEO ---
+      - { name: seoKeywords, label: 🔍 SEO Keywords, type: text, description: "Keyword utama untuk SEO, pisahkan dengan koma. Contoh: private yacht bali, sewa yacht nusa penida" }
+
+  # ============================================================
+  # 🎨 DESIGN SETTINGS ⭐ REAL-TIME
+  # ============================================================
+  # PERHATIAN: Perubahan di sini akan mengubah tampilan website!
+  # CSS di-generate secara real-time saat build
+  # Compatible dengan GitHub Pages & Cloudflare Pages
+  # ============================================================
   - name: design
-    label: Design Settings
+    label: 🎨 Design Settings
+    description: |
+      ⚠️ IMPORTANT: Perubahan di sini akan mengubah tampilan website SECARA REAL-TIME!
+
+      🎯 COLOR PALETTE - Mengubah warna brand utama
+      📝 TYPOGRAPHY - Mengubah font headings dan body
+      ⚡ VISUAL DEFAULTS - Mengubah style komponen visual
+
+      ⚠️ After save, Trigger manual rebuild di GitHub Actions
+      (Settings > Actions > Workflows > deploy-github-pages > Run workflow)
     type: file
     path: Production-Code/content/design.json
     fields:
-      - { name: colors, label: Brand Colors, type: object }
-      - { name: typography, label: Typography, type: object }
-      - { name: visualDefaults, label: Visual Defaults, type: object }
 
+      # --- Colors Section ---
+      - { name: colors, label: 🎨 Color Palette, type: section, description: "Palet warna brand. Klik expand untuk edit tiap warna." }
+
+      - { name: colors, label: Navy Darkest, type: object, description: "Warna primary untuk backgrounds gelap" }
+        fields:
+          - { name: navy950, label: Navy 950, type: string, description: "Warna paling gelap. Default: #03182b" }
+          - { name: navy900, label: Navy 900, type: string, description: "Warna dark navy. Default: #06233d" }
+          - { name: navy800, label: Navy 800, type: string, description: "Warna medium-dark. Default: #0a3458" }
+          - { name: navy700, label: Navy 700, type: string, description: "Warna light navy. Default: #12486e" }
+
+      - { name: colors, label: Neutrals, type: object, description: "Warna netral" }
+        fields:
+          - { name: mist, label: Mist/Background, type: string, description: "Warna background utama. Default: #edf2f5" }
+          - { name: white, label: White, type: string, description: "Warna putih. Default: #ffffff" }
+          - { name: ink, label: Ink/Text, type: string, description: "Warna teks utama. Default: #142033" }
+          - { name: muted, label: Muted Text, type: string, description: "Warna teks sekunder. Default: #667385" }
+
+      - { name: colors, label: Accent Colors, type: object, description: "Warna aksen untuk highlight" }
+        fields:
+          - { name: gold, label: Gold Accent ✨, type: string, description: "Warna aksen utama (eyebrow, buttons). Default: #d8b86f" }
+          - { name: reef, label: Reef Teal, type: string, description: "Warna secondary accent. Default: #1d9a9a" }
+          - { name: sand, label: Sand, type: string, description: "Warna warm neutral. Default: #d8c7a3" }
+
+      # --- Typography Section ---
+      - { name: typography, label: ✍️ Typography, type: section, description: "Pengaturan font untuk headings dan body text" }
+
+      - { name: typography, label: Fonts, type: object }
+        fields:
+          - { name: headingFont, label: Heading Font, type: string, description: "Font untuk headings (H1, H2, H3). Default: Gentium Book Plus" }
+          - { name: bodyFont, label: Body Font, type: string, description: "Font untuk paragraph. Default: Inter" }
+
+      # --- Visual Defaults ---
+      - { name: visualDefaults, label: ⚡ Visual Defaults, type: section, description: "Pengaturan visual komponen" }
+
+      - { name: visualDefaults, label: Component Styles, type: object }
+        fields:
+          - { name: heroOverlayStrength, label: Hero Overlay Strength, type: select, options: [light, medium, strong], description: "Seberapa gelap overlay di hero image" }
+          - { name: cardShadow, label: Card Shadow Style, type: select, options: [none, subtle, premium], description: "Style shadow di card components" }
+          - { name: buttonStyle, label: Button Style, type: select, options: [rounded, square, glass-square], description: "Style default untuk buttons" }
+          - { name: motion, label: Animation Style, type: select, options: [none, fade, scroll-reveal], description: "Style animasi scroll reveal" }
+
+  # ============================================================
+  # 📝 HOME PAGE
+  # ============================================================
+  # Content untuk homepage: hero, sections, testimonials, dll
+  # Setiap section adalah independent component
+  # ============================================================
   - name: home
-    label: Home Page
+    label: 🏠 Home Page
+    description: |
+      Content untuk homepage.
+      ⚠️ Perubahan di sini affect HANYA homepage (/).
+
+      Sections:
+      - Hero Section
+      - Trust Bar (avatars, rating)
+      - Stats Cards
+      - Journey Showcase
+      - How It Works Steps
+      - Services Tabs
+      - Why Choose Us
+      - Testimonials
+      - Journal Teaser
+      - FAQ
+      - Newsletter
     type: file
     path: Production-Code/content/pages/home.json
     fields:
-      - { name: title, label: SEO Title, type: string }
-      - { name: description, label: SEO Description, type: text }
-      - { name: hero, label: Hero, type: object }
-      - { name: trust, label: Trust Bar, type: object }
-      - { name: intro, label: Editorial Statement, type: object }
-      - { name: stats, label: Image Stats, type: object, list: true }
-      - { name: journeySection, label: Journey Section Heading, type: object }
-      - { name: stepsSection, label: Steps Section Heading, type: object }
-      - { name: steps, label: Booking Steps, type: object, list: true }
-      - { name: servicesSection, label: Services Section Settings, type: object }
-      - { name: services, label: Services, type: object, list: true }
-      - { name: whySection, label: Why Section Heading, type: object }
-      - { name: why, label: Why Marelune Items, type: object, list: true }
-      - { name: testimonialsSection, label: Testimonials Heading, type: object }
-      - { name: testimonials, label: Testimonials, type: object, list: true }
-      - { name: journalSection, label: Journal Teaser Heading, type: object }
-      - { name: faqSection, label: FAQ Heading, type: object }
-      - { name: faq, label: FAQ Items, type: object, list: true }
-      - { name: newsletter, label: Newsletter Section, type: object }
 
+      - { name: title, label: SEO Title, type: string, description: "Title untuk meta tag (tidak muncul di page)" }
+      - { name: description, label: SEO Description, type: text, description: "Meta description untuk SEO" }
+
+      # --- Hero ---
+      - { name: hero, label: 🖼️ Hero Section, type: section }
+      - { name: hero.title, label: Hero Title, type: string, description: "Teks besar di hero. Default: MARELUNE" }
+      - { name: hero.subtitle, label: Hero Subtitle, type: text, description: "Deskripsi singkat di bawah title" }
+      - { name: hero.ctaLabel, label: CTA Button Text, type: string, description: "Teks di button. Default: Book Your Trip" }
+      - { name: hero.ctaHref, label: CTA Button Link, type: string, description: "URL tujuan button. Default: /book/" }
+      - { name: hero.image, label: Hero Background Image 🔗, type: image, description: "Image utama di hero section. Pastikan landscape dan high quality." }
+
+      # --- Trust Section ---
+      - { name: trust, label: ⭐ Trust Bar, type: section }
+      - { name: trust.rating, label: Rating, type: string, description: "Rating. Default: 4.9/5" }
+      - { name: trust.text, label: Trust Text, type: string, description: "Teks deskripsi trust" }
+      - { name: trust.avatars, label: Guest Avatars 🔗, type: image, list: true, description: "Foto kecil guest (bulat). 3 foto yang merepresentasikan guest." }
+      - { name: trust.partners, label: Partner Keywords, type: string, list: true, description: "Kata kunci yang muncul di trust bar. Contoh: Private Yacht, Island Route" }
+
+      # --- Intro Statement ---
+      - { name: intro, label: 📝 Intro Statement, type: section }
+      - { name: intro.eyebrow, label: Eyebrow Text, type: string, description: "Teks kecil di atas headline (gold color)" }
+      - { name: intro.title, label: Headline, type: text, description: "Headline utama yang ingin diutamakan" }
+      - { name: intro.body, label: Body Text, type: text, description: "Paragraph deskripsi" }
+
+      # --- Stats ---
+      - { name: stats, label: 📊 Stats Cards, type: section }
+      - name: stats, label: Stats, type: object, list: true
+        description: "Card dengan image background dan angka/value"
+        fields:
+          - { name: value, label: Value/Number, type: string, description: "Angka besar. Contoh: 3, 24h, Private" }
+          - { name: label, label: Label, type: string, description: "Teks di bawah angka. Contoh: Core Bali Routes" }
+          - { name: image, label: Background Image 🔗, type: image, description: "Image yang muncul sebagai background card" }
+
+      # --- Journey Section Heading ---
+      - { name: journeySection, label: 🗺️ Journey Section, type: section }
+      - { name: journeySection.eyebrow, label: Eyebrow, type: string }
+      - { name: journeySection.title, label: Title, type: string }
+      - { name: journeySection.body, label: Description, type: text }
+
+      # --- Steps Section ---
+      - { name: stepsSection, label: 📋 How It Works, type: section }
+      - { name: stepsSection.eyebrow, label: Section Eyebrow, type: string }
+      - { name: stepsSection.title, label: Section Title, type: string }
+      - { name: stepsSection.body, label: Section Description, type: text }
+
+      - name: steps, label: Steps, type: object, list: true
+        description: "4 langkah booking process"
+        fields:
+          - { name: number, label: Step Number, type: string, description: "Nomor langkah. Contoh: 01, 02" }
+          - { name: title, label: Step Title, type: string }
+          - { name: text, label: Step Description, type: text }
+
+      # --- Services ---
+      - { name: servicesSection, label: 🚀 Services Section, type: section }
+      - { name: servicesSection.eyebrow, label: Eyebrow, type: string }
+      - { name: servicesSection.title, label: Title, type: string }
+      - { name: servicesSection.body, label: Description, type: text }
+      - name: servicesSection.categories, label: Service Categories, type: object, list: true
+        description: "Tab categories untuk filter services"
+        fields:
+          - { name: label, label: Category Label, type: string }
+          - { name: value, label: Category Value (ID), type: string, description: "ID unik untuk category. Contoh: planning, celebration" }
+
+      - name: services, label: Services, type: object, list: true
+        description: "Service cards. Assign category untuk organize."
+        fields:
+          - { name: category, label: Category ID, type: string, description: "ID category yang sama dengan di atas. Determines tab placement." }
+          - { name: kicker, label: Kicker Text, type: string, description: "Teks kecil di atas title" }
+          - { name: title, label: Service Title, type: string }
+          - { name: text, label: Description, type: text }
+          - { name: image, label: Image 🔗, type: image, description: "Service image" }
+          - { name: ctaLabel, label: CTA Button Text, type: string }
+          - { name: ctaHref, label: CTA Button Link, type: string }
+          - name: meta, label: Meta Info, type: object, list: true
+            fields:
+              - { name: label, label: Meta Label, type: string }
+              - { name: value, label: Meta Value, type: string }
+
+      # --- Why Section ---
+      - { name: whySection, label: 💡 Why Choose Us, type: section }
+      - { name: whySection.eyebrow, label: Eyebrow, type: string }
+      - { name: whySection.title, label: Title, type: string }
+      - { name: whySection.body, label: Description, type: text }
+
+      - name: why, label: Why Items, type: object, list: true
+        description: "Feature items dengan icon-style image"
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: text, label: Description, type: text }
+          - { name: image, label: Icon/Image 🔗, type: image, description: "Image kecil untuk feature (88x74px ideal)" }
+
+      # --- Testimonials ---
+      - { name: testimonialsSection, label: 💬 Testimonials, type: section }
+      - { name: testimonialsSection.eyebrow, label: Eyebrow, type: string }
+      - { name: testimonialsSection.title, label: Title, type: string }
+      - { name: testimonialsSection.body, label: Description, type: text }
+
+      - name: testimonials, label: Testimonials, type: object, list: true
+        fields:
+          - { name: quote, label: Quote, type: text, description: "Testimonial text dari guest" }
+          - { name: name, label: Guest Name, type: string }
+          - { name: role, label: Guest Role, type: string, description: "Contoh: Honeymoon guest, Private group" }
+          - { name: image, label: Guest Photo 🔗, type: image, description: "Foto guest (square)" }
+
+      # --- Journal Section ---
+      - { name: journalSection, label: 📖 Journal Section, type: section }
+      - { name: journalSection.eyebrow, label: Eyebrow, type: string }
+      - { name: journalSection.title, label: Title, type: string }
+      - { name: journalSection.body, label: Description, type: text }
+
+      # --- FAQ ---
+      - { name: faqSection, label: ❓ FAQ Section, type: section }
+      - { name: faqSection.eyebrow, label: Eyebrow, type: string }
+      - { name: faqSection.title, label: Title, type: string }
+      - { name: faqSection.body, label: Description, type: text }
+
+      - name: faq, label: FAQ Items, type: object, list: true
+        fields:
+          - { name: question, label: Question, type: string, description: "Pertanyaan" }
+          - { name: answer, label: Answer, type: text, description: "Jawaban" }
+
+      # --- Newsletter ---
+      - { name: newsletter, label: 📧 Newsletter Section, type: section }
+      - { name: newsletter.title, label: Title, type: string }
+      - { name: newsletter.body, label: Description, type: text }
+      - { name: newsletter.placeholder, label: Input Placeholder, type: string }
+      - { name: newsletter.buttonLabel, label: Button Text, type: string }
+      - { name: newsletter.image, label: Background Image 🔗, type: image }
+
+  # ============================================================
+  # 👥 ABOUT PAGE
+  # ============================================================
   - name: about
-    label: About Page
+    label: 👥 About Page
+    description: Content untuk halaman About Us
     type: file
     path: Production-Code/content/pages/about.json
     fields:
       - { name: title, label: SEO Title, type: string }
       - { name: description, label: SEO Description, type: text }
-      - { name: hero, label: Hero, type: object }
-      - { name: story, label: Story, type: object }
-      - { name: team, label: Team, type: object, list: true }
-      - { name: faqSection, label: FAQ Heading, type: object }
-      - { name: faq, label: FAQ Items, type: object, list: true }
+      - { name: hero.title, label: Hero Title, type: string }
+      - { name: hero.subtitle, label: Hero Subtitle, type: text }
+      - { name: hero.image, label: Hero Image 🔗, type: image }
+      - { name: story.eyebrow, label: Story Eyebrow, type: string }
+      - { name: story.title, label: Story Title, type: string }
+      - { name: story.body, label: Story Body, type: text }
 
+      - name: team, label: Team Members, type: object, list: true
+        fields:
+          - { name: name, label: Name, type: string }
+          - { name: role, label: Role, type: string }
+
+      - { name: faqSection, label: FAQ Section, type: section }
+      - name: faq, label: FAQ Items, type: object, list: true
+        fields:
+          - { name: question, label: Question, type: string }
+          - { name: answer, label: Answer, type: text }
+
+  # ============================================================
+  # 📅 BOOKING PAGE
+  # ============================================================
   - name: book
-    label: Booking Page
+    label: 📅 Booking Page
+    description: |
+      Content untuk halaman booking request.
+      Form fields dan lead settings ada di collection terpisah "Booking Form ⚙️"
     type: file
     path: Production-Code/content/pages/book.json
     fields:
       - { name: title, label: SEO Title, type: string }
       - { name: description, label: SEO Description, type: text }
-      - { name: hero, label: Hero, type: object }
+      - { name: hero.title, label: Hero Title, type: string }
+      - { name: hero.subtitle, label: Hero Subtitle, type: text }
+      - { name: hero.image, label: Hero Image 🔗, type: image }
 
+  # ============================================================
+  # ⚙️ BOOKING FORM & LEADS
+  # ============================================================
+  # Konfigurasi form fields dan lead management
+  # COLUMNS di Google Sheets HARUS MATCH dengan field names di bawah
+  # ============================================================
   - name: leads
-    label: Lead Form and CRM Settings
+    label: ⚙️ Booking Form & Leads
+    description: |
+      📋 FORM CONFIGURATION
+
+      Setiap field di sini = satu kolom di Google Sheets.
+      Pastikan FIELD NAME (ID) MATCH dengan header column di Sheets!
+
+      📊 GOOGLE SHEETS COLUMNS yang harus ada:
+      lead_id, created_at, status, name, whatsapp, date, journey,
+      guest_count, occasion, notes, source_page, utm_source
+
+      🔗 INTEGRATION FLOW:
+      Form → /api/leads → Make.com Webhook → Google Sheets + WhatsApp
+
+      📖 SETUP GUIDE:
+      Lihat file CMS-GUIDE.md untuk step-by-step Make.com setup
     type: file
     path: Production-Code/content/leads.json
     fields:
-      - { name: endpoint, label: Lead Endpoint, type: string }
-      - { name: successMessage, label: Success Message, type: text }
-      - { name: fallbackMessage, label: Fallback Message, type: text }
-      - { name: submitLabel, label: Submit Button Label, type: string }
-      - { name: fields, label: Form Fields, type: object, list: true }
-      - { name: crmColumns, label: CRM Columns, type: string, list: true }
-      - { name: statusOptions, label: Lead Status Options, type: string, list: true }
 
+      # --- Endpoint & Messages ---
+      - { name: endpoint, label: 🔗 API Endpoint, type: section, description: "Endpoint untuk kirim data form. Default: /api/leads" }
+      - { name: endpoint, label: Endpoint URL, type: string, description: "Jangan ubah kecuali Anda tahu apa yang dilakukan" }
+      - { name: successMessage, label: ✅ Success Message, type: text, description: "Pesan setelah form berhasil di-submit" }
+      - { name: fallbackMessage, label: ⚠️ Fallback Message, type: text, description: "Pesan jika API gagal (akan muncul link WhatsApp)" }
+      - { name: submitLabel, label: 🔘 Submit Button Text, type: string, description: "Teks di tombol submit" }
+
+      # --- Form Fields ---
+      - { name: fields, label: 📝 Form Fields, type: section, description: "MENGEDIT FIELD = MENGEDIT PERTANYAAN FORM. ⚠️ HATI-HATI dengan field names!" }
+
+      - name: fields, label: Field, type: object, list: true
+        description: |
+          ⚠️ IMPORTANT - Field Name (ID) Rules:
+          - Tidak boleh ada spasi (pakai underscore: guest_count)
+          - Tidak boleh sama dengan field lain
+          - Akan jadi COLUMN NAME di Google Sheets
+
+          📝 Field Types:
+          - text = input teks biasa
+          - email = input email (validasi otomatis)
+          - tel = input telepon
+          - number = input angka
+          - date = input tanggal
+          - textarea = text area panjang
+          - select = dropdown pilihan
+        fields:
+          - { name: name, label: Field Name (ID) ⚠️, type: string, description: "Identifier unik untuk field. Contoh: name, whatsapp, date, journey. TANPA SPASI!" }
+          - { name: label, label: Field Label 📝, type: string, description: "Label yang muncul di form. Bisa pakai spasi. Contoh: 'Full Name', 'WhatsApp Number'" }
+          - { name: type, label: Input Type 📱, type: select, options: [text, email, tel, number, date, textarea, select], description: "Tipe input form" }
+          - { name: required, label: Required? ❗, type: boolean, description: "Jika YES, user HARUS isi field ini" }
+          - { name: placeholder, label: Placeholder Text, type: string, description: "Teks hint di dalam input" }
+          - { name: optionsFrom, label: Options Source, type: select, options: [none, journeys], description: "none = manual, journeys = ambil dari Journeys collection" }
+          - name: extraOptions, label: Dropdown Options (jika type=select), type: object, list: true
+            description: "Pilihan di dropdown. Hanya untuk field type = select."
+            fields:
+              - { name: label, label: Display Text, type: string, description: "Teks yang ditampilkan di dropdown" }
+              - { name: value, label: Value, type: string, description: "Value yang dikirim ke backend" }
+
+      # --- CRM Configuration ---
+      - { name: crmColumns, label: 📊 CRM / Google Sheets, type: section, description: "Konfigurasi untuk integrasi Google Sheets" }
+      - { name: crmColumns, label: Google Sheets Columns 📋, type: string, list: true, description: "NAMA KOLOM di Google Sheets (row 1). PASTIKAN SAMA PERSIS!" }
+      - { name: statusOptions, label: Lead Status Options, type: string, list: true, description: "Status yang bisa dipilih untuk lead. Contoh: New, Contacted, Quoted, Booked, Lost" }
+
+  # ============================================================
+  # 🗺️ JOURNEYS COLLECTION
+  # ============================================================
+  # Yacht routes/packages
+  # Perubahan di sini affect /journeys/ dan /journeys/[slug]/
+  # ============================================================
   - name: journeys
-    label: Journeys
+    label: 🗺️ Journeys
+    description: |
+      Koleksi yacht routes/packages.
+      Setiap journey = satu page di /journeys/[slug]/
+
+      📝 NOTES:
+      - slug = URL-friendly version dari title
+      - slug TIDAK boleh duplicate
+      - Image yang bagus sangat penting untuk conversion
     type: collection
     path: Production-Code/content/journeys
     filename: "{fields.slug}.json"
     fields:
-      - { name: title, label: Title, type: string }
-      - { name: slug, label: Slug, type: string }
-      - { name: order, label: Display Order, type: number }
-      - { name: location, label: Location, type: string }
-      - { name: summary, label: Summary, type: text }
-      - { name: description, label: Description, type: text }
-      - { name: price, label: Price, type: string }
-      - { name: duration, label: Duration, type: string }
-      - { name: idealFor, label: Ideal For, type: string }
-      - { name: transport, label: Transport, type: string }
-      - { name: image, label: Image, type: image }
-      - { name: highlights, label: Highlights, type: string, list: true }
+      - { name: title, label: Journey Title, type: string, description: "Nama lengkap journey. Contoh: Nusa Penida Private Yacht" }
+      - { name: slug, label: URL Slug ⚠️, type: string, description: "URL path. Contoh: nusa-penida. HARUS UNIQUE, tidak boleh ada spasi." }
+      - { name: order, label: Display Order, type: number, description: "Urutan tampil di homepage. 1 = pertama" }
+      - { name: location, label: Location 📍, type: string, description: "Nama lokasi utama. Contoh: Nusa Penida, Nusa Dua" }
+      - { name: summary, label: Summary, type: text, description: "Deskripsi singkat untuk card (max 1-2 sentences)" }
+      - { name: description, label: Full Description, type: text, description: "Deskripsi lengkap untuk detail page" }
+      - { name: price, label: Price 💰, type: string, description: "Harga. Contoh: From Rp18.500.000 atau Custom Quote" }
+      - { name: duration, label: Duration ⏱️, type: string, description: "Durasi. Contoh: 1 Day Trip, 3-4 Hours" }
+      - { name: idealFor, label: Ideal For, type: string, description: "Target audience. Contoh: Couples, families, content trips" }
+      - { name: transport, label: Transport Type, type: string, description: "Tipe transportasi. Default: Private Yacht" }
+      - { name: image, label: Hero Image 🔗, type: image, description: "Image utama untuk journey (landscape, high quality)" }
+      - name: highlights, label: Highlights ✨, type: string, list: true
+        description: "Keunggulan journey. 4 items biasanya ideal."
 
+  # ============================================================
+  # 📚 JOURNAL ARTICLES COLLECTION
+  # ============================================================
+  # SEO articles/blog posts
+  # Setiap article = satu page di /journal/[slug]/
+  # ============================================================
   - name: blog
-    label: Journal Articles
+    label: 📚 Journal Articles
+    description: |
+      SEO articles untuk menarik traffic dari Google.
+
+      🎯 SEO BEST PRACTICES:
+      1. Title harus mengandung target keyword
+      2. Description (meta) harus compelling + keyword
+      3. Thumbnail harus menarik + relevant
+      4. Content minimal 800 words untuk SEO optimal
+
+      📊 KEYWORD RESEARCH:
+      Gunakan tools gratis: Google Trends, AnswerThePublic, Ubersuggest
+      Target 1-2 primary keywords + 3-5 secondary keywords
+
+      💡 TIPS:
+      - Write untuk manusia, optimize untuk mesin pencari
+      - Include internal links ke journeys/pages lain
+      - FAQ section bagus untuk SEO (schema markup auto-generate)
     type: collection
     path: Production-Code/content/blog
     filename: "{fields.slug}.md"
     fields:
-      - { name: title, label: Title, type: string }
-      - { name: slug, label: Slug, type: string }
-      - { name: description, label: SEO Description, type: text }
-      - { name: date, label: Publish Date, type: date }
-      - { name: updated, label: Updated Date, type: date }
-      - { name: category, label: Category, type: string }
-      - { name: readingTime, label: Reading Time, type: string }
-      - { name: thumbnail, label: Thumbnail, type: image }
-      - { name: body, label: Content, type: rich-text }
+
+      # --- Basic Info ---
+      - { name: title, label: Article Title 🎯, type: string, description: "Title dengan target keyword. Contoh: 'Sewa Private Yacht di Bali: Panduan Lengkap'" }
+      - { name: slug, label: URL Slug ⚠️, type: string, description: "URL-friendly. Contoh: sewa-private-yacht-bali. UNIQUE!" }
+      - { name: description, label: Meta Description 📝, type: text, description: "Description untuk SEO (120-160 chars). Should include primary keyword + compelling CTA." }
+
+      # --- SEO Keywords (NEW!) ---
+      - name: seoKeywords, label: 🔍 SEO Keywords (NEW!) ✨, type: section, description: |
+          ⭐ NEW FEATURE: Keyword tracking untuk SEO optimization!
+
+          📊 TARGET KEYWORDS:
+          Masukkan keywords yang ingin Anda ranking di Google.
+          Pisahkan dengan koma.
+
+          💡 RECOMMENDED FORMAT:
+          Primary: sewa yacht bali
+          Secondary: yacht charter nusa penida, yacht murah bali
+      - { name: targetKeyword, label: Primary Keyword 🎯, type: string, description: "Main keyword yang ingin Anda ranking. Contoh: sewa yacht bali" }
+      - { name: secondaryKeywords, label: Secondary Keywords, type: text, description: "Supporting keywords, pisahkan dengan koma. Contoh: yacht charter nusa penida, sewa yacht murah" }
+
+      # --- Content Info ---
+      - { name: date, label: Publish Date 📅, type: date }
+      - { name: updated, label: Last Updated, type: date, description: "Tanggal update terakhir. Berguna untuk SEO freshness." }
+      - { name: category, label: Category 🏷️, type: string, description: "Category article. Contoh: Yacht Guide, Itinerary, Occasion, Tips" }
+      - { name: readingTime, label: Reading Time ⏱️, type: string, description: "Estimasi waktu baca. Format: '5 min read'" }
+      - { name: thumbnail, label: Thumbnail Image 🔗, type: image, description: "Featured image untuk article card dan social sharing. 1200x630px ideal." }
+
+      # --- SEO Readability (NEW!) ---
+      - name: seoChecklist, label: ✅ SEO Checklist (NEW!) 📊, type: section, description: |
+          Checklist untuk memastikan article SEO-friendly.
+          Centang setelah Anda yakin memenuhi criteria.
+      - name: seoChecklist, label: SEO Checklist, type: object
+        description: "📋 SEO Checklist - Centang setelah verify"
+        fields:
+          - { name: keywordInTitle, label: Keyword in Title?, type: boolean, description: "Primary keyword muncul di title" }
+          - { name: keywordInFirst100, label: Keyword in First 100 Words?, type: boolean, description: "Primary keyword muncul di 100 kata pertama" }
+          - { name: hasInternalLinks, label: Has Internal Links?, type: boolean, description: "Ada link ke journeys atau pages lain" }
+          - { name: hasExternalLinks, label: Has External Links?, type: boolean, description: "Ada link ke authoritative sources" }
+          - { name: hasImages, label: Has Optimized Images?, type: boolean, description: "Images dengan alt text yang descriptive" }
+          - { name: minWordCount, label: Min 800 Words?, type: boolean, description: "Article minimal 800 kata" }
+          - { name: hasFaq, label: Has FAQ Section?, type: boolean, description: "Di akhir article ada FAQ section" }
+
+      # --- Content ---
+      - { name: body, label: Article Content ✍️, type: rich-text, description: "Content article dalam Markdown/rich text format. Gunakan ## untuk H2 headings." }
+
+  # ============================================================
+  # 🚀 CMS ADMIN LINK
+  # ============================================================
+  # Redirects untuk /cms dan /admin
+  # Tidak perlu diedit
+  # ============================================================
