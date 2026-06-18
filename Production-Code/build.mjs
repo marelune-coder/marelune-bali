@@ -170,6 +170,239 @@ const designTokens = (design) => {
   </style>`;
 };
 
+/**
+ * CMS Design Override Generator
+ * Mengenerate CSS override berdasarkan Design Settings CMS
+ * Semua perubahan warna/typography di CMS akan apply secara real-time
+ * Compatible dengan GitHub Pages & Cloudflare Pages
+ */
+const designOverrides = (design) => {
+  if (!design?.colors) return "";
+
+  const c = design.colors;
+  const v = design.visualDefaults || {};
+
+  // Hero overlay strength
+  const overlayStrengths = {
+    light: "rgba(3, 24, 43, 0.24)",
+    medium: "rgba(3, 24, 43, 0.48)",
+    strong: "rgba(3, 24, 43, 0.74)"
+  };
+  const overlayStrength = overlayStrengths[v.heroOverlayStrength] || overlayStrengths.strong;
+
+  // Card shadow style
+  const shadowStyles = {
+    none: "none",
+    subtle: "0 8px 32px rgba(3, 24, 43, 0.08)",
+    premium: "0 24px 70px rgba(3, 24, 43, 0.18)"
+  };
+  const cardShadow = shadowStyles[v.cardShadow] || shadowStyles.premium;
+
+  // Animation style
+  const motionEnabled = v.motion !== "none";
+
+  return `<style id="cms-design-overrides" data-design-active="true">
+    /* ========================================
+       CMS DESIGN OVERRIDES - Generated from Design Settings
+       Changes here apply in real-time after rebuild
+       ======================================== */
+
+    /* --- Core Colors Override --- */
+    .site-header {
+      background: ${overlayStrength};
+    }
+
+    .eyebrow {
+      color: ${safeCss(c.gold || "#d8b86f")};
+    }
+
+    .button-primary {
+      background: ${safeCss(c.gold || "#d8b86f")};
+    }
+
+    h2, h3 {
+      color: ${safeCss(c.navy950 || "#03182b")};
+    }
+
+    .site-footer {
+      background: ${safeCss(c.navy950 || "#03182b")};
+    }
+
+    /* --- Trust Section Overrides --- */
+    .trust-avatars strong {
+      color: ${safeCss(c.navy950 || "#03182b")};
+    }
+
+    .statement h2 {
+      color: ${safeCss(c.navy950 || "#03182b")};
+    }
+
+    .partner-row {
+      background: rgba(${hexToRgb(c.ink || "#142033")}, 0.1);
+    }
+
+    .partner-row span {
+      background: ${safeCss(c.mist || "#edf2f5")};
+      color: rgba(${hexToRgb(c.ink || "#142033")}, 0.62);
+    }
+
+    /* --- Card Overrides --- */
+    .journey-showcase,
+    .step-card,
+    .service-panel,
+    .feature-item,
+    .testimonial-card,
+    .post-card,
+    .faq-list details {
+      box-shadow: ${cardShadow};
+    }
+
+    .step-card {
+      background: ${safeCss(c.white || "#ffffff")};
+    }
+
+    /* --- Hero Tabs Override --- */
+    .hero-tabs {
+      background: rgba(${hexToRgb(c.navy900 || "#06233d")}, 0.68);
+    }
+
+    .hero-tabs .is-selected {
+      color: ${safeCss(c.navy950 || "#03182b")};
+      background: ${safeCss(c.white || "#ffffff")};
+    }
+
+    .hero-tabs .is-selected span {
+      color: ${safeCss(c.navy700 || "#12486e")};
+    }
+
+    /* --- Button Overrides --- */
+    .button-glass {
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+    }
+
+    .button-dark {
+      color: ${safeCss(c.white || "#ffffff")};
+      background: ${safeCss(c.navy950 || "#03182b")};
+    }
+
+    .button-light {
+      color: ${safeCss(c.navy950 || "#03182b")};
+      background: ${safeCss(c.white || "#ffffff")};
+    }
+
+    /* --- Form Overrides --- */
+    .lead-form input,
+    .lead-form select,
+    .lead-form textarea {
+      border: 1px solid #dbe2ea;
+      background: #f8fafc;
+    }
+
+    .lead-form label {
+      color: ${safeCss(c.navy950 || "#03182b")};
+    }
+
+    /* --- CTA Section --- */
+    .cta-section {
+      background:
+        linear-gradient(90deg, rgba(${hexToRgb(c.navy950 || "#03182b")}, 0.94), rgba(${hexToRgb(c.navy950 || "#03182b")}, 0.72)),
+        var(--cta-bg-image);
+    }
+
+    /* --- Footer Text Overrides --- */
+    .site-footer h3 {
+      color: ${safeCss(c.white || "#ffffff")};
+    }
+
+    /* --- Section Backgrounds --- */
+    body {
+      background: ${safeCss(c.mist || "#edf2f5")};
+      color: ${safeCss(c.ink || "#142033")};
+    }
+
+    /* --- Feature Item Colors --- */
+    .feature-item {
+      background: ${safeCss(c.white || "#ffffff")};
+    }
+
+    .feature-item h3 {
+      color: ${safeCss(c.navy950 || "#03182b")};
+    }
+
+    /* --- FAQ Accordion --- */
+    .faq-list summary {
+      color: ${safeCss(c.navy950 || "#03182b")};
+    }
+
+    /* --- Newsletter --- */
+    .newsletter-section {
+      background: ${safeCss(c.navy900 || "#06233d")};
+    }
+
+    .newsletter-content h2 {
+      color: ${safeCss(c.white || "#ffffff")};
+    }
+
+    .newsletter-content button {
+      color: ${safeCss(c.navy950 || "#03182b")};
+      background: ${safeCss(c.white || "#ffffff")};
+    }
+
+    /* --- Article Page --- */
+    .article {
+      background: ${safeCss(c.mist || "#edf2f5")};
+    }
+
+    .article-hero {
+      background: ${safeCss(c.navy950 || "#03182b")};
+    }
+
+    /* --- Typography Override Notice --- */
+    /* Note: Font changes require Google Fonts to be loaded first */
+    h1, h2, h3 {
+      font-family: "${safeCss(design.typography?.headingFont || "Gentium Book Plus")}", Georgia, serif;
+    }
+
+    body, p, a, span, input, button {
+      font-family: "${safeCss(design.typography?.bodyFont || "Inter")}", Arial, sans-serif;
+    }
+
+    .brand {
+      font-family: "${safeCss(design.typography?.headingFont || "Gentium Book Plus")}", Georgia, serif;
+    }
+
+    /* --- Motion Animation Toggle --- */
+    ${motionEnabled ? `
+    .has-reveal [data-reveal] {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 700ms ease, transform 700ms ease;
+    }
+
+    .has-reveal [data-reveal].is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    ` : `
+    .has-reveal [data-reveal] {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+    `}
+  </style>`;
+};
+
+/**
+ * Helper: Convert hex color to RGB
+ */
+const hexToRgb = (hex) => {
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  if (!result) return "3, 24, 43"; // Default navy
+  return `${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)}`;
+};
+
 const normalizeStructuredData = (value) => {
   if (Array.isArray(value)) return value.map(normalizeStructuredData);
   if (value && typeof value === "object") {
@@ -275,6 +508,7 @@ const layout = ({ site, title, description, currentPath, image, body, headExtra 
   <link rel="stylesheet" href="/assets/css/style.css">
   <script>document.documentElement.dataset.basePath = "${escapeHtml(basePath)}";</script>
   ${designTokens(site.design)}
+  ${designOverrides(site.design)}
   ${headExtra}
 </head>
 <body>
