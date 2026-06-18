@@ -1,0 +1,45 @@
+{
+  "_comment": "========================================",
+  "_description": "Nusa Dua Journey - MARELUNE BALI CMS",
+  "_lastUpdated": "2026-06-18",
+  "_usage": "Journey page: /journeys/nusa-dua/",
+  "_affects": "Homepage showcase, Journeys collection page, detail page",
+  "_slugNote": "URL slug - harus UNIQUE, tidak ada spasi, lowercase",
+  "========================================",
+
+  "title": "Nusa Dua Sunset Charter",
+  "slug": "nusa-dua",
+  "order": 2,
+
+  "_locationTip": "Nama lokasi utama - muncul di hero dan cards",
+  "location": "Nusa Dua",
+
+  "_summaryTip": "Deskripsi singkat untuk card (1-2 sentences max)",
+  "summary": "A smoother coastal charter for sunset, intimate celebrations, and relaxed onboard moments.",
+
+  "_descriptionTip": "Deskripsi lengkap untuk detail page",
+  "description": "Designed for guests who want a premium sea experience without a long crossing. Ideal for birthdays, proposals, and golden-hour cruising.",
+
+  "_priceTip": "Format: 'From RpXX.XXX.XXX' atau 'Custom Quote'",
+  "price": "From Rp12.500.000",
+
+  "_durationTip": "Durasi trip",
+  "duration": "3-4 Hours",
+
+  "_idealForTip": "Target audience - siapa yang paling cocok untuk journey ini",
+  "idealFor": "Sunset, proposal, birthday",
+
+  "_transportTip": "Tipe transportasi - biasanya 'Private Yacht'",
+  "transport": "Private Yacht",
+
+  "_imageTip": "Hero image - gunakan gambar yang stunning, landscape, sunset themed",
+  "image": "/uploads/marelune-assets/IMG-20260602-WA0078.jpg",
+
+  "_highlightsTip": "4 highlights ideal. Points yang membedakan journey ini.",
+  "highlights": [
+    "Shorter route",
+    "Sunset timing",
+    "Celebration setup",
+    "Easy guest logistics"
+  ]
+}
