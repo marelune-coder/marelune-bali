@@ -1,0 +1,233 @@
+# ============================================================
+# MARELUNE BALI - Pages CMS Configuration
+# ============================================================
+# Version: 5.0 - Guaranteed Compatible
+# Last Updated: 2026-06-18
+# ============================================================
+# IMPORTANT: Pages CMS supports ONLY these field types:
+# - string, text, number, boolean, date
+# - image (URLs only, no preview)
+# - list (simple string lists)
+# - object list (list of simple objects)
+# ============================================================
+
+media:
+  input: Production-Code/public/uploads
+  output: /uploads
+
+content:
+
+  # ============================================================
+  # SITE SETTINGS
+  # ============================================================
+  - name: site
+    label: Site Settings
+    type: file
+    path: Production-Code/content/site.json
+    fields:
+      - { name: brand, label: Brand Name, type: string }
+      - { name: domain, label: Domain URL, type: string }
+      - { name: description, label: Site Description, type: text }
+      - { name: logo, label: Logo URL, type: image }
+      - { name: contact_email, label: Contact Email, type: string }
+      - { name: contact_phone, label: Contact Phone, type: string }
+      - { name: contact_whatsapp, label: Contact WhatsApp, type: string }
+      - { name: contact_location, label: Contact Location, type: string }
+      - { name: seoKeywords, label: SEO Keywords, type: text }
+      - { name: nav, label: Navigation Links, type: object, list: true }
+        fields:
+          - { name: label, label: Label, type: string }
+          - { name: href, label: URL Path, type: string }
+      - { name: socials, label: Social Links, type: object, list: true }
+        fields:
+          - { name: label, label: Platform, type: string }
+          - { name: href, label: URL, type: string }
+      - { name: heroCategories, label: Hero Tabs, type: object, list: true }
+        fields:
+          - { name: label, label: Tab Label, type: string }
+          - { name: caption, label: Caption, type: string }
+      - { name: ticker, label: Footer Ticker, type: string, list: true }
+
+  # ============================================================
+  # DESIGN SETTINGS
+  # ============================================================
+  - name: design
+    label: Design Settings
+    type: file
+    path: Production-Code/content/design.json
+    fields:
+      - { name: navy950, label: Navy 950 (Darkest), type: string }
+      - { name: navy900, label: Navy 900 (Dark), type: string }
+      - { name: navy800, label: Navy 800, type: string }
+      - { name: navy700, label: Navy 700 (Light), type: string }
+      - { name: mist, label: Mist/Background, type: string }
+      - { name: white, label: White, type: string }
+      - { name: ink, label: Ink/Text, type: string }
+      - { name: muted, label: Muted Text, type: string }
+      - { name: gold, label: Gold Accent, type: string }
+      - { name: reef, label: Reef Teal, type: string }
+      - { name: sand, label: Sand, type: string }
+      - { name: headingFont, label: Heading Font, type: string }
+      - { name: bodyFont, label: Body Font, type: string }
+      - { name: heroOverlay, label: Hero Overlay, type: select, options: [light, medium, strong] }
+      - { name: cardShadow, label: Card Shadow, type: select, options: [none, subtle, premium] }
+      - { name: buttonStyle, label: Button Style, type: select, options: [rounded, square, glass-square] }
+      - { name: animation, label: Animation, type: select, options: [none, fade, scroll-reveal] }
+
+  # ============================================================
+  # HOME PAGE
+  # ============================================================
+  - name: home
+    label: Home Page
+    type: file
+    path: Production-Code/content/pages/home.json
+    fields:
+      - { name: title, label: SEO Title, type: string }
+      - { name: description, label: SEO Description, type: text }
+      - { name: hero_title, label: Hero Title, type: string }
+      - { name: hero_subtitle, label: Hero Subtitle, type: text }
+      - { name: hero_ctaLabel, label: Hero CTA Text, type: string }
+      - { name: hero_ctaHref, label: Hero CTA Link, type: string }
+      - { name: hero_image, label: Hero Image URL, type: image }
+      - { name: trust_rating, label: Trust Rating, type: string }
+      - { name: trust_text, label: Trust Text, type: string }
+      - { name: trust_avatars, label: Trust Avatar URLs, type: image, list: true }
+      - { name: trust_partners, label: Trust Partner Tags, type: string, list: true }
+      - { name: intro_eyebrow, label: Intro Eyebrow, type: string }
+      - { name: intro_title, label: Intro Title, type: text }
+      - { name: intro_body, label: Intro Body, type: text }
+      - { name: journeySection_eyebrow, label: Journey Section Eyebrow, type: string }
+      - { name: journeySection_title, label: Journey Section Title, type: string }
+      - { name: journeySection_body, label: Journey Section Body, type: text }
+      - { name: stepsSection_eyebrow, label: Steps Section Eyebrow, type: string }
+      - { name: stepsSection_title, label: Steps Section Title, type: string }
+      - { name: stepsSection_body, label: Steps Section Body, type: text }
+      - { name: steps, label: Steps, type: object, list: true }
+        fields:
+          - { name: number, label: Step Number, type: string }
+          - { name: title, label: Step Title, type: string }
+          - { name: text, label: Step Text, type: text }
+      - { name: servicesSection_eyebrow, label: Services Eyebrow, type: string }
+      - { name: servicesSection_title, label: Services Title, type: string }
+      - { name: servicesSection_body, label: Services Body, type: text }
+      - { name: whySection_eyebrow, label: Why Eyebrow, type: string }
+      - { name: whySection_title, label: Why Title, type: string }
+      - { name: whySection_body, label: Why Body, type: text }
+      - { name: testimonialsSection_eyebrow, label: Testimonials Eyebrow, type: string }
+      - { name: testimonialsSection_title, label: Testimonials Title, type: string }
+      - { name: testimonialsSection_body, label: Testimonials Body, type: text }
+      - { name: journalSection_eyebrow, label: Journal Eyebrow, type: string }
+      - { name: journalSection_title, label: Journal Title, type: string }
+      - { name: journalSection_body, label: Journal Body, type: text }
+      - { name: faqSection_eyebrow, label: FAQ Eyebrow, type: string }
+      - { name: faqSection_title, label: FAQ Title, type: string }
+      - { name: faqSection_body, label: FAQ Body, type: text }
+      - { name: newsletter_title, label: Newsletter Title, type: string }
+      - { name: newsletter_body, label: Newsletter Body, type: text }
+      - { name: newsletter_placeholder, label: Newsletter Placeholder, type: string }
+      - { name: newsletter_buttonLabel, label: Newsletter Button, type: string }
+      - { name: newsletter_image, label: Newsletter Image URL, type: image }
+
+  # ============================================================
+  # ABOUT PAGE
+  # ============================================================
+  - name: about
+    label: About Page
+    type: file
+    path: Production-Code/content/pages/about.json
+    fields:
+      - { name: title, label: SEO Title, type: string }
+      - { name: description, label: SEO Description, type: text }
+      - { name: hero_title, label: Hero Title, type: string }
+      - { name: hero_subtitle, label: Hero Subtitle, type: text }
+      - { name: hero_image, label: Hero Image URL, type: image }
+      - { name: story_eyebrow, label: Story Eyebrow, type: string }
+      - { name: story_title, label: Story Title, type: string }
+      - { name: story_body, label: Story Body, type: text }
+      - { name: team, label: Team Members, type: object, list: true }
+        fields:
+          - { name: name, label: Name, type: string }
+          - { name: role, label: Role, type: string }
+      - { name: faq, label: FAQ Items, type: object, list: true }
+        fields:
+          - { name: question, label: Question, type: string }
+          - { name: answer, label: Answer, type: text }
+
+  # ============================================================
+  # BOOKING PAGE
+  # ============================================================
+  - name: book
+    label: Booking Page
+    type: file
+    path: Production-Code/content/pages/book.json
+    fields:
+      - { name: title, label: SEO Title, type: string }
+      - { name: description, label: SEO Description, type: text }
+      - { name: hero_title, label: Hero Title, type: string }
+      - { name: hero_subtitle, label: Hero Subtitle, type: text }
+      - { name: hero_image, label: Hero Image URL, type: image }
+
+  # ============================================================
+  # BOOKING FORM
+  # ============================================================
+  - name: leads
+    label: Booking Form
+    type: file
+    path: Production-Code/content/leads.json
+    fields:
+      - { name: endpoint, label: API Endpoint, type: string }
+      - { name: successMessage, label: Success Message, type: text }
+      - { name: fallbackMessage, label: Fallback Message, type: text }
+      - { name: submitLabel, label: Submit Button Text, type: string }
+      - { name: crmColumns, label: CRM Columns, type: string, list: true }
+      - { name: statusOptions, label: Status Options, type: string, list: true }
+
+  # ============================================================
+  # JOURNEYS
+  # ============================================================
+  - name: journeys
+    label: Journeys
+    type: collection
+    path: Production-Code/content/journeys
+    filename: "{fields.slug}.json"
+    fields:
+      - { name: title, label: Journey Title, type: string }
+      - { name: slug, label: URL Slug, type: string }
+      - { name: order, label: Display Order, type: number }
+      - { name: location, label: Location, type: string }
+      - { name: summary, label: Summary, type: text }
+      - { name: description, label: Description, type: text }
+      - { name: price, label: Price, type: string }
+      - { name: duration, label: Duration, type: string }
+      - { name: idealFor, label: Ideal For, type: string }
+      - { name: transport, label: Transport Type, type: string }
+      - { name: image, label: Hero Image URL, type: image }
+      - { name: highlights, label: Highlights, type: string, list: true }
+
+  # ============================================================
+  # JOURNAL ARTICLES
+  # ============================================================
+  - name: blog
+    label: Journal Articles
+    type: collection
+    path: Production-Code/content/blog
+    filename: "{fields.slug}.md"
+    fields:
+      - { name: title, label: Article Title, type: string }
+      - { name: slug, label: URL Slug, type: string }
+      - { name: description, label: Meta Description, type: text }
+      - { name: targetKeyword, label: Primary Keyword, type: string }
+      - { name: secondaryKeywords, label: Secondary Keywords, type: text }
+      - { name: date, label: Publish Date, type: date }
+      - { name: updated, label: Updated Date, type: date }
+      - { name: category, label: Category, type: string }
+      - { name: readingTime, label: Reading Time, type: string }
+      - { name: thumbnail, label: Thumbnail URL, type: image }
+      - { name: keywordInTitle, label: Keyword in Title, type: boolean }
+      - { name: keywordInFirst100, label: Keyword in First 100 Words, type: boolean }
+      - { name: hasInternalLinks, label: Has Internal Links, type: boolean }
+      - { name: hasExternalLinks, label: Has External Links, type: boolean }
+      - { name: hasImages, label: Has Images, type: boolean }
+      - { name: minWordCount, label: Min 800 Words, type: boolean }
+      - { name: hasFaq, label: Has FAQ Section, type: boolean }
+      - { name: body, label: Content, type: rich-text }
