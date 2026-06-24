@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import JourneyCard from '../../components/JourneyCard.astro';
+import { site, journeys } from '../../data/content.js';
+---
+<BaseLayout site={site} title="Journeys | Marelune Bali" description="Explore private yacht journeys in Bali including Nusa Penida, Nusa Dua, Gili Trawangan, Uluwatu, and Private Events." image={journeys[0]?.image} currentPath="/journeys/">
+  <section class="hero">
+    <img class="hero-bg" src="/uploads/marelune-assets/IMG-20260602-WA0033.jpg" alt="Journeys hero" />
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Journeys</h1>
+      <p>Choose the private yacht route and pace that matches your Bali celebration or escape.</p>
+      <a class="button button-glass" href="/book/">Request Availability</a>
+    </div>
+  </section>
+
+  <section class="section journeys-showcase-section">
+    <div class="section-heading section-heading-center">
+      <span class="eyebrow">Route Collection</span>
+      <h2>Designed around Bali's most beautiful sea days</h2>
+      <p>Every route can be adjusted for timing, occasion, and guest experience.</p>
+    </div>
+    <div class="journey-stack">
+      {journeys.map((journey) => <JourneyCard journey={journey} />)}
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import JourneyCard from '../components/JourneyCard.astro';
+import BlogPostCard from '../components/BlogPostCard.astro';
+import { site, homePage, journeys, posts } from '../data/content.js';
+---
+<BaseLayout site={site} title={homePage.title} description={homePage.description} image={homePage.hero_image} currentPath="/">
+  <section class="hero">
+    <img class="hero-bg" src={homePage.hero_image} alt="Marelune Bali hero" />
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>{homePage.hero_title}</h1>
+      <p>{homePage.hero_subtitle}</p>
+      <a class="button button-glass" href={homePage.hero_ctaHref}>{homePage.hero_ctaLabel}</a>
+    </div>
+  </section>
+
+  <section class="section journey-overview">
+    <div class="section-heading section-heading-center">
+      <span class="eyebrow">{homePage.journeySection_eyebrow}</span>
+      <h2>{homePage.journeySection_title}</h2>
+      <p>{homePage.journeySection_body}</p>
+    </div>
+    <div class="journey-stack">
+      {journeys.map((journey) => <JourneyCard journey={journey} />)}
+    </div>
+  </section>
+
+  <section class="section why-section">
+    <div class="section-heading">
+      <span class="eyebrow">{homePage.whySection_eyebrow}</span>
+      <h2>{homePage.whySection_title}</h2>
+      <p>{homePage.whySection_body}</p>
+    </div>
+    <div class="feature-grid">
+      {homePage.why.map((item) => (
+        <article class="feature-item">
+          <img src={item.image} alt={item.title} />
+          <h3>{item.title}</h3>
+          <p>{item.text}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section journal-section">
+    <div class="section-heading section-heading-center">
+      <span class="eyebrow">{homePage.journalSection_eyebrow}</span>
+      <h2>{homePage.journalSection_title}</h2>
+      <p>{homePage.journalSection_body}</p>
+    </div>
+    <div class="post-grid">
+      {posts.slice(0, 3).map((post) => <BlogPostCard post={post} />)}
+    </div>
+    <div class="section-action"><a class="button button-dark" href="/journal/">Explore the Journal</a></div>
+  </section>
+</BaseLayout>

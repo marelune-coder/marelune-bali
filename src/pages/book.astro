@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LeadForm from '../components/LeadForm.astro';
+import { site, bookPage, leads, journeys } from '../data/content.js';
+---
+<BaseLayout site={site} title={bookPage.title} description={bookPage.description} image={bookPage.hero_image} currentPath="/book/">
+  <section class="hero">
+    <img class="hero-bg" src={bookPage.hero_image} alt="Book your yacht trip" />
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>{bookPage.hero_title}</h1>
+      <p>{bookPage.hero_subtitle}</p>
+      <a class="button button-glass" href="#booking-form">Send Request</a>
+    </div>
+  </section>
+
+  <section class="section booking-grid" id="booking-form">
+    <div>
+      <span class="eyebrow">Private Request</span>
+      <h2>Tell us the trip you want</h2>
+      <p>Your request will be routed to the Marelune team for availability, route suggestion, and package matching.</p>
+      <div class="booking-note">
+        <strong>Response flow</strong>
+        <span>Website form → Lead function → Make.com → Google Sheets + WhatsApp follow-up</span>
+      </div>
+    </div>
+    <LeadForm site={site} leads={leads} journeys={journeys} />
+  </section>
+</BaseLayout>

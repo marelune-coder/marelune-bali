@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site, aboutPage } from '../data/content.js';
+---
+<BaseLayout site={site} title={aboutPage.title} description={aboutPage.description} image={aboutPage.hero_image} currentPath="/about/">
+  <section class="hero">
+    <img class="hero-bg" src={aboutPage.hero_image} alt="About Marelune Bali" />
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>{aboutPage.hero_title}</h1>
+      <p>{aboutPage.hero_subtitle}</p>
+      <a class="button button-glass" href="/book/">Book Your Trip</a>
+    </div>
+  </section>
+
+  <section class="section route-detail">
+    <div>
+      <span class="eyebrow">{aboutPage.story_eyebrow}</span>
+      <h2>{aboutPage.story_title}</h2>
+      <p>{aboutPage.story_body}</p>
+    </div>
+    <div class="highlight-grid">
+      {aboutPage.team.map((member, index) => (
+        <article>
+          <span>0{index + 1}</span>
+          <h3>{member.name}</h3>
+          <p>{member.role}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section faq-section">
+    <div class="section-heading section-heading-center">
+      <span class="eyebrow">FAQ</span>
+      <h2>People ask before they request a private yacht</h2>
+    </div>
+    <div class="faq-list">
+      {aboutPage.faq.map((item) => (
+        <details>
+          <summary>{item.question}</summary>
+          <p>{item.answer}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogPostCard from '../../components/BlogPostCard.astro';
+import { site, posts } from '../../data/content.js';
+---
+<BaseLayout site={site} title="Journal | Marelune Bali" description="Bali yacht charter articles, guides, and private journey planning advice." image={posts[0]?.thumbnail} currentPath="/journal/">
+  <section class="hero">
+    <img class="hero-bg" src="/uploads/marelune-assets/IMG-20260602-WA0033.jpg" alt="Journal hero" />
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Journal</h1>
+      <p>Guides, route notes, and private yacht ideas for your Bali trip.</p>
+      <a class="button button-glass" href="/book/">Start Planning</a>
+    </div>
+  </section>
+
+  <section class="section journal-section">
+    <div class="section-heading section-heading-center">
+      <span class="eyebrow">Travel Tips</span>
+      <h2>Stories and planning guides for private yacht clients</h2>
+      <p>Search the journal for route inspiration, proposal planning, and Bali yacht advice.</p>
+    </div>
+    <div class="post-grid">
+      {posts.map((post) => <BlogPostCard post={post} />)}
+    </div>
+  </section>
+</BaseLayout>

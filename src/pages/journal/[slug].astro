@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getPostBySlug, posts, site } from '../../data/content.js';
+
+export async function getStaticPaths() {
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post }
+  }));
+}
+
+const { slug } = Astro.params;
+const post = getPostBySlug(slug);
+if (!post) {
+  throw new Error('Post not found');
+}
+
+// JSON-LD for blog article
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": post.title,
+  "description": post.description,
+  "image": post.thumbnail ? new URL(post.thumbnail, site.domain).href : undefined,
+  "datePublished": post.date,
+  "dateModified": post.updated || post.date,
+  "author": {
+    "@type": "Organization",
+    "name": site.brand,
+    "url": site.domain
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": site.brand,
+    "logo": new URL(site.logo, site.domain).href
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": new URL(`/journal/${post.slug}/`, site.domain).href
+  }
+};
+---
+<BaseLayout site={site} title={`${post.title} | Marelune Journal`} description={post.description} image={post.thumbnail} currentPath={`/journal/${post.slug}/`} type="article" jsonLd={articleJsonLd}>
+  <section class="article-hero">
+    <img src={post.thumbnail} alt={post.title} />
+    <div class="article-hero-copy">
+      <span class="eyebrow">{post.category} / {post.readingTime}</span>
+      <h1>{post.title}</h1>
+      <p>{post.description}</p>
+      <span class="post-date">{post.date}</span>
+    </div>
+  </section>
+
+  <article class="article">
+    <post.Content />
+  </article>
+</BaseLayout>

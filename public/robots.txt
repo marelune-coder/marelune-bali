@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://marelunebali.com/sitemap-index.xml
+
+# Crawl-delay for polite bots
+Crawl-delay: 1
+
+# Block API routes
+Disallow: /api/

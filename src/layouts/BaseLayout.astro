@@ -1,0 +1,64 @@
+---
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+const { site, title, description, image, currentPath, type = 'website', jsonLd = null } = Astro.props;
+const canonicalURL = new URL(currentPath || '/', site.domain);
+const ogImage = image ? new URL(image, site.domain).href : new URL(site.logo, site.domain).href;
+
+// Default Organization JSON-LD
+const orgJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": site.brand,
+  "url": site.domain,
+  "logo": new URL(site.logo, site.domain).href,
+  "description": site.description,
+  "sameAs": site.socials?.map(s => s.href) || [],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Customer Support",
+    "telephone": site.contact_phone,
+    "email": site.contact_email
+  }
+};
+const jsonLdScript = jsonLd || orgJsonLd;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={site.seoKeywords} />
+    <meta name="author" content={site.brand} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={type} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:site_name" content={site.brand} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="theme-color" content="#1a3a52" />
+    <link rel="icon" href={site.logo} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:wght@400;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLdScript)} />
+    <script>document.documentElement.dataset.basePath = '';</script>
+  </head>
+  <body>
+    <SiteHeader site={site} currentPath={currentPath} />
+    <main>
+      {Astro.slot}
+    </main>
+    <SiteFooter site={site} />
+    <script type="module" src="/assets/js/main.js"></script>
+  </body>
+</html>

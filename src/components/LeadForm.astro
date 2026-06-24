@@ -1,0 +1,34 @@
+---
+const { site, leads, journeys } = Astro.props;
+const journeyOptions = journeys.map((journey) => ({ value: journey.slug, label: journey.title }));
+---
+<form class="lead-form" data-lead-form data-endpoint={leads.endpoint} data-whatsapp={site.contact_whatsapp} data-success={leads.successMessage} data-fallback={leads.fallbackMessage}>
+  <label>Full Name <input name="name" type="text" required placeholder="Your full name" /></label>
+  <label>WhatsApp Number <input name="whatsapp" type="tel" required placeholder="62812xxxxxxx" /></label>
+  <label>Email Address <input name="email" type="email" placeholder="your@email.com" /></label>
+  <label>Preferred Date <input name="date" type="date" required /></label>
+  <label>Journey Route
+    <select name="journey" required>
+      <option value="">Select journey route</option>
+      {journeyOptions.map((item) => <option value={item.value}>{item.label}</option>)}
+      <option value="custom">Custom / Not sure yet</option>
+    </select>
+  </label>
+  <label>Number of Guests <input name="guest_count" type="number" placeholder="6" /></label>
+  <label>Occasion / Purpose
+    <select name="occasion">
+      <option value="">Select occasion</option>
+      <option value="birthday">Birthday Celebration</option>
+      <option value="proposal">Marriage Proposal</option>
+      <option value="honeymoon">Honeymoon / Romantic</option>
+      <option value="family">Family Trip</option>
+      <option value="friends">Friends Gathering</option>
+      <option value="corporate">Corporate Event</option>
+      <option value="content">Content Creation</option>
+      <option value="exploring">Just Exploring</option>
+    </select>
+  </label>
+  <label>Special Requests / Notes <textarea name="notes" rows="4" placeholder="Tell us your preferred route, special requests, dietary requirements..."></textarea></label>
+  <button class="button button-primary" type="submit">{leads.submitLabel}</button>
+  <p class="form-status" data-form-status></p>
+</form>

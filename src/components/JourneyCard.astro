@@ -1,0 +1,18 @@
+---
+const { journey } = Astro.props;
+---
+<article class="journey-card">
+  <a href={`/journeys/${journey.slug}/`} class="card-image">
+    <img src={journey.image} alt={journey.title} loading="lazy" />
+    <span class="card-tag">{journey.transport}</span>
+  </a>
+  <div class="card-content">
+    <span class="eyebrow">{journey.location}</span>
+    <h3><a href={`/journeys/${journey.slug}/`}>{journey.title}</a></h3>
+    <p>{journey.summary}</p>
+    <div class="card-meta">
+      <span class="price">{journey.price}</span>
+      <a href={`/journeys/${journey.slug}/`} class="button button-small">View Details</a>
+    </div>
+  </div>
+</article>

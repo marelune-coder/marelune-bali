@@ -1,0 +1,19 @@
+{
+  "title": "Private Event Charter",
+  "slug": "private-events",
+  "order": 5,
+  "location": "Custom Route",
+  "summary": "Fully customized yacht charter for proposals, birthdays, weddings, or corporate events.",
+  "description": "Tell us your vision and we'll design every detail — from route to decorations to photography. Premium service for your special occasion.",
+  "price": "Custom Quote",
+  "duration": "Flexible",
+  "idealFor": "Proposals, weddings, birthdays, corporate events",
+  "transport": "Premium Yacht",
+  "image": "/uploads/marelune-assets/IMG-20260602-WA0078.jpg",
+  "highlights": [
+    "Fully customizable route & timing",
+    "Professional photographer coordination",
+    "Decoration & florals arrangement",
+    "Dedicated event coordinator"
+  ]
+}

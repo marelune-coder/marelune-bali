@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getJourneyBySlug, journeys, posts, site } from '../../data/content.js';
+
+export async function getStaticPaths() {
+  return journeys.map((journey) => ({
+    params: { slug: journey.slug },
+    props: { journey }
+  }));
+}
+
+const { slug } = Astro.params;
+const journey = getJourneyBySlug(slug);
+if (!journey) {
+  throw new Error('Journey not found');
+}
+
+// JSON-LD for journey/product page
+const journeyJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "TouristTrip",
+  "name": `${journey.title} - ${site.brand}`,
+  "description": journey.description,
+  "image": new URL(journey.image, site.domain).href,
+  "url": new URL(`/journeys/${journey.slug}/`, site.domain).href,
+  "touristType": journey.idealFor,
+  "itinerary": {
+    "@type": "ItemList",
+    "itemListElement": journey.highlights.map((h, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "name": h
+    }))
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": journey.price,
+    "priceCurrency": "IDR",
+    "availability": "https://schema.org/InStock",
+    "url": new URL(`/journeys/${journey.slug}/`, site.domain).href
+  }
+};
+---
+<BaseLayout site={site} title={`${journey.title} | Marelune Bali`} description={journey.description} image={journey.image} currentPath={`/journeys/${journey.slug}/`} type="product" jsonLd={journeyJsonLd}>
+  <section class="hero">
+    <img class="hero-bg" src={journey.image} alt={journey.title} />
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="eyebrow">{journey.transport}</span>
+      <h1>{journey.location}</h1>
+      <p>{journey.description}</p>
+      <a class="button button-glass" href="/book/">Book This Route</a>
+    </div>
+  </section>
+
+  <section class="section route-detail">
+    <div>
+      <h2>{journey.title}</h2>
+      <p>{journey.summary}</p>
+      <dl class="detail-list">
+        <div><dt>Price</dt><dd>{journey.price}</dd></div>
+        <div><dt>Duration</dt><dd>{journey.duration}</dd></div>
+        <div><dt>Ideal for</dt><dd>{journey.idealFor}</dd></div>
+        <div><dt>Transport</dt><dd>{journey.transport}</dd></div>
+      </dl>
+    </div>
+    <div class="highlight-grid">
+      {journey.highlights.map((item, index) => (
+        <article>
+          <span>0{index + 1}</span>
+          <h3>{item}</h3>
+          <p>Designed for the private journey and your Bali celebration.</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section journal-section">
+    <div class="section-heading section-heading-center">
+      <span class="eyebrow">Related Journal</span>
+      <h2>Planning notes for this route</h2>
+      <p>Helpful reading before you request a private charter.</p>
+    </div>
+    <div class="post-grid">
+      {posts.slice(0, 3).map((post) => (
+        <article class="post-card">
+          <a class="post-image" href={`/journal/${post.slug}/`}><img src={post.thumbnail} alt={post.title} /></a>
+          <div>
+            <span class="eyebrow">{post.category} / {post.readingTime}</span>
+            <h3><a href={`/journal/${post.slug}/`}>{post.title}</a></h3>
+            <p>{post.description}</p>
+            <span class="post-date">{post.date}</span>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

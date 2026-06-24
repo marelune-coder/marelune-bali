@@ -1,0 +1,25 @@
+---
+const { site, currentPath } = Astro.props;
+---
+<header class="site-header">
+  <nav class="nav container">
+    <a href="/" class="logo">
+      <img src={site.logo} alt={site.brand} />
+    </a>
+    <ul class="nav-links">
+      {site.nav.map((link) => (
+        <li>
+          <a href={link.href} class={currentPath?.startsWith(link.href) ? 'active' : ''}>
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+    <a href="/book/" class="button button-primary">Book Now</a>
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+</header>
