@@ -41,17 +41,13 @@ const articleJsonLd = {
 };
 ---
 <BaseLayout site={site} title={`${post.title} | Marelune Journal`} description={post.description} image={post.thumbnail} currentPath={`/journal/${post.slug}/`} type="article" jsonLd={articleJsonLd}>
-  <section class="article-hero">
-    <img src={post.thumbnail} alt={post.title} />
-    <div class="article-hero-copy">
-      <span class="eyebrow">{post.category} / {post.readingTime}</span>
-      <h1>{post.title}</h1>
-      <p>{post.description}</p>
-      <span class="post-date">{post.date}</span>
-    </div>
-  </section>
-
-  <article class="article">
+  <header class="article-hero">
+    <span class="eyebrow">{post.category} / {post.readingTime}</span>
+    <h1>{post.title}</h1>
+    <p>{post.description}</p>
+    <img src={post.thumbnail} alt="">
+  </header>
+  <div class="article-body">
     <post.Content />
-  </article>
+  </div>
 </BaseLayout>

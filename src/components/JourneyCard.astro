@@ -1,18 +1,19 @@
 ---
 const { journey } = Astro.props;
 ---
-<article class="journey-card">
-  <a href={`/journeys/${journey.slug}/`} class="card-image">
-    <img src={journey.image} alt={journey.title} loading="lazy" />
-    <span class="card-tag">{journey.transport}</span>
-  </a>
-  <div class="card-content">
-    <span class="eyebrow">{journey.location}</span>
-    <h3><a href={`/journeys/${journey.slug}/`}>{journey.title}</a></h3>
-    <p>{journey.summary}</p>
-    <div class="card-meta">
-      <span class="price">{journey.price}</span>
-      <a href={`/journeys/${journey.slug}/`} class="button button-small">View Details</a>
+<article class="journey-showcase" data-reveal>
+  <a class="journey-visual" href={`/journeys/${journey.slug}/`}>
+    <img src={journey.image} alt={journey.location}>
+    <div class="journey-title">
+      <span>{journey.location}</span>
+      <p>{journey.summary}</p>
     </div>
+  </a>
+  <div class="journey-meta">
+    <div><span>Base price</span><strong>{journey.price}</strong></div>
+    <div><span>Duration</span><strong>{journey.duration}</strong></div>
+    <a href={`/journeys/${journey.slug}/`}>More Details &rarr;</a>
+    <div><span>Ideal for</span><strong>{journey.idealFor}</strong></div>
+    <div><span>Transport</span><strong>{journey.transport}</strong></div>
   </div>
 </article>

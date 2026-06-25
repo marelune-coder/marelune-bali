@@ -2,35 +2,37 @@
 const { site } = Astro.props;
 ---
 <footer class="site-footer">
-  <div class="container footer-grid">
-    <div class="footer-brand">
-      <img src={site.logo} alt={site.brand} class="footer-logo" />
+  <div class="footer-inner">
+    <div>
+      <a class="brand footer-brand" href="/">
+        <img src={site.logo} alt="" width="28" height="28">
+        <span>{site.brand}</span>
+      </a>
       <p>{site.description}</p>
-    </div>
-    <div class="footer-nav">
-      <h4>Navigate</h4>
-      <ul>
-        {site.nav.map((link) => (
-          <li><a href={link.href}>{link.label}</a></li>
-        ))}
-      </ul>
-    </div>
-    <div class="footer-contact">
-      <h4>Contact</h4>
-      <p>{site.contact_location}</p>
-      <p><a href={`mailto:${site.contact_email}`}>{site.contact_email}</a></p>
-      <p><a href={`https://wa.me/${site.contact_whatsapp}`}>WhatsApp</a></p>
-    </div>
-    <div class="footer-social">
-      <h4>Follow Us</h4>
-      <div class="social-links">
+      <div class="social-row">
         {site.socials.map((social) => (
-          <a href={social.href} target="_blank" rel="noopener">{social.label}</a>
+          <a href={social.href} target="_blank" rel="noreferrer">{social.label}</a>
         ))}
       </div>
     </div>
-  </div>
-  <div class="footer-bottom">
-    <p>&copy; {new Date().getFullYear()} {site.brand}. All rights reserved.</p>
+    <div>
+      <h3>Main Links</h3>
+      {site.nav.map((link) => (
+        <a href={link.href}>{link.label}</a>
+      ))}
+      <a href="/book/">Book a Trip</a>
+    </div>
+    <div>
+      <h3>CMS Pages</h3>
+      <a href="/journeys/">Journey collection</a>
+      <a href="/journal/">Travel journal</a>
+      <a href="/book/">Lead form</a>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <a href={`mailto:${site.contact_email}`}>{site.contact_email}</a>
+      <a href={`https://wa.me/${site.contact_whatsapp}`}>WhatsApp</a>
+      <span>{site.contact_location}</span>
+    </div>
   </div>
 </footer>
