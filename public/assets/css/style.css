@@ -81,17 +81,20 @@ textarea {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  font-family: var(--serif);
-  font-size: 21px;
-  font-weight: 700;
-  text-transform: uppercase;
-  white-space: nowrap;
+  justify-content: center;
 }
 
-.brand img {
-  width: 30px;
-  height: 30px;
+.brand img,
+.header-logo {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+
+.footer-brand img,
+.footer-logo {
+  width: 48px;
+  height: 48px;
   object-fit: contain;
 }
 

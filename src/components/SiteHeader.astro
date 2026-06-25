@@ -3,8 +3,7 @@ const { site, currentPath } = Astro.props;
 ---
 <header class="site-header" data-site-header>
   <a class="brand" href="/" aria-label={`${site.brand} home`}>
-    <img src={site.logo} alt="" width="30" height="30">
-    <span>{site.brand}</span>
+    <img src={site.logo} alt={site.brand} class="header-logo">
   </a>
   <button class="menu-button" data-menu-button aria-expanded="false" aria-label="Open menu">
     <span></span>

@@ -5,8 +5,7 @@ const { site } = Astro.props;
   <div class="footer-inner">
     <div>
       <a class="brand footer-brand" href="/">
-        <img src={site.logo} alt="" width="28" height="28">
-        <span>{site.brand}</span>
+        <img src={site.logo} alt={site.brand} class="footer-logo">
       </a>
       <p>{site.description}</p>
       <div class="social-row">
