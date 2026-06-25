@@ -1,8 +1,7 @@
 # ============================================================
-# MARELUNE BALI - Complete CMS Configuration
+# MARELUNE BALI - CMS Configuration
 # ============================================================
-# Version: 7.0 - Fixed Paths for Pages CMS
-# Sprint 4 Goals: Images, SEO Articles, Links Management
+# Version: 8.0 - Simplified & Compatible
 # ============================================================
 
 media:
@@ -12,218 +11,41 @@ media:
 content:
 
   # ============================================================
-  # SITE SETTINGS - Global Configuration
+  # SITE SETTINGS
   # ============================================================
   - name: site
     label: Site Settings
     type: file
     path: content/site.json
     fields:
-      # Basic Info
       - { name: brand, label: Brand Name, type: string }
       - { name: domain, label: Domain URL, type: string }
       - { name: description, label: Site Description, type: text }
-
-      # Logo & Branding
-      - { name: logo, label: Logo (Header), type: image }
-      - { name: logoAlt, label: Logo Alt Text, type: string }
-
-      # Contact Information
+      - { name: logo, label: Logo URL, type: image }
       - { name: contact_email, label: Contact Email, type: string }
       - { name: contact_phone, label: Contact Phone, type: string }
-      - { name: contact_whatsapp, label: WhatsApp Number (no +), type: string }
+      - { name: contact_whatsapp, label: WhatsApp Number, type: string }
       - { name: contact_location, label: Location, type: string }
-      - { name: contact_address, label: Full Address, type: text }
-
-      # Social Links
-      - { name: socials, label: Social Media Links, type: object, list: true }
-        fields:
-          - { name: platform, label: Platform, type: select, options: [Instagram, Facebook, TikTok, YouTube, Twitter, LinkedIn, Pinterest] }
-          - { name: label, label: Display Label, type: string }
-          - { name: url, label: Profile URL, type: string }
-          - { name: icon, label: Icon Name, type: string, help_text: "Font Awesome icon name (e.g. fa-instagram)" }
-
-      # Navigation Links
-      - { name: nav, label: Navigation Links, type: object, list: true }
-        fields:
-          - { name: label, label: Menu Label, type: string }
-          - { name: href, label: URL Path, type: string }
-          - { name: isExternal, label: Open in New Tab, type: boolean }
-          - { name: order, label: Display Order, type: number }
-
-      # Footer Links
-      - { name: footerLinks, label: Footer Links, type: object, list: true }
-        fields:
-          - { name: section, label: Section Title, type: string }
-          - { name: links, label: Links, type: object, list: true }
-            fields:
-              - { name: label, label: Link Label, type: string }
-              - { name: href, label: URL, type: string }
-
-      # SEO
       - { name: seoKeywords, label: SEO Keywords, type: text }
-      - { name: seoDescription, label: Meta Description, type: text }
 
   # ============================================================
-  # DESIGN SETTINGS - Visual Configuration
-  # ============================================================
-  - name: design
-    label: Design Settings
-    type: file
-    path: content/design.json
-    fields:
-      # Color Palette
-      - { name: navy950, label: Navy 950 (Darkest), type: string }
-      - { name: navy900, label: Navy 900 (Dark), type: string }
-      - { name: navy800, label: Navy 800, type: string }
-      - { name: navy700, label: Navy 700 (Light), type: string }
-      - { name: mist, label: Mist/Background, type: string }
-      - { name: white, label: White, type: string }
-      - { name: ink, label: Ink/Text, type: string }
-      - { name: muted, label: Muted Text, type: string }
-      - { name: gold, label: Gold Accent, type: string }
-      - { name: reef, label: Reef Teal, type: string }
-      - { name: sand, label: Sand, type: string }
-
-      # Typography
-      - { name: headingFont, label: Heading Font Family, type: string }
-      - { name: bodyFont, label: Body Font Family, type: string }
-
-      # Visual Effects
-      - { name: heroOverlay, label: Hero Overlay Strength, type: select, options: [light, medium, strong] }
-      - { name: cardShadow, label: Card Shadow Style, type: select, options: [none, subtle, premium] }
-      - { name: buttonStyle, label: Button Style, type: select, options: [rounded, square, glass-square] }
-      - { name: animation, label: Scroll Animations, type: select, options: [none, fade, scroll-reveal] }
-
-  # ============================================================
-  # HOME PAGE - Main Landing Page
+  # HOME PAGE
   # ============================================================
   - name: home
     label: Home Page
     type: file
     path: content/pages/home.json
     fields:
-      # SEO
       - { name: title, label: SEO Title, type: string }
       - { name: description, label: SEO Description, type: text }
-      - { name: keywords, label: Page Keywords, type: text }
-
-      # Hero Section
       - { name: hero_title, label: Hero Title, type: string }
       - { name: hero_subtitle, label: Hero Subtitle, type: text }
-      - { name: hero_ctaLabel, label: Hero CTA Button Text, type: string }
-      - { name: hero_ctaHref, label: Hero CTA Button Link, type: string }
-      - { name: hero_image, label: Hero Background Image, type: image }
-      - { name: hero_imageAlt, label: Hero Image Alt Text, type: string }
-
-      # Hero Category Tabs
-      - { name: heroCategories, label: Hero Category Tabs, type: object, list: true }
-        fields:
-          - { name: label, label: Tab Label, type: string }
-          - { name: caption, label: Caption, type: string }
-          - { name: href, label: Link to Journey, type: string }
-
-      # Trust Section
-      - { name: trust_eyebrow, label: Trust Section Eyebrow, type: string }
-      - { name: trust_rating, label: Trust Rating, type: string }
-      - { name: trust_text, label: Trust Review Text, type: string }
-      - { name: trust_avatars, label: Reviewer Avatar Images, type: image, list: true }
-      - { name: trust_partners, label: Trust Partner/Badge Names, type: string, list: true }
-
-      # Intro Statement
-      - { name: intro_eyebrow, label: Intro Eyebrow, type: string }
-      - { name: intro_title, label: Intro Title, type: text }
-      - { name: intro_body, label: Intro Body Text, type: text }
-      - { name: intro_image, label: Intro Background Image, type: image }
-
-      # Journey Section
-      - { name: journeySection_eyebrow, label: Journey Section Eyebrow, type: string }
-      - { name: journeySection_title, label: Journey Section Title, type: string }
-      - { name: journeySection_body, label: Journey Section Description, type: text }
-      - { name: journeySection_image, label: Journey Section Banner, type: image }
-
-      # Steps Section
-      - { name: stepsSection_eyebrow, label: Steps Section Eyebrow, type: string }
-      - { name: stepsSection_title, label: Steps Section Title, type: string }
-      - { name: stepsSection_body, label: Steps Section Description, type: text }
-      - { name: steps, label: Booking Steps, type: object, list: true }
-        fields:
-          - { name: number, label: Step Number, type: string }
-          - { name: title, label: Step Title, type: string }
-          - { name: text, label: Step Description, type: text }
-          - { name: icon, label: Step Icon, type: string }
-
-      # Services Section
-      - { name: servicesSection_eyebrow, label: Services Eyebrow, type: string }
-      - { name: servicesSection_title, label: Services Section Title, type: string }
-      - { name: servicesSection_body, label: Services Section Description, type: text }
-      - { name: services, label: Services, type: object, list: true }
-        fields:
-          - { name: category, label: Category Key, type: string }
-          - { name: kicker, label: Kicker Label, type: string }
-          - { name: title, label: Service Title, type: string }
-          - { name: text, label: Service Description, type: text }
-          - { name: image, label: Service Image, type: image }
-          - { name: ctaLabel, label: CTA Button Text, type: string }
-          - { name: ctaHref, label: CTA Button Link, type: string }
-          - { name: meta, label: Meta Info, type: object, list: true }
-            fields:
-              - { name: label, label: Label, type: string }
-              - { name: value, label: Value, type: string }
-
-      # Why/Features Section
-      - { name: whySection_eyebrow, label: Why Section Eyebrow, type: string }
-      - { name: whySection_title, label: Why Section Title, type: string }
-      - { name: whySection_body, label: Why Section Description, type: text }
-      - { name: why, label: Why Features, type: object, list: true }
-        fields:
-          - { name: title, label: Feature Title, type: string }
-          - { name: text, label: Feature Description, type: text }
-          - { name: image, label: Feature Icon/Image, type: image }
-
-      # Testimonials Section
-      - { name: testimonialsSection_eyebrow, label: Testimonials Eyebrow, type: string }
-      - { name: testimonialsSection_title, label: Testimonials Section Title, type: string }
-      - { name: testimonialsSection_body, label: Testimonials Section Description, type: text }
-      - { name: testimonials, label: Testimonials, type: object, list: true }
-        fields:
-          - { name: quote, label: Testimonial Quote, type: text }
-          - { name: name, label: Reviewer Name, type: string }
-          - { name: role, label: Reviewer Role, type: string }
-          - { name: image, label: Reviewer Photo, type: image }
-
-      # Journal Section
-      - { name: journalSection_eyebrow, label: Journal Section Eyebrow, type: string }
-      - { name: journalSection_title, label: Journal Section Title, type: string }
-      - { name: journalSection_body, label: Journal Section Description, type: text }
-
-      # FAQ Section
-      - { name: faqSection_eyebrow, label: FAQ Section Eyebrow, type: string }
-      - { name: faqSection_title, label: FAQ Section Title, type: string }
-      - { name: faqSection_body, label: FAQ Section Description, type: text }
-      - { name: faq, label: FAQ Items, type: object, list: true }
-        fields:
-          - { name: question, label: Question, type: string }
-          - { name: answer, label: Answer, type: text }
-
-      # Newsletter Section
-      - { name: newsletter_eyebrow, label: Newsletter Eyebrow, type: string }
-      - { name: newsletter_title, label: Newsletter Title, type: string }
-      - { name: newsletter_body, label: Newsletter Description, type: text }
-      - { name: newsletter_placeholder, label: Input Placeholder, type: string }
-      - { name: newsletter_buttonLabel, label: Subscribe Button Text, type: string }
-      - { name: newsletter_image, label: Newsletter Background Image, type: image }
-
-      # CTA Section
-      - { name: cta_eyebrow, label: CTA Eyebrow, type: string }
-      - { name: cta_title, label: CTA Title, type: string }
-      - { name: cta_body, label: CTA Description, type: text }
-      - { name: cta_buttonLabel, label: CTA Button Text, type: string }
-      - { name: cta_buttonHref, label: CTA Button Link, type: string }
-      - { name: cta_image, label: CTA Background Image, type: image }
+      - { name: hero_ctaLabel, label: Hero CTA Text, type: string }
+      - { name: hero_ctaHref, label: Hero CTA Link, type: string }
+      - { name: hero_image, label: Hero Image, type: image }
 
   # ============================================================
-  # JOURNEYS - Private Yacht Routes
+  # JOURNEYS
   # ============================================================
   - name: journeys
     label: Journeys
@@ -231,44 +53,22 @@ content:
     path: content/journeys
     filename: "{fields.slug}.json"
     fields:
-      # Basic Info
       - { name: title, label: Journey Title, type: string }
-      - { name: slug, label: URL Slug, type: string, help_text: "URL-safe name (e.g., nusa-penida)" }
+      - { name: slug, label: URL Slug, type: string }
       - { name: order, label: Display Order, type: number }
-
-      # Content
-      - { name: location, label: Location Name, type: string }
+      - { name: location, label: Location, type: string }
       - { name: summary, label: Short Summary, type: text }
       - { name: description, label: Full Description, type: text }
-
-      # Media
-      - { name: image, label: Hero Image, type: image }
-      - { name: imageAlt, label: Hero Image Alt Text, type: string }
-      - { name: gallery, label: Image Gallery, type: image, list: true }
-
-      # Details
       - { name: price, label: Starting Price, type: string }
       - { name: duration, label: Duration, type: string }
       - { name: idealFor, label: Ideal For, type: string }
       - { name: transport, label: Transport Type, type: string }
-      - { name: capacity, label: Max Capacity, type: string }
-
-      # Highlights & Features
-      - { name: highlights, label: Journey Highlights, type: string, list: true }
-      - { name: inclusions, label: What's Included, type: string, list: true }
-      - { name: tips, label: Tips for Guests, type: text, list: true }
-
-      # SEO
-      - { name: seoTitle, label: SEO Title, type: string }
-      - { name: seoDescription, label: Meta Description, type: text }
-      - { name: keywords, label: Keywords, type: text }
-
-      # Status
-      - { name: isActive, label: Active/Visible, type: boolean }
-      - { name: isFeatured, label: Featured on Homepage, type: boolean }
+      - { name: image, label: Hero Image, type: image }
+      - { name: highlights, label: Highlights, type: string, list: true }
+      - { name: isActive, label: Active, type: boolean }
 
   # ============================================================
-  # JOURNAL - SEO Articles & Blog
+  # JOURNAL ARTICLES
   # ============================================================
   - name: journal
     label: Journal Articles
@@ -276,41 +76,14 @@ content:
     path: content/blog
     filename: "{fields.slug}.md"
     fields:
-      # Basic Info
       - { name: title, label: Article Title, type: string }
       - { name: slug, label: URL Slug, type: string }
       - { name: description, label: Meta Description, type: text }
-
-      # Category & Tags
-      - { name: category, label: Category, type: select, options: [Yacht Guide, Itinerary, Occasion, Tips, Destination, Comparison, Planning] }
-      - { name: tags, label: Tags, type: string, list: true }
-
-      # Content
-      - { name: body, label: Article Content, type: rich-text }
-      - { name: excerpt, label: Short Excerpt, type: text }
-
-      # Media
-      - { name: thumbnail, label: Featured Image, type: image }
-      - { name: thumbnailAlt, label: Featured Image Alt Text, type: string }
-
-      # Dates
+      - { name: category, label: Category, type: string }
       - { name: date, label: Publish Date, type: date }
-      - { name: updated, label: Last Updated, type: date }
       - { name: readingTime, label: Reading Time, type: string }
-
-      # SEO
-      - { name: seoTitle, label: SEO Title, type: string }
-      - { name: seoDescription, label: Meta Description, type: text }
-      - { name: targetKeyword, label: Primary Keyword, type: string }
-
-      # FAQ for Article
-      - { name: faq, label: Article FAQ (for SEO), type: object, list: true }
-        fields:
-          - { name: question, label: Question, type: string }
-          - { name: answer, label: Answer, type: text }
-
-      # Publication
-      - { name: isPublished, label: Published, type: boolean }
+      - { name: thumbnail, label: Featured Image, type: image }
+      - { name: body, label: Article Content, type: rich-text }
 
   # ============================================================
   # ABOUT PAGE
@@ -320,56 +93,13 @@ content:
     type: file
     path: content/pages/about.json
     fields:
-      # SEO
       - { name: title, label: SEO Title, type: string }
       - { name: description, label: SEO Description, type: text }
-
-      # Hero
       - { name: hero_title, label: Hero Title, type: string }
       - { name: hero_subtitle, label: Hero Subtitle, type: string }
-      - { name: hero_image, label: Hero Background Image, type: image }
-      - { name: hero_ctaLabel, label: Hero CTA Text, type: string }
-      - { name: hero_ctaHref, label: Hero CTA Link, type: string }
-
-      # Story Section
-      - { name: story_eyebrow, label: Story Eyebrow, type: string }
-      - { name: story_title, label: Story Title, type: string }
+      - { name: hero_image, label: Hero Image, type: image }
+      - { name: story_title, label: Story Title, type: text }
       - { name: story_body, label: Story Content, type: text }
-      - { name: story_image, label: Story Image, type: image }
-
-      # Team Section
-      - { name: team_eyebrow, label: Team Section Eyebrow, type: string }
-      - { name: team_title, label: Team Section Title, type: string }
-      - { name: team, label: Team Members, type: object, list: true }
-        fields:
-          - { name: name, label: Name, type: string }
-          - { name: role, label: Role/Title, type: string }
-          - { name: bio, label: Short Bio, type: text }
-          - { name: image, label: Photo, type: image }
-
-      # Values Section
-      - { name: values_eyebrow, label: Values Eyebrow, type: string }
-      - { name: values_title, label: Values Section Title, type: string }
-      - { name: values, label: Core Values, type: object, list: true }
-        fields:
-          - { name: title, label: Value Title, type: string }
-          - { name: text, label: Value Description, type: text }
-
-      # FAQ Section
-      - { name: faq_eyebrow, label: FAQ Eyebrow, type: string }
-      - { name: faq_title, label: FAQ Section Title, type: string }
-      - { name: faq_body, label: FAQ Section Intro, type: text }
-      - { name: faq, label: FAQ Items, type: object, list: true }
-        fields:
-          - { name: question, label: Question, type: string }
-          - { name: answer, label: Answer, type: text }
-
-      # CTA
-      - { name: cta_eyebrow, label: CTA Eyebrow, type: string }
-      - { name: cta_title, label: CTA Title, type: string }
-      - { name: cta_body, label: CTA Description, type: text }
-      - { name: cta_buttonLabel, label: CTA Button Text, type: string }
-      - { name: cta_buttonHref, label: CTA Button Link, type: string }
 
   # ============================================================
   # BOOKING PAGE
@@ -379,84 +109,21 @@ content:
     type: file
     path: content/pages/book.json
     fields:
-      # SEO
       - { name: title, label: SEO Title, type: string }
       - { name: description, label: SEO Description, type: text }
-
-      # Hero
       - { name: hero_title, label: Hero Title, type: string }
       - { name: hero_subtitle, label: Hero Subtitle, type: string }
-      - { name: hero_image, label: Hero Background Image, type: image }
-
-      # Form Section
-      - { name: form_eyebrow, label: Form Section Eyebrow, type: string }
-      - { name: form_title, label: Form Section Title, type: string }
-      - { name: form_body, label: Form Section Description, type: text }
+      - { name: hero_image, label: Hero Image, type: image }
 
   # ============================================================
   # BOOKING FORM SETTINGS
   # ============================================================
   - name: leads
-    label: Booking Form Settings
+    label: Booking Form
     type: file
     path: content/leads.json
     fields:
-      - { name: endpoint, label: API Endpoint, type: string, disabled: true }
+      - { name: endpoint, label: API Endpoint, type: string }
       - { name: successMessage, label: Success Message, type: text }
       - { name: fallbackMessage, label: Fallback Message, type: text }
       - { name: submitLabel, label: Submit Button Text, type: string }
-
-  # ============================================================
-  # NAVIGATION LINKS
-  # ============================================================
-  - name: navigation
-    label: Navigation Links
-    type: file
-    path: content/navigation.json
-    fields:
-      - { name: headerNav, label: Header Navigation, type: object, list: true }
-        fields:
-          - { name: label, label: Link Label, type: string }
-          - { name: href, label: URL Path, type: string }
-          - { name: order, label: Display Order, type: number }
-
-      - { name: footerNav, label: Footer Navigation, type: object, list: true }
-        fields:
-          - { name: section, label: Section Title, type: string }
-          - { name: links, label: Links, type: object, list: true }
-            fields:
-              - { name: label, label: Link Label, type: string }
-              - { name: href, label: URL, type: string }
-
-      - { name: socialLinks, label: Social Media Links, type: object, list: true }
-        fields:
-          - { name: platform, label: Platform, type: string }
-          - { name: url, label: Profile URL, type: string }
-          - { name: icon, label: Icon Class, type: string }
-
-  # ============================================================
-  # TRUST IMAGES
-  # ============================================================
-  - name: trustImages
-    label: Trust Images
-    type: file
-    path: content/trust-images.json
-    fields:
-      - { name: partnerLogos, label: Partner Logos, type: image, list: true }
-      - { name: awards, label: Awards & Badges, type: image, list: true }
-      - { name: backgroundImages, label: Background Images, type: image, list: true }
-
-  # ============================================================
-  # BANNERS
-  # ============================================================
-  - name: banners
-    label: Homepage Banners
-    type: file
-    path: content/banners.json
-    fields:
-      - { name: announcementBar, label: Announcement Bar, type: object }
-        fields:
-          - { name: isActive, label: Show Bar, type: boolean }
-          - { name: text, label: Announcement Text, type: string }
-          - { name: ctaLabel, label: Link Text, type: string }
-          - { name: ctaHref, label: Link URL, type: string }
