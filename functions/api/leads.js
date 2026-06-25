@@ -1,3 +1,14 @@
+const getSourcePage = (referer) => {
+  if (!referer) return "";
+
+  try {
+    const url = new URL(referer);
+    return `${url.pathname}${url.search}`;
+  } catch {
+    return String(referer).slice(0, 200);
+  }
+};
+
 export async function onRequestPost({ request, env }) {
   let body;
 
@@ -14,14 +25,22 @@ export async function onRequestPost({ request, env }) {
     return Response.json({ error: "Missing required fields", missing }, { status: 422 });
   }
 
+  if (!env.MAKE_WEBHOOK_URL) {
+    console.error("MAKE_WEBHOOK_URL is not configured");
+    return Response.json({ error: "Lead automation is not configured" }, { status: 503 });
+  }
+
   const payload = {
+    ...body,
     lead_id: crypto.randomUUID(),
     created_at: new Date().toISOString(),
+    status: "New",
     source: "marelune-website",
-    ...body
+    source_page: body.source_page || getSourcePage(request.headers.get("referer")),
+    utm_source: body.utm_source || ""
   };
 
-  if (env.MAKE_WEBHOOK_URL) {
+  try {
     const makeResponse = await fetch(env.MAKE_WEBHOOK_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -29,9 +48,14 @@ export async function onRequestPost({ request, env }) {
     });
 
     if (!makeResponse.ok) {
+      const responseText = await makeResponse.text().catch(() => "");
+      console.error("Lead webhook failed", makeResponse.status, responseText.slice(0, 300));
       return Response.json({ error: "Lead webhook failed" }, { status: 502 });
     }
+  } catch (error) {
+    console.error("Lead webhook request failed", error);
+    return Response.json({ error: "Lead webhook request failed" }, { status: 502 });
   }
 
-  return Response.json({ ok: true, lead_id: payload.lead_id });
+  return Response.json({ ok: true, lead_id: payload.lead_id, automation: "make-webhook" });
 }
