@@ -1,9 +1,12 @@
-name = "marelune-bali"
-compatibility_date = "2024-01-01"
-
-# Cloudflare Pages configuration
+name = "marelunebali"
 pages_build_output_dir = "./dist"
+compatibility_date = "2026-06-25"
 
-# Environment variables for production (set in Cloudflare dashboard)
+# Default vars (development preview)
 [vars]
+ENVIRONMENT = "development"
+
+# Production environment - Add webhook URL here
+[env.production.vars]
+MAKE_WEBHOOK_URL = "https://hook.eu1.make.com/c4gqpouxm8w807i14zcwlvoxmqtj9spc"
 ENVIRONMENT = "production"
