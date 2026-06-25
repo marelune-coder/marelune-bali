@@ -1,6 +1,7 @@
 const WEBHOOK_ENV_KEYS = ["MAKE_WEBHOOK_URL", "LEAD_WEBHOOK_URL", "MAKE_LEADS_WEBHOOK_URL"];
 
 const getWebhookUrl = (env) => WEBHOOK_ENV_KEYS.map((key) => env[key]).find((value) => String(value || "").trim());
+const getConfiguredWebhookKeys = (env) => WEBHOOK_ENV_KEYS.filter((key) => String(env[key] || "").trim());
 
 const getSourcePage = (referer) => {
   if (!referer) return "";
@@ -23,6 +24,22 @@ const getUtmSource = (body, referer) => {
     return "";
   }
 };
+
+export async function onRequestGet({ env }) {
+  const configuredKeys = getConfiguredWebhookKeys(env);
+
+  return Response.json({
+    ok: true,
+    endpoint: "/api/leads",
+    methods: ["GET", "POST"],
+    post_required_fields: ["name", "whatsapp", "date", "journey"],
+    webhook_configured: configuredKeys.length > 0,
+    configured_env_keys: configuredKeys,
+    accepted_env_keys: WEBHOOK_ENV_KEYS,
+    environment: env.ENVIRONMENT || "",
+    checked_at: new Date().toISOString()
+  });
+}
 
 export async function onRequestPost({ request, env }) {
   let body;
