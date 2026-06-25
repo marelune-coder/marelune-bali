@@ -1,12 +1,12 @@
 # ============================================================
 # MARELUNE BALI - Complete CMS Configuration
 # ============================================================
-# Version: 6.0 - Full Sprint 4 CMS
+# Version: 7.0 - Fixed Paths for Pages CMS
 # Sprint 4 Goals: Images, SEO Articles, Links Management
 # ============================================================
 
 media:
-  input: Production-Code/public/uploads
+  input: public/uploads
   output: /uploads
 
 content:
@@ -17,7 +17,7 @@ content:
   - name: site
     label: Site Settings
     type: file
-    path: Production-Code/content/site.json
+    path: content/site.json
     fields:
       # Basic Info
       - { name: brand, label: Brand Name, type: string }
@@ -70,7 +70,7 @@ content:
   - name: design
     label: Design Settings
     type: file
-    path: Production-Code/content/design.json
+    path: content/design.json
     fields:
       # Color Palette
       - { name: navy950, label: Navy 950 (Darkest), type: string }
@@ -101,7 +101,7 @@ content:
   - name: home
     label: Home Page
     type: file
-    path: Production-Code/content/pages/home.json
+    path: content/pages/home.json
     fields:
       # SEO
       - { name: title, label: SEO Title, type: string }
@@ -222,21 +222,13 @@ content:
       - { name: cta_buttonHref, label: CTA Button Link, type: string }
       - { name: cta_image, label: CTA Background Image, type: image }
 
-      # Partner/Stats Section
-      - { name: stats_eyebrow, label: Stats Section Eyebrow, type: string }
-      - { name: stats, label: Statistics, type: object, list: true }
-        fields:
-          - { name: value, label: Stat Value, type: string }
-          - { name: label, label: Stat Label, type: string }
-          - { name: image, label: Stat Background Image, type: image }
-
   # ============================================================
   # JOURNEYS - Private Yacht Routes
   # ============================================================
   - name: journeys
     label: Journeys
     type: collection
-    path: Production-Code/content/journeys
+    path: content/journeys
     filename: "{fields.slug}.json"
     fields:
       # Basic Info
@@ -253,7 +245,6 @@ content:
       - { name: image, label: Hero Image, type: image }
       - { name: imageAlt, label: Hero Image Alt Text, type: string }
       - { name: gallery, label: Image Gallery, type: image, list: true }
-        help_text: "Additional images for the journey detail page"
 
       # Details
       - { name: price, label: Starting Price, type: string }
@@ -272,10 +263,6 @@ content:
       - { name: seoDescription, label: Meta Description, type: text }
       - { name: keywords, label: Keywords, type: text }
 
-      # Related Content
-      - { name: relatedJourneys, label: Related Journey Slugs, type: string, list: true }
-        help_text: "Other journey slugs to show as related"
-
       # Status
       - { name: isActive, label: Active/Visible, type: boolean }
       - { name: isFeatured, label: Featured on Homepage, type: boolean }
@@ -286,7 +273,7 @@ content:
   - name: journal
     label: Journal Articles
     type: collection
-    path: Production-Code/content/blog
+    path: content/blog
     filename: "{fields.slug}.md"
     fields:
       # Basic Info
@@ -305,52 +292,25 @@ content:
       # Media
       - { name: thumbnail, label: Featured Image, type: image }
       - { name: thumbnailAlt, label: Featured Image Alt Text, type: string }
-      - { name: gallery, label: Article Gallery, type: image, list: true }
 
       # Dates
       - { name: date, label: Publish Date, type: date }
       - { name: updated, label: Last Updated, type: date }
       - { name: readingTime, label: Reading Time, type: string }
 
-      # SEO - Complete On-Page SEO
-      - { name: seoTitle, label: SEO Title, type: string, help_text: "Recommended: 50-60 characters with primary keyword" }
-      - { name: seoDescription, label: Meta Description, type: text, help_text: "Recommended: 150-160 characters with CTA" }
+      # SEO
+      - { name: seoTitle, label: SEO Title, type: string }
+      - { name: seoDescription, label: Meta Description, type: text }
       - { name: targetKeyword, label: Primary Keyword, type: string }
-      - { name: secondaryKeywords, label: Secondary Keywords, type: text, help_text: "Comma-separated" }
-      - { name: keywordDensity, label: Keyword Density Check, type: string, disabled: true }
 
-      # On-Page SEO Checklist
-      - { name: keywordInTitle, label: Keyword in Title, type: boolean }
-      - { name: keywordInFirst100, label: Keyword in First 100 Words, type: boolean }
-      - { name: keywordInSubheadings, label: Keyword in Subheadings, type: boolean }
-      - { name: keywordInMeta, label: Keyword in Meta Description, type: boolean }
-      - { name: hasInternalLinks, label: Has Internal Links, type: boolean }
-      - { name: internalLinksCount, label: Number of Internal Links, type: number }
-      - { name: hasExternalLinks, label: Has External Links, type: boolean }
-      - { name: hasImages, label: Has Optimized Images, type: boolean }
-      - { name: imagesHaveAlt, label: Images Have Alt Text, type: boolean }
-      - { name: hasFaq, label: Has FAQ Section, type: boolean }
-      - { name: minWordCount, label: Min 800 Words, type: boolean }
-      - { name: minWordCountValue, label: Actual Word Count, type: number }
-
-      # FAQ Section
+      # FAQ for Article
       - { name: faq, label: Article FAQ (for SEO), type: object, list: true }
         fields:
           - { name: question, label: Question, type: string }
           - { name: answer, label: Answer, type: text }
 
-      # Related Articles
-      - { name: relatedArticles, label: Related Article Slugs, type: string, list: true }
-
-      # Social Sharing
-      - { name: ogTitle, label: Open Graph Title, type: string }
-      - { name: ogDescription, label: Open Graph Description, type: text }
-      - { name: twitterCard, label: Twitter Card Type, type: select, options: [summary, summary_large_image] }
-
       # Publication
       - { name: isPublished, label: Published, type: boolean }
-      - { name: isFeatured, label: Featured Article, type: boolean }
-      - { name: isPin, label: Pin to Top, type: boolean }
 
   # ============================================================
   # ABOUT PAGE
@@ -358,7 +318,7 @@ content:
   - name: about
     label: About Page
     type: file
-    path: Production-Code/content/pages/about.json
+    path: content/pages/about.json
     fields:
       # SEO
       - { name: title, label: SEO Title, type: string }
@@ -366,7 +326,7 @@ content:
 
       # Hero
       - { name: hero_title, label: Hero Title, type: string }
-      - { name: hero_subtitle, label: Hero Subtitle, type: text }
+      - { name: hero_subtitle, label: Hero Subtitle, type: string }
       - { name: hero_image, label: Hero Background Image, type: image }
       - { name: hero_ctaLabel, label: Hero CTA Text, type: string }
       - { name: hero_ctaHref, label: Hero CTA Link, type: string }
@@ -386,7 +346,6 @@ content:
           - { name: role, label: Role/Title, type: string }
           - { name: bio, label: Short Bio, type: text }
           - { name: image, label: Photo, type: image }
-          - { name: linkedin, label: LinkedIn URL, type: string }
 
       # Values Section
       - { name: values_eyebrow, label: Values Eyebrow, type: string }
@@ -395,7 +354,6 @@ content:
         fields:
           - { name: title, label: Value Title, type: string }
           - { name: text, label: Value Description, type: text }
-          - { name: icon, label: Icon Name, type: string }
 
       # FAQ Section
       - { name: faq_eyebrow, label: FAQ Eyebrow, type: string }
@@ -419,7 +377,7 @@ content:
   - name: book
     label: Booking Page
     type: file
-    path: Production-Code/content/pages/book.json
+    path: content/pages/book.json
     fields:
       # SEO
       - { name: title, label: SEO Title, type: string }
@@ -427,62 +385,48 @@ content:
 
       # Hero
       - { name: hero_title, label: Hero Title, type: string }
-      - { name: hero_subtitle, label: Hero Subtitle, type: text }
+      - { name: hero_subtitle, label: Hero Subtitle, type: string }
       - { name: hero_image, label: Hero Background Image, type: image }
 
       # Form Section
       - { name: form_eyebrow, label: Form Section Eyebrow, type: string }
       - { name: form_title, label: Form Section Title, type: string }
       - { name: form_body, label: Form Section Description, type: text }
-      - { name: form_note_title, label: Form Note Title, type: string }
-      - { name: form_note_text, label: Form Note Description, type: text }
-
-      # Alternative Contact
-      - { name: altContact_title, label: Alt Contact Title, type: string }
-      - { name: altContact_body, label: Alt Contact Description, type: text }
-      - { name: altContact_waLabel, label: WhatsApp Button Text, type: string }
-      - { name: altContact_waLink, label: WhatsApp Link, type: string }
-      - { name: altContact_emailLabel, label: Email Button Text, type: string }
-      - { name: altContact_emailLink, label: Email Address, type: string }
 
   # ============================================================
-  # TRUST & SOCIAL PROOF IMAGES
+  # BOOKING FORM SETTINGS
   # ============================================================
-  - name: trustImages
-    label: Trust & Partner Images
+  - name: leads
+    label: Booking Form Settings
     type: file
-    path: Production-Code/content/trust-images.json
+    path: content/leads.json
     fields:
-      - { name: partnerLogos, label: Partner/Media Logos, type: image, list: true }
-        help_text: "Logos of partners, media features, or certifications"
-      - { name: awards, label: Awards & Badges, type: image, list: true }
-      - { name: backgroundImages, label: Background Images, type: image, list: true }
-        help_text: "Reusable background/banner images"
+      - { name: endpoint, label: API Endpoint, type: string, disabled: true }
+      - { name: successMessage, label: Success Message, type: text }
+      - { name: fallbackMessage, label: Fallback Message, type: text }
+      - { name: submitLabel, label: Submit Button Text, type: string }
 
   # ============================================================
-  # NAVIGATION LINKS CONFIGURATION
+  # NAVIGATION LINKS
   # ============================================================
   - name: navigation
     label: Navigation Links
     type: file
-    path: Production-Code/content/navigation.json
+    path: content/navigation.json
     fields:
       - { name: headerNav, label: Header Navigation, type: object, list: true }
         fields:
           - { name: label, label: Link Label, type: string }
           - { name: href, label: URL Path, type: string }
-          - { name: icon, label: Icon (optional), type: string }
           - { name: order, label: Display Order, type: number }
-          - { name: isHighlight, label: Highlight Style, type: boolean }
 
-      - { name: footerNav, label: Footer Navigation Sections, type: object, list: true }
+      - { name: footerNav, label: Footer Navigation, type: object, list: true }
         fields:
-          - { name: title, label: Section Title, type: string }
+          - { name: section, label: Section Title, type: string }
           - { name: links, label: Links, type: object, list: true }
             fields:
               - { name: label, label: Link Label, type: string }
               - { name: href, label: URL, type: string }
-              - { name: isExternal, label: Open in New Tab, type: boolean }
 
       - { name: socialLinks, label: Social Media Links, type: object, list: true }
         fields:
@@ -491,44 +435,28 @@ content:
           - { name: icon, label: Icon Class, type: string }
 
   # ============================================================
-  # HOMEPAGE SLIDERS & BANNERS
+  # TRUST IMAGES
+  # ============================================================
+  - name: trustImages
+    label: Trust Images
+    type: file
+    path: content/trust-images.json
+    fields:
+      - { name: partnerLogos, label: Partner Logos, type: image, list: true }
+      - { name: awards, label: Awards & Badges, type: image, list: true }
+      - { name: backgroundImages, label: Background Images, type: image, list: true }
+
+  # ============================================================
+  # BANNERS
   # ============================================================
   - name: banners
-    label: Homepage Banners & Sliders
+    label: Homepage Banners
     type: file
-    path: Production-Code/content/banners.json
+    path: content/banners.json
     fields:
-      - { name: heroSlider, label: Hero Slider Images, type: object, list: true }
-        fields:
-          - { name: image, label: Slide Image, type: image }
-          - { name: imageAlt, label: Alt Text, type: string }
-          - { name: title, label: Slide Title, type: string }
-          - { name: subtitle, label: Slide Subtitle, type: string }
-          - { name: ctaLabel, label: CTA Button Text, type: string }
-          - { name: ctaHref, label: CTA Button Link, type: string }
-          - { name: isActive, label: Active, type: boolean }
-
       - { name: announcementBar, label: Announcement Bar, type: object }
         fields:
           - { name: isActive, label: Show Bar, type: boolean }
           - { name: text, label: Announcement Text, type: string }
           - { name: ctaLabel, label: Link Text, type: string }
           - { name: ctaHref, label: Link URL, type: string }
-          - { name: bgColor, label: Background Color, type: string }
-          - { name: textColor, label: Text Color, type: string }
-
-  # ============================================================
-  # BOOKING FORM CONFIGURATION
-  # ============================================================
-  - name: leads
-    label: Booking Form Settings
-    type: file
-    path: Production-Code/content/leads.json
-    fields:
-      - { name: endpoint, label: API Endpoint, type: string, disabled: true }
-      - { name: successMessage, label: Success Message, type: text }
-      - { name: fallbackMessage, label: Fallback Message (WhatsApp), type: text }
-      - { name: submitLabel, label: Submit Button Text, type: string }
-      - { name: errorMessage, label: Error Message, type: string }
-      - { name: crmColumns, label: CRM Column Names, type: string, list: true, disabled: true }
-      - { name: statusOptions, label: Lead Status Options, type: string, list: true, disabled: true }
