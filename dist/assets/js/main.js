@@ -90,6 +90,10 @@ if (leadForm) {
     const status = leadForm.querySelector("[data-form-status]");
     const submit = leadForm.querySelector("button[type='submit']");
     const data = Object.fromEntries(new FormData(leadForm).entries());
+    const params = new URLSearchParams(window.location.search);
+
+    data.source_page = `${window.location.pathname}${window.location.search}`;
+    data.utm_source = params.get("utm_source") || "";
 
     if (status) status.textContent = "Sending your request...";
     if (submit) submit.disabled = true;

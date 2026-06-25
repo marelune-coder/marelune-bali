@@ -13,6 +13,17 @@ const getSourcePage = (referer) => {
   }
 };
 
+const getUtmSource = (body, referer) => {
+  if (body.utm_source) return body.utm_source;
+  if (!referer) return "";
+
+  try {
+    return new URL(referer).searchParams.get("utm_source") || "";
+  } catch {
+    return "";
+  }
+};
+
 export async function onRequestPost({ request, env }) {
   let body;
 
@@ -50,7 +61,7 @@ export async function onRequestPost({ request, env }) {
     status: "New",
     source: "marelune-website",
     source_page: body.source_page || getSourcePage(request.headers.get("referer")),
-    utm_source: body.utm_source || ""
+    utm_source: getUtmSource(body, request.headers.get("referer"))
   };
 
   try {
