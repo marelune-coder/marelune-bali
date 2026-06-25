@@ -86,15 +86,15 @@ textarea {
 
 .brand img,
 .header-logo {
-  width: 44px;
-  height: 44px;
+  width: 72px;
+  height: 72px;
   object-fit: contain;
 }
 
 .footer-brand img,
 .footer-logo {
-  width: 48px;
-  height: 48px;
+  width: 64px;
+  height: 64px;
   object-fit: contain;
 }
 
