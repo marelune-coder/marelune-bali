@@ -14,7 +14,8 @@ npm run preview
 - Build command: `node build.mjs` or `npm run build`
 - Output directory: `dist`
 - Functions directory: `functions`
-- Environment variable for lead automation: `MAKE_WEBHOOK_URL`
+- Production runtime environment variable for lead automation: `MAKE_WEBHOOK_URL`
+- Lead health check: `/api/lead-health` returns whether the webhook runtime variable is configured without exposing the secret value.
 
 If this project is inside the parent repository folder `Marelune_Bali/Production-Code`, set the Cloudflare Pages root directory to `Production-Code`.
 

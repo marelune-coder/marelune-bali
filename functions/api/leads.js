@@ -1,3 +1,7 @@
+const WEBHOOK_ENV_KEYS = ["MAKE_WEBHOOK_URL", "LEAD_WEBHOOK_URL", "MAKE_LEADS_WEBHOOK_URL"];
+
+const getWebhookUrl = (env) => WEBHOOK_ENV_KEYS.map((key) => env[key]).find((value) => String(value || "").trim());
+
 const getSourcePage = (referer) => {
   if (!referer) return "";
 
@@ -25,9 +29,18 @@ export async function onRequestPost({ request, env }) {
     return Response.json({ error: "Missing required fields", missing }, { status: 422 });
   }
 
-  if (!env.MAKE_WEBHOOK_URL) {
-    console.error("MAKE_WEBHOOK_URL is not configured");
-    return Response.json({ error: "Lead automation is not configured" }, { status: 503 });
+  const webhookUrl = getWebhookUrl(env);
+
+  if (!webhookUrl) {
+    console.error("Lead webhook URL is not configured", WEBHOOK_ENV_KEYS.join(", "));
+    return Response.json(
+      {
+        error: "Lead automation is not configured",
+        required_env: WEBHOOK_ENV_KEYS[0],
+        accepted_env: WEBHOOK_ENV_KEYS
+      },
+      { status: 503 }
+    );
   }
 
   const payload = {
@@ -41,7 +54,7 @@ export async function onRequestPost({ request, env }) {
   };
 
   try {
-    const makeResponse = await fetch(env.MAKE_WEBHOOK_URL, {
+    const makeResponse = await fetch(webhookUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload)
