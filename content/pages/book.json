@@ -4,5 +4,18 @@
 
   "hero_title": "BOOK YOUR TRIP",
   "hero_subtitle": "Tell us your preferred date, route, and guest count. We will reply with availability and the best matching yacht option.",
-  "hero_image": "/uploads/marelune-assets/IMG-20260602-WA0064.jpg"
+  "hero_image": "/uploads/marelune-assets/IMG-20260602-WA0064.jpg",
+
+  "form_eyebrow": "Private Request",
+  "form_title": "Tell us the trip you want",
+  "form_body": "Your request will be routed to the Marelune team for availability, route suggestion, and package matching.",
+  "form_note_title": "Response Flow",
+  "form_note_text": "Website form → Marelune team → WhatsApp follow-up",
+
+  "altContact_title": "Prefer to contact us directly?",
+  "altContact_body": "Reach out via WhatsApp or email for immediate assistance.",
+  "altContact_waLabel": "WhatsApp Us",
+  "altContact_waLink": "https://wa.me/6281234567890",
+  "altContact_emailLabel": "Send Email",
+  "altContact_emailLink": "mailto:hello@marelunebali.com"
 }

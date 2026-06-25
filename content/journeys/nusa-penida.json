@@ -9,11 +9,37 @@
   "duration": "1 Day Trip",
   "idealFor": "Couples, families, content trips",
   "transport": "Private Yacht",
+  "capacity": "Up to 12 guests",
   "image": "/uploads/marelune-assets/IMG-20260602-WA0083.jpg",
+  "imageAlt": "Private yacht sailing to Nusa Penida with stunning cliff views",
+  "gallery": [
+    "/uploads/marelune-assets/IMG-20260602-WA0083.jpg",
+    "/uploads/marelune-assets/IMG-20260602-WA0078.jpg",
+    "/uploads/marelune-assets/IMG-20260602-WA0077.jpg"
+  ],
   "highlights": [
-    "Private route planning",
-    "Island-view cruising",
-    "Swimming and photo stops",
-    "Onboard hospitality"
-  ]
+    "Private route planning with local insights",
+    "Island-view cruising along Nusa Penida coast",
+    "Swimming stops at Crystal Bay and Angel's Billabong",
+    "Photo opportunities at iconic cliff viewpoints",
+    "Professional onboard hospitality throughout the day"
+  ],
+  "inclusions": [
+    "Private yacht with captain and crew",
+    "All meals and refreshments onboard",
+    "Swimming and snorkeling equipment",
+    "Towels and basic amenities",
+    "Professional photography moments"
+  ],
+  "tips": [
+    "Apply reef-safe sunscreen before departure",
+    "Bring a light jacket for the return journey",
+    "Motion sickness tablets recommended for sensitive guests"
+  ],
+  "seoTitle": "Nusa Penida Private Yacht Charter | Marelune Bali",
+  "seoDescription": "Book a private yacht to Nusa Penida from Bali. Full-day charter with swimming stops, cliff views, and premium onboard experience. Starting from Rp18.500.000.",
+  "keywords": "nusa penida yacht, private yacht bali, nusa penida trip, bali boat charter",
+  "relatedJourneys": ["nusa-dua", "gili-trawangan", "uluwatu"],
+  "isActive": true,
+  "isFeatured": true
 }

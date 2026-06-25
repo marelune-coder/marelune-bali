@@ -4,16 +4,42 @@
   "order": 2,
   "location": "Nusa Dua",
   "summary": "A smoother coastal charter for sunset, intimate celebrations, and relaxed onboard moments.",
-  "description": "Designed for guests who want a premium sea experience without a long crossing. Ideal for birthdays, proposals, and golden-hour cruising.",
+  "description": "Perfect for sunset lovers, this shorter charter cruises the calm waters off Nusa Dua, offering golden hour views and a peaceful atmosphere for couples or small groups.",
   "price": "From Rp12.500.000",
   "duration": "3-4 Hours",
   "idealFor": "Sunset, proposal, birthday",
   "transport": "Private Yacht",
+  "capacity": "Up to 8 guests",
   "image": "/uploads/marelune-assets/IMG-20260602-WA0078.jpg",
+  "imageAlt": "Luxury yacht at sunset near Nusa Dua Bali",
+  "gallery": [
+    "/uploads/marelune-assets/IMG-20260602-WA0078.jpg",
+    "/uploads/marelune-assets/IMG-20260602-WA0061.jpg",
+    "/uploads/marelune-assets/IMG-20260602-WA0067.jpg"
+  ],
   "highlights": [
-    "Shorter route",
-    "Sunset timing",
-    "Celebration setup",
-    "Easy guest logistics"
-  ]
+    "Sunset cruise along Bali's southern coast",
+    "Calm waters perfect for swimming",
+    "Romantic onboard setup available",
+    "Champagne and celebration arrangements",
+    "Return to harbor as the stars appear"
+  ],
+  "inclusions": [
+    "Private yacht with captain",
+    "Welcome drinks and light snacks",
+    "Swimming equipment",
+    "Towels provided",
+    "Celebration setup (upon request)"
+  ],
+  "tips": [
+    "Best experienced during dry season (April-October)",
+    "Arrive 30 minutes before departure",
+    "Dress comfortably for sunset photography"
+  ],
+  "seoTitle": "Nusa Dua Sunset Yacht Charter | Marelune Bali",
+  "seoDescription": "Book a sunset yacht charter in Nusa Dua, Bali. Romantic 3-4 hour cruise with golden hour views. Perfect for proposals and celebrations. From Rp12.500.000.",
+  "keywords": "nusa dua sunset yacht, bali sunset cruise, romantic yacht bali, nusa dua boat",
+  "relatedJourneys": ["nusa-penida", "uluwatu", "private-events"],
+  "isActive": true,
+  "isFeatured": true
 }

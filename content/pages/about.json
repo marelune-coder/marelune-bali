@@ -5,33 +5,45 @@
   "hero_title": "ABOUT US",
   "hero_subtitle": "We turn Bali sea days into private, well-composed journeys with local route knowledge and premium service standards.",
   "hero_image": "/uploads/marelune-assets/IMG-20260602-WA0066.jpg",
+  "hero_ctaLabel": "Book Your Trip",
+  "hero_ctaHref": "/book/",
 
-  "story_eyebrow": "Journeys",
+  "story_eyebrow": "Our Story",
   "story_title": "Built for guests who want calm luxury",
   "story_body": "Marelune Bali exists for travelers who want the ocean experience to feel handled, beautiful, and personal. The focus is simple: clear options, fast confirmation, refined presentation, and routes that make sense for Bali's real conditions.",
+  "story_image": "/uploads/marelune-assets/IMG-20260602-WA0066.jpg",
 
+  "team_eyebrow": "Meet the Team",
+  "team_title": "People behind your perfect sea day",
   "team": [
-    { "name": "Raka Aditya", "role": "Journey Consultant" },
-    { "name": "Maya Prameswari", "role": "Guest Experience Lead" },
-    { "name": "Dewa Mahendra", "role": "Route Coordinator" }
+    { "name": "Raka Aditya", "role": "Journey Consultant", "bio": "Local route expert with deep knowledge of Bali's waters.", "image": "/uploads/marelune-assets/IMG-20260602-WA0051.jpg", "linkedin": "" },
+    { "name": "Maya Prameswari", "role": "Guest Experience Lead", "bio": "Ensures every guest feels attended to from first inquiry to return.", "image": "/uploads/marelune-assets/IMG-20260602-WA0061.jpg", "linkedin": "" },
+    { "name": "Dewa Mahendra", "role": "Route Coordinator", "bio": "Coordinates logistics and timing for smooth sailing experiences.", "image": "/uploads/marelune-assets/IMG-20260602-WA0067.jpg", "linkedin": "" }
   ],
 
+  "values_eyebrow": "Our Values",
+  "values_title": "What guides every journey",
+  "values": [
+    { "title": "Local Knowledge", "text": "Deep understanding of Bali's routes, tides, and hidden gems.", "icon": "fa-map-marked-alt" },
+    { "title": "Premium Service", "text": "Every detail handled with care and professional standards.", "icon": "fa-concierge-bell" },
+    { "title": "Clear Communication", "text": "Honest timelines, transparent pricing, and responsive updates.", "icon": "fa-comments" },
+    { "title": "Flexible Planning", "text": "Routes adapt to weather, preferences, and sea conditions.", "icon": "fa-sync-alt" }
+  ],
+
+  "faq_eyebrow": "Common Questions",
+  "faq_title": "People ask before they request a private yacht",
+  "faq_body": "Quick answers to help you prepare for your sea day.",
+
   "faq": [
-    {
-      "question": "How do I book?",
-      "answer": "Choose a preferred route or package, submit the booking form, and the team will confirm availability by WhatsApp."
-    },
-    {
-      "question": "Can the trip be customized?",
-      "answer": "Yes. Date, route, guest count, celebration setup, and yacht tier can be adjusted after the first request."
-    },
-    {
-      "question": "What should I prepare?",
-      "answer": "Prepare your desired date, number of guests, preferred departure area, and occasion details if the trip is for a celebration."
-    },
-    {
-      "question": "Is payment handled on the website?",
-      "answer": "Not yet. The website captures leads and routes the request to the team for manual confirmation and payment instructions."
-    }
-  ]
+    { "question": "How do I book?", "answer": "Choose a preferred route or package, submit the booking form, and the team will confirm availability by WhatsApp." },
+    { "question": "Can the trip be customized?", "answer": "Yes. Date, route, guest count, celebration setup, and yacht tier can be adjusted after the first request." },
+    { "question": "What should I prepare?", "answer": "Prepare your desired date, number of guests, preferred departure area, and occasion details if the trip is for a celebration." },
+    { "question": "Is payment handled on the website?", "answer": "Not yet. The website captures leads and routes the request to the team for manual confirmation and payment instructions." }
+  ],
+
+  "cta_eyebrow": "Ready to Sail",
+  "cta_title": "Let us plan your perfect sea day",
+  "cta_body": "Tell us your vision and we'll make it happen.",
+  "cta_buttonLabel": "Start Planning",
+  "cta_buttonHref": "/book/"
 }

@@ -4,16 +4,42 @@
   "order": 5,
   "location": "Custom Route",
   "summary": "Fully customized yacht charter for proposals, birthdays, weddings, or corporate events.",
-  "description": "Tell us your vision and we'll design every detail — from route to decorations to photography. Premium service for your special occasion.",
+  "description": "Tell us your vision and we'll design every detail — from route to decorations to photography. Premium service for your special occasion. Whether it's a marriage proposal on the water or a corporate retreat, we make it unforgettable.",
   "price": "Custom Quote",
   "duration": "Flexible",
   "idealFor": "Proposals, weddings, birthdays, corporate events",
   "transport": "Premium Yacht",
+  "capacity": "Up to 20 guests",
   "image": "/uploads/marelune-assets/IMG-20260602-WA0078.jpg",
+  "imageAlt": "Romantic sunset setup on private yacht for special occasions",
+  "gallery": [
+    "/uploads/marelune-assets/IMG-20260602-WA0078.jpg",
+    "/uploads/marelune-assets/IMG-20260602-WA0061.jpg",
+    "/uploads/marelune-assets/IMG-20260602-WA0073.jpg"
+  ],
   "highlights": [
-    "Fully customizable route & timing",
-    "Professional photographer coordination",
-    "Decoration & florals arrangement",
-    "Dedicated event coordinator"
-  ]
+    "Fully customizable route and timing",
+    "Professional photographer and videographer coordination",
+    "Decoration and florals arrangement",
+    "Dedicated event coordinator onboard",
+    "Special dining experiences available"
+  ],
+  "inclusions": [
+    "Premium yacht with dedicated crew",
+    "Event planning consultation",
+    "Basic decoration package",
+    "Photography coordination",
+    "Customizable catering options"
+  ],
+  "tips": [
+    "Book at least 4 weeks in advance for custom events",
+    "We accept special requests - just ask",
+    "Corporate events get dedicated event manager"
+  ],
+  "seoTitle": "Private Yacht Events & Celebrations | Marelune Bali",
+  "seoDescription": "Book a private yacht for your special occasion in Bali. Proposals, birthdays, weddings on yacht - we handle every detail. Custom charter with premium service.",
+  "keywords": "yacht proposal bali, yacht birthday bali, yacht wedding bali, corporate yacht bali",
+  "relatedJourneys": ["nusa-dua", "nusa-penida", "uluwatu"],
+  "isActive": true,
+  "isFeatured": true
 }

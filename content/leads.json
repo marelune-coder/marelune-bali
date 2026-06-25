@@ -3,6 +3,7 @@
   "successMessage": "Request received! Marelune will follow up via WhatsApp within 24 hours.",
   "fallbackMessage": "Preview mode: please continue via WhatsApp.",
   "submitLabel": "Request Private Charter",
+  "errorMessage": "Something went wrong. Please try again or contact us directly via WhatsApp.",
 
   "fields": [
     {

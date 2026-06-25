@@ -2,34 +2,73 @@
   "brand": "Marelune Bali",
   "domain": "https://marelunebali.com",
   "description": "Private yacht charter agency in Bali for intimate celebrations, island escapes, and premium sea experiences.",
+
   "logo": "/uploads/marelune-assets/Logo%20MB%20Putih.png",
+  "logoAlt": "Marelune Bali Logo",
+
   "contact_email": "hello@marelunebali.com",
   "contact_phone": "+62 812 3456 7890",
   "contact_whatsapp": "6281234567890",
   "contact_location": "Nusa Dua, Bali",
-  "seoKeywords": "private yacht Bali, yacht charter Bali, sewa yacht Bali, Nusa Penida yacht, Nusa Dua yacht, Bali honeymoon yacht, Bali private charter",
-  "nav": [
-    { "label": "Home", "href": "/" },
-    { "label": "Journeys", "href": "/journeys/" },
-    { "label": "Journal", "href": "/journal/" },
-    { "label": "About us", "href": "/about/" }
-  ],
+  "contact_address": "Nusa Dua, Bali, Indonesia",
+
   "socials": [
-    { "label": "Instagram", "href": "https://instagram.com/" },
-    { "label": "Facebook", "href": "https://facebook.com/" },
-    { "label": "TikTok", "href": "https://tiktok.com/" }
+    { "platform": "Instagram", "label": "Instagram", "url": "https://instagram.com/marelunebali", "icon": "fa-instagram" },
+    { "platform": "Facebook", "label": "Facebook", "url": "https://facebook.com/marelunebali", "icon": "fa-facebook" },
+    { "platform": "TikTok", "label": "TikTok", "url": "https://tiktok.com/@marelunebali", "icon": "fa-tiktok" }
   ],
+
+  "nav": [
+    { "label": "Home", "href": "/", "order": 1 },
+    { "label": "Journeys", "href": "/journeys/", "order": 2 },
+    { "label": "Journal", "href": "/journal/", "order": 3 },
+    { "label": "About us", "href": "/about/", "order": 4 }
+  ],
+
+  "footerLinks": [
+    {
+      "section": "Navigate",
+      "links": [
+        { "label": "Home", "href": "/" },
+        { "label": "Journeys", "href": "/journeys/" },
+        { "label": "Journal", "href": "/journal/" },
+        { "label": "About us", "href": "/about/" }
+      ]
+    },
+    {
+      "section": "Services",
+      "links": [
+        { "label": "Private Yacht Charter", "href": "/journeys/nusa-penida/" },
+        { "label": "Sunset Charter", "href": "/journeys/nusa-dua/" },
+        { "label": "Island Escape", "href": "/journeys/gili-trawangan/" },
+        { "label": "Book Now", "href": "/book/" }
+      ]
+    },
+    {
+      "section": "Contact",
+      "links": [
+        { "label": "WhatsApp", "href": "https://wa.me/6281234567890" },
+        { "label": "Email Us", "href": "mailto:hello@marelunebali.com" },
+        { "label": "Nusa Dua, Bali", "href": "#" }
+      ]
+    }
+  ],
+
   "heroCategories": [
-    { "label": "Nusa Penida", "caption": "Crystal bay . cliffs" },
-    { "label": "Nusa Dua", "caption": "Calm water . sunset" },
-    { "label": "Gili Islands", "caption": "Blue lagoon . escape" },
-    { "label": "Uluwatu", "caption": "Cliffside . golden hour" },
-    { "label": "Private Event", "caption": "Proposal . celebration" }
+    { "label": "Nusa Penida", "caption": "Crystal bay . cliffs", "href": "/journeys/nusa-penida/" },
+    { "label": "Nusa Dua", "caption": "Calm water . sunset", "href": "/journeys/nusa-dua/" },
+    { "label": "Gili Islands", "caption": "Blue lagoon . escape", "href": "/journeys/gili-trawangan/" },
+    { "label": "Uluwatu", "caption": "Cliffside . golden hour", "href": "/journeys/uluwatu/" },
+    { "label": "Private Event", "caption": "Proposal . celebration", "href": "/journeys/private-events/" }
   ],
+
   "ticker": [
     "Travel Better",
     "Unforgettable Stays",
     "Explore More",
     "Reserve Now"
-  ]
+  ],
+
+  "seoKeywords": "private yacht Bali, yacht charter Bali, sewa yacht Bali, Nusa Penida yacht, Nusa Dua yacht, Bali honeymoon yacht, Bali private charter",
+  "seoDescription": "Book private yacht journeys across Bali with curated routes, premium hospitality, and fast WhatsApp confirmation."
 }

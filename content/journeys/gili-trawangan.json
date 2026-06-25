@@ -4,16 +4,42 @@
   "order": 3,
   "location": "Gili Trawangan",
   "summary": "A longer blue-water escape for guests seeking a more adventurous private yacht route.",
-  "description": "An extended yacht journey for island-hopping energy, clear water, and a more exclusive offshore feel.",
+  "description": "An extended yacht journey for island-hopping energy, clear water, and a more exclusive offshore feel. Perfect for guests who want to go beyond Bali's coast and experience the famous Gili Islands.",
   "price": "Custom Quote",
   "duration": "Full Day / Custom",
   "idealFor": "Groups, adventure, island escape",
   "transport": "Private Yacht",
+  "capacity": "Up to 15 guests",
   "image": "/uploads/marelune-assets/IMG-20260602-WA0077.jpg",
+  "imageAlt": "Private yacht anchored at Gili Trawangan with crystal clear waters",
+  "gallery": [
+    "/uploads/marelune-assets/IMG-20260602-WA0077.jpg",
+    "/uploads/marelune-assets/IMG-20260602-WA0051.jpg",
+    "/uploads/marelune-assets/IMG-20260602-WA0067.jpg"
+  ],
   "highlights": [
-    "Custom timing",
-    "Longer cruising route",
-    "Group-friendly",
-    "Premium itinerary planning"
-  ]
+    "Crossing to Gili Islands for a full day adventure",
+    "Snorkeling at Gili's famous coral gardens",
+    "Beach bar stop at Gili Trawangan",
+    "Island-hopping between Gili Air, Meno, and Trawangan",
+    "Fresh seafood lunch on the island"
+  ],
+  "inclusions": [
+    "Private yacht with experienced captain",
+    "All meals and refreshments",
+    "Snorkeling equipment provided",
+    "Island transfer coordination",
+    "Flexible itinerary based on preferences"
+  ],
+  "tips": [
+    "Best season is April-October for calm seas",
+    "Bring underwater camera for memories",
+    "Book at least 2 weeks in advance for this route"
+  ],
+  "seoTitle": "Gili Trawangan Yacht Charter from Bali | Marelune Bali",
+  "seoDescription": "Book a private yacht to Gili Trawangan from Bali. Full-day island escape with snorkeling, beach stops, and crystal clear waters. Custom charter experience.",
+  "keywords": "gili trawangan yacht, bali to gili yacht, gili islands boat, private yacht bali",
+  "relatedJourneys": ["nusa-penida", "nusa-dua", "private-events"],
+  "isActive": true,
+  "isFeatured": false
 }

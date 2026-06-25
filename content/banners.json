@@ -1,0 +1,22 @@
+{
+  "heroSlider": [
+    {
+      "image": "/uploads/marelune-assets/IMG-20260602-WA0078.jpg",
+      "imageAlt": "Luxury yacht sailing at sunset in Bali",
+      "title": "Private Yacht Bali",
+      "subtitle": "Unforgettable sea experiences",
+      "ctaLabel": "Explore Routes",
+      "ctaHref": "/journeys/",
+      "isActive": true
+    }
+  ],
+
+  "announcementBar": {
+    "isActive": false,
+    "text": "New Routes Available for 2026",
+    "ctaLabel": "View All",
+    "ctaHref": "/journeys/",
+    "bgColor": "#03182b",
+    "textColor": "#ffffff"
+  }
+}

@@ -1,13 +1,24 @@
 {
   "title": "Marelune Bali - Private Yacht Agency",
   "description": "Book private yacht journeys across Bali with curated routes, premium hospitality, and fast WhatsApp confirmation.",
+  "keywords": "private yacht Bali, yacht charter Bali, sewa yacht Bali, Nusa Penida yacht, Nusa Dua yacht",
 
   "hero_title": "MARELUNE",
   "hero_subtitle": "Private yacht journeys across Bali, curated for quiet luxury, clear water, and moments worth keeping.",
   "hero_ctaLabel": "Book Your Trip",
   "hero_ctaHref": "/book/",
   "hero_image": "/uploads/marelune-assets/IMG-20260602-WA0078.jpg",
+  "hero_imageAlt": "Luxury yacht sailing on Bali waters at sunset",
 
+  "heroCategories": [
+    { "label": "Nusa Penida", "caption": "Crystal bay . cliffs", "href": "/journeys/nusa-penida/" },
+    { "label": "Nusa Dua", "caption": "Calm water . sunset", "href": "/journeys/nusa-dua/" },
+    { "label": "Gili Islands", "caption": "Blue lagoon . escape", "href": "/journeys/gili-trawangan/" },
+    { "label": "Uluwatu", "caption": "Cliffside . golden hour", "href": "/journeys/uluwatu/" },
+    { "label": "Private Event", "caption": "Proposal . celebration", "href": "/journeys/private-events/" }
+  ],
+
+  "trust_eyebrow": "Trusted by Travelers",
   "trust_rating": "4.9/5",
   "trust_text": "Trusted planning experience for couples, families, and private groups.",
   "trust_avatars": [
@@ -36,26 +47,10 @@
   "stepsSection_body": "A simple booking flow that keeps the experience premium without adding friction.",
 
   "steps": [
-    {
-      "number": "01",
-      "title": "Discuss Vision",
-      "text": "Share your date, guest count, preferred route, and occasion."
-    },
-    {
-      "number": "02",
-      "title": "We Plan",
-      "text": "Marelune suggests the best yacht tier, timing, and route setup."
-    },
-    {
-      "number": "03",
-      "title": "Confirm Trip",
-      "text": "Availability, package details, and payment instructions are confirmed by WhatsApp."
-    },
-    {
-      "number": "04",
-      "title": "Begin Journey",
-      "text": "Arrive with the details already handled and the onboard mood already shaped."
-    }
+    { "number": "01", "title": "Discuss Vision", "text": "Share your date, guest count, preferred route, and occasion.", "icon": "fa-comments" },
+    { "number": "02", "title": "We Plan", "text": "Marelune suggests the best yacht tier, timing, and route setup.", "icon": "fa-map-marked-alt" },
+    { "number": "03", "title": "Confirm Trip", "text": "Availability, package details, and payment instructions are confirmed by WhatsApp.", "icon": "fa-check-circle" },
+    { "number": "04", "title": "Begin Journey", "text": "Arrive with the details already handled and the onboard mood already shaped.", "icon": "fa-anchor" }
   ],
 
   "servicesSection_eyebrow": "Curated Services",
@@ -126,36 +121,12 @@
   "whySection_body": "Trust signals that should stay visible without making the homepage feel busy.",
 
   "why": [
-    {
-      "title": "Expert Guidance",
-      "text": "Bali-specific route advice before guests commit.",
-      "image": "/uploads/marelune-assets/IMG-20260602-WA0038.jpg"
-    },
-    {
-      "title": "Fast Support",
-      "text": "Leads move quickly into WhatsApp follow-up.",
-      "image": "/uploads/marelune-assets/IMG-20260602-WA0052.jpg"
-    },
-    {
-      "title": "Private Journeys",
-      "text": "The trip is framed around guest mood and occasion.",
-      "image": "/uploads/marelune-assets/IMG-20260602-WA0053.jpg"
-    },
-    {
-      "title": "Flexible Plans",
-      "text": "Routes can adapt around timing and sea conditions.",
-      "image": "/uploads/marelune-assets/IMG-20260602-WA0034.jpg"
-    },
-    {
-      "title": "Global Reach",
-      "text": "English-first content makes international guests feel understood.",
-      "image": "/uploads/marelune-assets/IMG-20260602-WA0033.jpg"
-    },
-    {
-      "title": "Safe Booking Flow",
-      "text": "The website captures details before manual confirmation.",
-      "image": "/uploads/marelune-assets/IMG-20260602-WA0074.jpg"
-    }
+    { "title": "Expert Guidance", "text": "Bali-specific route advice before guests commit.", "image": "/uploads/marelune-assets/IMG-20260602-WA0038.jpg" },
+    { "title": "Fast Support", "text": "Leads move quickly into WhatsApp follow-up.", "image": "/uploads/marelune-assets/IMG-20260602-WA0052.jpg" },
+    { "title": "Private Journeys", "text": "The trip is framed around guest mood and occasion.", "image": "/uploads/marelune-assets/IMG-20260602-WA0053.jpg" },
+    { "title": "Flexible Plans", "text": "Routes can adapt around timing and sea conditions.", "image": "/uploads/marelune-assets/IMG-20260602-WA0034.jpg" },
+    { "title": "Global Reach", "text": "English-first content makes international guests feel understood.", "image": "/uploads/marelune-assets/IMG-20260602-WA0033.jpg" },
+    { "title": "Safe Booking Flow", "text": "The website captures details before manual confirmation.", "image": "/uploads/marelune-assets/IMG-20260602-WA0074.jpg" }
   ],
 
   "testimonialsSection_eyebrow": "Testimonials",
@@ -186,27 +157,23 @@
   "faqSection_body": "Useful answers before a guest sends a booking request.",
 
   "faq": [
-    {
-      "question": "How do I book?",
-      "answer": "Submit the request form with your preferred date, route, and guest count. The Marelune team will follow up on WhatsApp."
-    },
-    {
-      "question": "Can the route be customized?",
-      "answer": "Yes. Route, timing, onboard mood, yacht tier, and celebration setup can be adjusted after consultation."
-    },
-    {
-      "question": "Is payment handled on the website?",
-      "answer": "Not yet. The website captures qualified leads, then the team confirms availability and payment instructions manually."
-    },
-    {
-      "question": "Which route should I choose?",
-      "answer": "Nusa Penida is best for scenery, Nusa Dua for shorter sunset moments, and Gili for a longer blue-water escape."
-    }
+    { "question": "How do I book?", "answer": "Submit the request form with your preferred date, route, and guest count. The Marelune team will follow up on WhatsApp." },
+    { "question": "Can the route be customized?", "answer": "Yes. Route, timing, onboard mood, yacht tier, and celebration setup can be adjusted after consultation." },
+    { "question": "Is payment handled on the website?", "answer": "Not yet. The website captures qualified leads, then the team confirms availability and payment instructions manually." },
+    { "question": "Which route should I choose?", "answer": "Nusa Penida is best for scenery, Nusa Dua for shorter sunset moments, and Gili for a longer blue-water escape." }
   ],
 
+  "newsletter_eyebrow": "Stay Updated",
   "newsletter_title": "STAY UPDATED",
   "newsletter_body": "Receive new Bali yacht guides, route notes, and quiet-luxury travel ideas.",
   "newsletter_placeholder": "Email address",
   "newsletter_buttonLabel": "Subscribe",
-  "newsletter_image": "/uploads/marelune-assets/IMG-20260602-WA0033.jpg"
+  "newsletter_image": "/uploads/marelune-assets/IMG-20260602-WA0033.jpg",
+
+  "cta_eyebrow": "Ready to Sail",
+  "cta_title": "Ready to shape your private Bali sea day?",
+  "cta_body": "Send your preferred date and route. The team will follow up with availability and the right yacht option.",
+  "cta_buttonLabel": "Book Your Trip",
+  "cta_buttonHref": "/book/",
+  "cta_image": "/uploads/marelune-assets/IMG-20260602-WA0064.jpg"
 }

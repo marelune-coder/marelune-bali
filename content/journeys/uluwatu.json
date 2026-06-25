@@ -4,16 +4,42 @@
   "order": 4,
   "location": "Uluwatu",
   "summary": "Dramatic clifftop temples, surf breaks, and the best sunset views in southern Bali.",
-  "description": "Sail toward Uluwatu's iconic sea temple, discover hidden surf spots, and end with a magical sunset viewing experience.",
+  "description": "Sail toward Uluwatu's iconic sea temple, discover hidden surf spots, and end with a magical sunset viewing experience. This route combines cultural significance with natural beauty.",
   "price": "From Rp14.500.000",
   "duration": "5-6 Hours",
   "idealFor": "Sunset lovers, photographers, surfers",
   "transport": "Private Yacht",
+  "capacity": "Up to 10 guests",
   "image": "/uploads/marelune-assets/IMG-20260602-WA0045.jpg",
+  "imageAlt": "Yacht cruising past Uluwatu temple cliffs at golden hour",
+  "gallery": [
+    "/uploads/marelune-assets/IMG-20260602-WA0045.jpg",
+    "/uploads/marelune-assets/IMG-20260602-WA0078.jpg",
+    "/uploads/marelune-assets/IMG-20260602-WA0064.jpg"
+  ],
   "highlights": [
-    "Uluwatu Temple sea-level approach",
-    "Hidden bay swimming spots",
-    "Cliff panorama viewpoints",
-    "Sunset Kecak fire dance viewing"
-  ]
+    "Sea-level approach to Uluwatu Temple",
+    "Discover hidden swimming coves along the cliffs",
+    "Pass by famous surf breaks",
+    "Sunset viewing with panoramic cliff panorama",
+    "Optional Kecak fire dance viewing at Uluwatu Temple"
+  ],
+  "inclusions": [
+    "Private yacht with captain",
+    "Refreshments and light snacks",
+    "Swimming equipment",
+    "Towels provided",
+    "Photography moments throughout"
+  ],
+  "tips": [
+    "Bring a light cover-up for temple visits",
+    "Best sunset views from October-March",
+    "Camera essential for the dramatic scenery"
+  ],
+  "seoTitle": "Uluwatu Sunset Yacht Charter from Bali | Marelune Bali",
+  "seoDescription": "Book a yacht to Uluwatu from Bali. Cruise past the famous sea temple, hidden beaches, and enjoy the best sunset views in southern Bali. From Rp14.500.000.",
+  "keywords": "uluwatu yacht, bali sunset cruise, uluwatu temple boat, surf trip bali",
+  "relatedJourneys": ["nusa-dua", "nusa-penida", "private-events"],
+  "isActive": true,
+  "isFeatured": false
 }

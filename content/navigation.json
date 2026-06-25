@@ -1,0 +1,51 @@
+{
+  "headerNav": [
+    { "label": "Home", "href": "/", "order": 1 },
+    { "label": "Journeys", "href": "/journeys/", "order": 2 },
+    { "label": "Journal", "href": "/journal/", "order": 3 },
+    { "label": "About us", "href": "/about/", "order": 4 }
+  ],
+
+  "footerNav": [
+    {
+      "section": "Explore",
+      "links": [
+        { "label": "Home", "href": "/" },
+        { "label": "All Journeys", "href": "/journeys/" },
+        { "label": "Journal", "href": "/journal/" },
+        { "label": "About Us", "href": "/about/" }
+      ]
+    },
+    {
+      "section": "Popular Routes",
+      "links": [
+        { "label": "Nusa Penida", "href": "/journeys/nusa-penida/" },
+        { "label": "Nusa Dua Sunset", "href": "/journeys/nusa-dua/" },
+        { "label": "Gili Islands", "href": "/journeys/gili-trawangan/" },
+        { "label": "Uluwatu", "href": "/journeys/uluwatu/" }
+      ]
+    },
+    {
+      "section": "Services",
+      "links": [
+        { "label": "Private Charter", "href": "/journeys/" },
+        { "label": "Special Events", "href": "/journeys/private-events/" },
+        { "label": "Book Now", "href": "/book/" }
+      ]
+    },
+    {
+      "section": "Contact",
+      "links": [
+        { "label": "WhatsApp Us", "href": "https://wa.me/6281234567890" },
+        { "label": "Email Us", "href": "mailto:hello@marelunebali.com" },
+        { "label": "Nusa Dua, Bali", "href": "#" }
+      ]
+    }
+  ],
+
+  "socialLinks": [
+    { "platform": "Instagram", "url": "https://instagram.com/marelunebali", "icon": "fa-instagram" },
+    { "platform": "Facebook", "url": "https://facebook.com/marelunebali", "icon": "fa-facebook" },
+    { "platform": "TikTok", "url": "https://tiktok.com/@marelunebali", "icon": "fa-tiktok" }
+  ]
+}
