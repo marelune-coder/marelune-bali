@@ -1,0 +1,167 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site } from '../../data/content.js';
+
+export async function getStaticPaths() {
+  const fleetModules = import.meta.glob('../../content/fleet/*.json', { eager: true });
+  const yachts = Object.values(fleetModules).map((module) => module.default ?? module);
+
+  return yachts.map((yacht) => ({
+    params: { slug: yacht.slug },
+    props: { yacht }
+  }));
+}
+
+const { yacht } = Astro.props;
+if (!yacht) {
+  throw new Error('Yacht not found');
+}
+---
+<BaseLayout site={site} title={`${yacht.name} | Marelune Fleet`} description={yacht.summary} image={yacht.image} currentPath={`/fleet/${yacht.slug}/`}>
+  <section class="hero">
+    <img class="hero-bg" src={yacht.image || "/uploads/marelune-assets/IMG-20260602-WA0078.jpg"} alt={yacht.name} />
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="eyebrow">{yacht.type}</span>
+      <h1>{yacht.name}</h1>
+      <p>{yacht.tagline}</p>
+      <a class="button button-glass" href="/book/">Book This Yacht</a>
+    </div>
+  </section>
+
+  <section class="section yacht-detail">
+    <div class="yacht-overview">
+      <div class="overview-content">
+        <span class="eyebrow">About This Yacht</span>
+        <h2>{yacht.summary}</h2>
+        <p>{yacht.description}</p>
+        <div class="yacht-capacity">
+          <div class="capacity-item">
+            <span class="capacity-label">Day Charter</span>
+            <span class="capacity-value">{yacht.capacity?.day || "Contact us"}</span>
+          </div>
+          {yacht.capacity?.night && (
+            <div class="capacity-item">
+              <span class="capacity-label">Overnight</span>
+              <span class="capacity-value">{yacht.capacity.night}</span>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+
+    <div class="yacht-specs-full">
+      <h3>Technical Specifications</h3>
+      <dl class="specs-grid">
+        <div class="spec-row">
+          <dt>Type</dt>
+          <dd>{yacht.specifications?.type || "-"}</dd>
+        </div>
+        <div class="spec-row">
+          <dt>Length</dt>
+          <dd>{yacht.specifications?.length || "-"}</dd>
+        </div>
+        <div class="spec-row">
+          <dt>Width</dt>
+          <dd>{yacht.specifications?.width || "-"}</dd>
+        </div>
+        <div class="spec-row">
+          <dt>Engine</dt>
+          <dd>{yacht.specifications?.machine || "-"}</dd>
+        </div>
+        <div class="spec-row">
+          <dt>Fuel Capacity</dt>
+          <dd>{yacht.specifications?.fuel || "-"}</dd>
+        </div>
+        <div class="spec-row">
+          <dt>Water Capacity</dt>
+          <dd>{yacht.specifications?.water || "-"}</dd>
+        </div>
+        <div class="spec-row">
+          <dt>Navigation</dt>
+          <dd>{yacht.specifications?.navigation || "-"}</dd>
+        </div>
+      </dl>
+    </div>
+
+    <div class="yacht-features">
+      <div class="feature-col">
+        <h3>Onboard Facilities</h3>
+        <ul class="feature-list">
+          {yacht.facilities?.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+      <div class="feature-col">
+        <h3>Available Activities</h3>
+        <ul class="feature-list">
+          {yacht.activities?.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+      <div class="feature-col">
+        <h3>Safety Equipment</h3>
+        <ul class="feature-list">
+          {yacht.safety?.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+    </div>
+
+    <div class="yacht-pricing-full">
+      <h3>Pricing</h3>
+      <div class="pricing-table">
+        {yacht.pricing?.map((item) => (
+          <div class="pricing-row">
+            <div class="pricing-route">
+              <span class="route-name">{item.route}</span>
+              <span class="route-duration">{item.duration}</span>
+            </div>
+            <span class="pricing-price">{item.price}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="yacht-included">
+      <h3>What's Included</h3>
+      <ul class="included-list">
+        {yacht.included?.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+
+    <div class="yacht-optional">
+      <h3>Optional Extras</h3>
+      <ul class="optional-list">
+        {yacht.optionalExtras?.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+
+    <div class="yacht-policies">
+      <div class="policy-section">
+        <h3>Payment Policy</h3>
+        <ul class="policy-list">
+          <li><strong>Deposit:</strong> {yacht.paymentPolicy?.deposit}</li>
+          <li><strong>Full Payment:</strong> {yacht.paymentPolicy?.fullPayment}</li>
+          <li><strong>Currency:</strong> {yacht.paymentPolicy?.currency}</li>
+          <li><strong>Bank Fees:</strong> {yacht.paymentPolicy?.fees}</li>
+        </ul>
+      </div>
+      <div class="policy-section">
+        <h3>Cancellation Policy</h3>
+        <ul class="policy-list">
+          <li><strong>Low Season:</strong> {yacht.cancellationPolicy?.lowSeason}</li>
+          <li><strong>High Season:</strong> {yacht.cancellationPolicy?.highSeason}</li>
+          <li><strong>Within 7 Days:</strong> {yacht.cancellationPolicy?.withinWeek}</li>
+          <li><strong>Weather Conditions:</strong> {yacht.cancellationPolicy?.weather}</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta-section">
+    <div>
+      <span class="eyebrow">Ready to Charter</span>
+      <h2>Book {yacht.name}</h2>
+      <p>Ready to experience {yacht.name}? Submit your request and our team will prepare a customized charter package for you.</p>
+    </div>
+    <a class="button button-light" href={`/book/?yacht=${yacht.slug}`}>Request Charter</a>
+  </section>
+</BaseLayout>

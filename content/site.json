@@ -20,27 +20,37 @@
 
   "nav": [
     { "label": "Home", "href": "/", "order": 1 },
-    { "label": "Journeys", "href": "/journeys/", "order": 2 },
-    { "label": "Journal", "href": "/journal/", "order": 3 },
-    { "label": "About us", "href": "/about/", "order": 4 }
+    { "label": "Our Fleet", "href": "/fleet/", "order": 2 },
+    { "label": "Journeys", "href": "/journeys/", "order": 3 },
+    { "label": "Journal", "href": "/journal/", "order": 4 },
+    { "label": "About us", "href": "/about/", "order": 5 }
   ],
 
   "footerLinks": [
     {
-      "section": "Navigate",
+      "section": "Explore",
       "links": [
         { "label": "Home", "href": "/" },
+        { "label": "Our Fleet", "href": "/fleet/" },
         { "label": "Journeys", "href": "/journeys/" },
         { "label": "Journal", "href": "/journal/" },
-        { "label": "About us", "href": "/about/" }
+        { "label": "About Us", "href": "/about/" }
+      ]
+    },
+    {
+      "section": "Our Yachts",
+      "links": [
+        { "label": "Accura 55", "href": "/fleet/accura-55/" },
+        { "label": "Accura 49", "href": "/fleet/accura-49/" },
+        { "label": "Accura 39", "href": "/fleet/accura-39/" },
+        { "label": "Lagoon 380 S", "href": "/fleet/catamaran-lagoon-380/" }
       ]
     },
     {
       "section": "Services",
       "links": [
-        { "label": "Private Yacht Charter", "href": "/journeys/nusa-penida/" },
-        { "label": "Sunset Charter", "href": "/journeys/nusa-dua/" },
-        { "label": "Island Escape", "href": "/journeys/gili-trawangan/" },
+        { "label": "Private Charter", "href": "/journeys/" },
+        { "label": "Special Events", "href": "/journeys/private-events/" },
         { "label": "Book Now", "href": "/book/" }
       ]
     },

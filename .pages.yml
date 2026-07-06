@@ -127,3 +127,40 @@ content:
       - { name: successMessage, label: Success Message, type: text }
       - { name: fallbackMessage, label: Fallback Message, type: text }
       - { name: submitLabel, label: Submit Button Text, type: string }
+
+  # ============================================================
+  # FLEET - YACHT COLLECTION
+  # ============================================================
+  - name: fleet
+    label: Our Fleet
+    type: collection
+    path: content/fleet
+    filename: "{fields.slug}.json"
+    fields:
+      - { name: name, label: Yacht Name, type: string }
+      - { name: slug, label: URL Slug, type: string }
+      - { name: order, label: Display Order, type: number }
+      - { name: type, label: Yacht Type, type: string }
+      - { name: tagline, label: Tagline, type: string }
+      - { name: summary, label: Short Summary, type: text }
+      - { name: description, label: Full Description, type: text }
+      - { name: capacityDay, label: Day Capacity, type: string }
+      - { name: capacityNight, label: Night Capacity, type: string }
+      - { name: specType, label: Hull Type, type: string }
+      - { name: specLength, label: Length, type: string }
+      - { name: specWidth, label: Width, type: string }
+      - { name: specMachine, label: Engine, type: string }
+      - { name: specFuel, label: Fuel Capacity, type: string }
+      - { name: specWater, label: Water Capacity, type: string }
+      - { name: specNavigation, label: Navigation System, type: string }
+      - { name: facilities, label: Facilities, type: text }
+      - { name: activities, label: Activities, type: text }
+      - { name: safety, label: Safety Equipment, type: text }
+      - { name: included, label: What's Included, type: text }
+      - { name: optionalExtras, label: Optional Extras, type: text }
+      - { name: pricingNotes, label: Pricing Notes, type: text }
+      - { name: paymentPolicy, label: Payment Policy, type: text }
+      - { name: cancellationPolicy, label: Cancellation Policy, type: text }
+      - { name: image, label: Yacht Image, type: image }
+      - { name: isActive, label: Active, type: boolean }
+      - { name: isFeatured, label: Featured, type: boolean }

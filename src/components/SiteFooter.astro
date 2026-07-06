@@ -9,29 +9,18 @@ const { site } = Astro.props;
       </a>
       <p>{site.description}</p>
       <div class="social-row">
-        {site.socials.map((social) => (
-          <a href={social.href} target="_blank" rel="noreferrer">{social.label}</a>
+        {site.socials?.map((social) => (
+          <a href={social.url || social.href} target="_blank" rel="noreferrer">{social.label}</a>
         ))}
       </div>
     </div>
-    <div>
-      <h3>Main Links</h3>
-      {site.nav.map((link) => (
-        <a href={link.href}>{link.label}</a>
-      ))}
-      <a href="/book/">Book a Trip</a>
-    </div>
-    <div>
-      <h3>CMS Pages</h3>
-      <a href="/journeys/">Journey collection</a>
-      <a href="/journal/">Travel journal</a>
-      <a href="/book/">Lead form</a>
-    </div>
-    <div>
-      <h3>Contact</h3>
-      <a href={`mailto:${site.contact_email}`}>{site.contact_email}</a>
-      <a href={`https://wa.me/${site.contact_whatsapp}`}>WhatsApp</a>
-      <span>{site.contact_location}</span>
-    </div>
+    {site.footerLinks?.map((section) => (
+      <div>
+        <h3>{section.section}</h3>
+        {section.links?.map((link) => (
+          <a href={link.href}>{link.label}</a>
+        ))}
+      </div>
+    ))}
   </div>
 </footer>

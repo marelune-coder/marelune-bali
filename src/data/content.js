@@ -9,6 +9,12 @@ const journeys = Object.values(journeyModules)
   .map((module) => module.default ?? module)
   .sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
 
+const fleetModules = import.meta.glob('../../content/fleet/*.json', { eager: true });
+const yachts = Object.values(fleetModules)
+  .map((module) => module.default ?? module)
+  .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
+  .filter((yacht) => yacht.isActive !== false);
+
 const postModules = import.meta.glob('../../content/blog/*.md', { eager: true });
 const posts = Object.entries(postModules)
   .map(([path, module]) => {
@@ -26,5 +32,6 @@ const posts = Object.entries(postModules)
 
 const getJourneyBySlug = (slug) => journeys.find((journey) => journey.slug === slug);
 const getPostBySlug = (slug) => posts.find((post) => post.slug === slug);
+const getYachtBySlug = (slug) => yachts.find((yacht) => yacht.slug === slug);
 
-export { site, homePage, aboutPage, bookPage, leads, journeys, posts, getJourneyBySlug, getPostBySlug };
+export { site, homePage, aboutPage, bookPage, leads, journeys, yachts, posts, getJourneyBySlug, getPostBySlug, getYachtBySlug };

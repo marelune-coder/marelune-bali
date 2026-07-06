@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FleetCard from '../../components/FleetCard.astro';
+import { site } from '../../data/content.js';
+
+const fleetModules = import.meta.glob('../../content/fleet/*.json', { eager: true });
+const yachts = Object.values(fleetModules)
+  .map((module) => module.default ?? module)
+  .sort((a, b) => (a.order ?? 99) - (b.order ?? 99))
+  .filter((yacht) => yacht.isActive !== false);
+---
+<BaseLayout site={site} title="Our Fleet | Marelune Bali" description="Explore our luxury yacht fleet in Bali. Choose from motor yachts and catamarans for your private charter experience." currentPath="/fleet/">
+  <section class="hero">
+    <img class="hero-bg" src="/uploads/marelune-assets/IMG-20260602-WA0078.jpg" alt="Our Fleet" />
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>OUR FLEET</h1>
+      <p>Premium yachts and catamarans for your perfect Bali sea day.</p>
+      <a class="button button-glass" href="/book/">Request Charter</a>
+    </div>
+  </section>
+
+  <section class="section fleet-section">
+    <div class="section-heading section-heading-center">
+      <span class="eyebrow">Yacht Collection</span>
+      <h2>Choose your perfect vessel</h2>
+      <p>From intimate gatherings to large celebrations, our fleet offers the ideal yacht for every occasion.</p>
+    </div>
+    <div class="yacht-grid">
+      {yachts.map((yacht) => <FleetCard yacht={yacht} />)}
+    </div>
+  </section>
+
+  <section class="section cta-section">
+    <div>
+      <span class="eyebrow">Ready to Sail</span>
+      <h2>Not sure which yacht is right for you?</h2>
+      <p>Tell us your group size, preferred route, and occasion. We'll recommend the perfect yacht for your needs.</p>
+    </div>
+    <a class="button button-light" href="/book/">Get Recommendations</a>
+  </section>
+</BaseLayout>
