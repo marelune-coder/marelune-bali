@@ -16,6 +16,13 @@ const { yacht } = Astro.props;
 if (!yacht) {
   throw new Error('Yacht not found');
 }
+
+// Split comma-separated strings into arrays
+const facilities = (yacht.facilities || "").split(",").map(s => s.trim()).filter(Boolean);
+const activities = (yacht.activities || "").split(",").map(s => s.trim()).filter(Boolean);
+const safety = (yacht.safety || "").split(",").map(s => s.trim()).filter(Boolean);
+const included = (yacht.included || "").split(",").map(s => s.trim()).filter(Boolean);
+const optionalExtras = (yacht.optionalExtras || "").split(",").map(s => s.trim()).filter(Boolean);
 ---
 <BaseLayout site={site} title={`${yacht.name} | Marelune Fleet`} description={yacht.summary} image={yacht.image} currentPath={`/fleet/${yacht.slug}/`}>
   <section class="hero">
@@ -38,12 +45,12 @@ if (!yacht) {
         <div class="yacht-capacity">
           <div class="capacity-item">
             <span class="capacity-label">Day Charter</span>
-            <span class="capacity-value">{yacht.capacity?.day || "Contact us"}</span>
+            <span class="capacity-value">{yacht.capacityDay || "Contact us"}</span>
           </div>
-          {yacht.capacity?.night && (
+          {yacht.capacityNight && yacht.capacityNight !== "N/A" && (
             <div class="capacity-item">
               <span class="capacity-label">Overnight</span>
-              <span class="capacity-value">{yacht.capacity.night}</span>
+              <span class="capacity-value">{yacht.capacityNight}</span>
             </div>
           )}
         </div>
@@ -55,31 +62,31 @@ if (!yacht) {
       <dl class="specs-grid">
         <div class="spec-row">
           <dt>Type</dt>
-          <dd>{yacht.specifications?.type || "-"}</dd>
+          <dd>{yacht.specType || "-"}</dd>
         </div>
         <div class="spec-row">
           <dt>Length</dt>
-          <dd>{yacht.specifications?.length || "-"}</dd>
+          <dd>{yacht.specLength || "-"}</dd>
         </div>
         <div class="spec-row">
           <dt>Width</dt>
-          <dd>{yacht.specifications?.width || "-"}</dd>
+          <dd>{yacht.specWidth || "-"}</dd>
         </div>
         <div class="spec-row">
           <dt>Engine</dt>
-          <dd>{yacht.specifications?.machine || "-"}</dd>
+          <dd>{yacht.specMachine || "-"}</dd>
         </div>
         <div class="spec-row">
           <dt>Fuel Capacity</dt>
-          <dd>{yacht.specifications?.fuel || "-"}</dd>
+          <dd>{yacht.specFuel || "-"}</dd>
         </div>
         <div class="spec-row">
           <dt>Water Capacity</dt>
-          <dd>{yacht.specifications?.water || "-"}</dd>
+          <dd>{yacht.specWater || "-"}</dd>
         </div>
         <div class="spec-row">
           <dt>Navigation</dt>
-          <dd>{yacht.specifications?.navigation || "-"}</dd>
+          <dd>{yacht.specNavigation || "-"}</dd>
         </div>
       </dl>
     </div>
@@ -88,70 +95,50 @@ if (!yacht) {
       <div class="feature-col">
         <h3>Onboard Facilities</h3>
         <ul class="feature-list">
-          {yacht.facilities?.map((item) => <li>{item}</li>)}
+          {facilities.map((item) => <li>{item}</li>)}
         </ul>
       </div>
       <div class="feature-col">
         <h3>Available Activities</h3>
         <ul class="feature-list">
-          {yacht.activities?.map((item) => <li>{item}</li>)}
+          {activities.map((item) => <li>{item}</li>)}
         </ul>
       </div>
       <div class="feature-col">
         <h3>Safety Equipment</h3>
         <ul class="feature-list">
-          {yacht.safety?.map((item) => <li>{item}</li>)}
+          {safety.map((item) => <li>{item}</li>)}
         </ul>
       </div>
     </div>
 
     <div class="yacht-pricing-full">
       <h3>Pricing</h3>
-      <div class="pricing-table">
-        {yacht.pricing?.map((item) => (
-          <div class="pricing-row">
-            <div class="pricing-route">
-              <span class="route-name">{item.route}</span>
-              <span class="route-duration">{item.duration}</span>
-            </div>
-            <span class="pricing-price">{item.price}</span>
-          </div>
-        ))}
-      </div>
+      <p class="pricing-notes">{yacht.pricingNotes || "Contact us for detailed pricing"}</p>
     </div>
 
     <div class="yacht-included">
       <h3>What's Included</h3>
       <ul class="included-list">
-        {yacht.included?.map((item) => <li>{item}</li>)}
+        {included.map((item) => <li>{item}</li>)}
       </ul>
     </div>
 
     <div class="yacht-optional">
       <h3>Optional Extras</h3>
       <ul class="optional-list">
-        {yacht.optionalExtras?.map((item) => <li>{item}</li>)}
+        {optionalExtras.map((item) => <li>{item}</li>)}
       </ul>
     </div>
 
     <div class="yacht-policies">
       <div class="policy-section">
         <h3>Payment Policy</h3>
-        <ul class="policy-list">
-          <li><strong>Deposit:</strong> {yacht.paymentPolicy?.deposit}</li>
-          <li><strong>Full Payment:</strong> {yacht.paymentPolicy?.fullPayment}</li>
-          <li><strong>Currency:</strong> {yacht.paymentPolicy?.currency}</li>
-          <li><strong>Bank Fees:</strong> {yacht.paymentPolicy?.fees}</li>
-        </ul>
+        <p>{yacht.paymentPolicy}</p>
       </div>
       <div class="policy-section">
         <h3>Cancellation Policy</h3>
-        <ul class="policy-list">
-          <li><strong>Low Season:</strong> {yacht.cancellationPolicy?.lowSeason}</li>
-          <li><strong>High Season:</strong> {yacht.cancellationPolicy?.highSeason}</li>
-          <li><strong>Within 7 Days:</strong> {yacht.cancellationPolicy?.withinWeek}</li>
-          <li><strong>Weather Conditions:</strong> {yacht.cancellationPolicy?.weather}</li>
-        </ul>
+        <p>{yacht.cancellationPolicy}</p>
       </div>
     </div>
   </section>

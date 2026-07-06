@@ -6,86 +6,24 @@
   "tagline": "Spacious and stable catamaran perfect for larger groups and multi-day charters",
   "summary": "The Lagoon 380 S offers exceptional stability and space, making it ideal for larger groups and overnight charters with its 4 cabins.",
   "description": "The Catamaran Lagoon 380 S provides an unmatched sailing experience with its twin-hull design offering superior stability and expansive deck space. With 4 cabins available, this catamaran is perfect for overnight charters and larger groups seeking comfort on the water.",
-  "capacity": {
-    "day": "Up to 12 persons",
-    "night": "Up to 8 persons"
-  },
-  "specifications": {
-    "type": "Catamaran",
-    "length": "11.6 meter",
-    "beam": "6.63 meter",
-    "machine": "Yanmar 29 HP Diesel x 2 (2,720 & 2,700 hours)",
-    "fuel": "220 liters",
-    "water": "620 liters",
-    "navigation": "Garmin"
-  },
-  "facilities": [
-    "2x Toilet with shower",
-    "4x Cabins",
-    "Sound System",
-    "Kitchen",
-    "WiFi",
-    "Air Conditioning",
-    "Snorkeling Equipment",
-    "Fishing Tools"
-  ],
-  "activities": [
-    "Snorkeling",
-    "Fishing"
-  ],
-  "safety": [
-    "Sea Safe Tracking",
-    "Satellite Phone",
-    "Life Raft",
-    "Life Jackets",
-    "Life Rings",
-    "Insurance covered by Jasa Raharja Putra"
-  ],
-  "included": [
-    "Towels",
-    "Snorkeling accessories",
-    "Fishing equipment",
-    "Water, tea, coffee and non-alcoholic drinks"
-  ],
-  "optionalExtras": [
-    "Transfer",
-    "Diving accessories",
-    "Surfing accessories",
-    "Restaurant lunch at island",
-    "Professional photographer",
-    "DJ with equipment",
-    "Alcoholic drinks",
-    "Fresh fruits & snacks"
-  ],
-  "pricing": [
-    {
-      "route": "Nusa Dua Half Day",
-      "duration": "4 hours",
-      "price": "Rp 25,000,000"
-    },
-    {
-      "route": "Nusa Penida / Nusa Lembongan Full Day",
-      "duration": "8 hours",
-      "price": "Rp 32,000,000"
-    },
-    {
-      "route": "Lombok / Gili Island",
-      "duration": "Minimum 4 Nights",
-      "price": "Rp 64,000,000"
-    }
-  ],
-  "paymentPolicy": {
-    "deposit": "50% deposit required to secure reservation",
-    "fullPayment": "Full payment before trip",
-    "currency": "IDR (bank transfer copy required)",
-    "fees": "Client responsible for bank transfer fees"
-  },
-  "cancellationPolicy": {
-    "lowSeason": "50% charge within 7 days before trip",
-    "highSeason": "50% charge within 30 days before trip",
-    "withinWeek": "100% cancellation fee",
-    "weather": "25% cancellation fee for weather conditions"
-  },
+  "capacityDay": "Up to 12 persons",
+  "capacityNight": "Up to 8 persons",
+  "specType": "Catamaran",
+  "specLength": "11.6 meter",
+  "specWidth": "6.63 meter",
+  "specMachine": "Yanmar 29 HP Diesel x 2",
+  "specFuel": "220 liters",
+  "specWater": "620 liters",
+  "specNavigation": "Garmin",
+  "facilities": "2x Toilet with shower, 4 Cabins, Sound System, Kitchen, WiFi, Air Conditioning, Snorkeling Equipment, Fishing Tools",
+  "activities": "Snorkeling, Fishing",
+  "safety": "Sea Safe Tracking, Satellite Phone, Life Raft, Life Jackets, Life Rings, Insurance covered by Jasa Raharja Putra",
+  "included": "Towels, Snorkeling accessories, Fishing equipment, Water, tea, coffee and non-alcoholic drinks",
+  "optionalExtras": "Transfer, Diving accessories, Surfing accessories, Restaurant lunch at island, Professional photographer, DJ with equipment, Alcoholic drinks, Fresh fruits & snacks",
+  "pricingNotes": "Nusa Dua 4hrs: Rp 25,000,000 | Nusa Penida/Lembongan 8hrs: Rp 32,000,000 | Lombok/Gili: Rp 64,000,000 (min 4 nights)",
+  "paymentPolicy": "50% deposit required. Full payment before trip. IDR currencies only.",
+  "cancellationPolicy": "Low season: 50% within 7 days | High season: 50% within 30 days | Within 7 days: 100% | Weather: 25%",
+  "image": "/uploads/marelune-assets/IMG-20260602-WA0078.jpg",
   "isActive": true,
   "isFeatured": false
 }

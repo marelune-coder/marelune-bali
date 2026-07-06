@@ -6,87 +6,24 @@
   "tagline": "Premium luxury motor yacht for ultimate comfort and style",
   "summary": "The flagship of our fleet. Experience Bali's waters in unparalleled luxury aboard the Accura 55, perfect for larger groups and special occasions.",
   "description": "The Accura Luxury 55 Motor Yacht is our premium vessel designed for those who seek the finest maritime experience in Bali. With its spacious deck areas, modern amenities, and exceptional craftsmanship, this yacht sets the standard for luxury private charters.",
-  "capacity": {
-    "day": "Up to 15 persons",
-    "night": "N/A"
-  },
-  "specifications": {
-    "type": "Mono hull speed boat",
-    "length": "17 meter",
-    "width": "3.90 meter",
-    "machine": "4 Stroke, 300 x 4 Yamaha",
-    "fuel": "3,500 liters",
-    "water": "500 liters",
-    "navigation": "Garmin"
-  },
-  "facilities": [
-    "1x Toilet",
-    "2x Berth (sleeping cabins)",
-    "Sound System",
-    "Kitchen",
-    "Air Conditioning",
-    "WiFi",
-    "Snorkeling Equipment",
-    "Fishing Tools"
-  ],
-  "activities": [
-    "Snorkeling",
-    "Fishing",
-    "Diving (optional)"
-  ],
-  "safety": [
-    "Sea Safe Tracking",
-    "Satellite Phone",
-    "Life Craft",
-    "Life Jackets",
-    "Life Rings",
-    "Insurance covered by Jasa Raharja Putra"
-  ],
-  "included": [
-    "Towels",
-    "Snorkeling accessories",
-    "Fishing equipment",
-    "Water, tea, coffee and non-alcoholic drinks"
-  ],
-  "optionalExtras": [
-    "Transfer",
-    "Diving accessories",
-    "Surfing accessories",
-    "Restaurant lunch at island",
-    "Professional photographer",
-    "DJ with equipment",
-    "Alcoholic drinks",
-    "Fresh fruits & snacks"
-  ],
-  "pricing": [
-    {
-      "route": "Nusa Dua Half Day",
-      "duration": "4 hours",
-      "price": "Rp 35,000,000"
-    },
-    {
-      "route": "Nusa Penida / Nusa Lembongan Full Day",
-      "duration": "8 hours",
-      "price": "Rp 45,000,000"
-    },
-    {
-      "route": "Lombok / Gili Island",
-      "duration": "8 hours",
-      "price": "Rp 76,000,000"
-    }
-  ],
-  "paymentPolicy": {
-    "deposit": "50% deposit required to secure reservation",
-    "fullPayment": "Full payment before trip",
-    "currency": "IDR (bank transfer copy required)",
-    "fees": "Client responsible for bank transfer fees"
-  },
-  "cancellationPolicy": {
-    "lowSeason": "50% charge within 7 days before trip",
-    "highSeason": "50% charge within 30 days before trip",
-    "withinWeek": "100% cancellation fee",
-    "weather": "25% cancellation fee for weather conditions"
-  },
+  "capacityDay": "Up to 15 persons",
+  "capacityNight": "N/A",
+  "specType": "Mono hull speed boat",
+  "specLength": "17 meter",
+  "specWidth": "3.90 meter",
+  "specMachine": "4 Stroke, 300 x 4 Yamaha",
+  "specFuel": "3,500 liters",
+  "specWater": "500 liters",
+  "specNavigation": "Garmin",
+  "facilities": "1x Toilet, 2x Berth, Sound System, Kitchen, Air Conditioning, WiFi, Snorkeling Equipment, Fishing Tools",
+  "activities": "Snorkeling, Fishing, Diving (optional)",
+  "safety": "Sea Safe Tracking, Satellite Phone, Life Craft, Life Jackets, Life Rings, Insurance covered by Jasa Raharja Putra",
+  "included": "Towels, Snorkeling accessories, Fishing equipment, Water, tea, coffee and non-alcoholic drinks",
+  "optionalExtras": "Transfer, Diving accessories, Surfing accessories, Restaurant lunch at island, Professional photographer, DJ with equipment, Alcoholic drinks, Fresh fruits & snacks",
+  "pricingNotes": "Nusa Dua 4hrs: Rp 35,000,000 | Nusa Penida/Lembongan 8hrs: Rp 45,000,000 | Lombok/Gili 8hrs: Rp 76,000,000",
+  "paymentPolicy": "50% deposit required. Full payment before trip. IDR currencies only.",
+  "cancellationPolicy": "Low season: 50% within 7 days | High season: 50% within 30 days | Within 7 days: 100% | Weather: 25%",
+  "image": "/uploads/marelune-assets/IMG-20260602-WA0078.jpg",
   "isActive": true,
   "isFeatured": true
 }
