@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import LeadForm from '../components/LeadForm.astro';
-import { site, bookPage, leads, journeys } from '../data/content.js';
+import { site, bookPage, leads, journeys, yachts } from '../data/content.js';
 ---
 <BaseLayout site={site} title={bookPage.title} description={bookPage.description} image={bookPage.hero_image} currentPath="/book/">
   <section class="hero">
@@ -24,6 +24,6 @@ import { site, bookPage, leads, journeys } from '../data/content.js';
         <span>Website form → Lead function → Make.com → Google Sheets + WhatsApp follow-up</span>
       </div>
     </div>
-    <LeadForm site={site} leads={leads} journeys={journeys} />
+    <LeadForm site={site} leads={leads} journeys={journeys} yachts={yachts} />
   </section>
 </BaseLayout>

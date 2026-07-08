@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { site } from '../../data/content.js';
 
 export async function getStaticPaths() {
-  const fleetModules = import.meta.glob('../../content/fleet/*.json', { eager: true });
+  const fleetModules = import.meta.glob('/content/fleet/*.json', { eager: true });
   const yachts = Object.values(fleetModules).map((module) => module.default ?? module);
 
   return yachts.map((yacht) => ({

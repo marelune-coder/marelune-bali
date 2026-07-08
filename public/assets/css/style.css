@@ -1007,17 +1007,72 @@ dd {
   background: rgba(20, 32, 51, 0.02);
 }
 
+/* Booking Form Styles */
+.booking-form-wrapper {
+  padding: 32px;
+  background: var(--white);
+  box-shadow: var(--shadow);
+  border-radius: 8px;
+}
+
 .book-form {
   display: grid;
-  gap: 12px;
+  gap: 24px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-submit {
+  grid-column: 1 / -1;
+  padding-top: 8px;
+}
+
+.form-status {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin: 0;
+  padding: 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.form-status.success {
+  background: rgba(29, 154, 154, 0.12);
+  color: var(--reef);
+  border: 1px solid var(--reef);
+}
+
+.form-status.error {
+  background: rgba(3, 24, 43, 0.08);
+  color: var(--navy-950);
+  border: 1px solid var(--line);
+}
+
+.required {
+  color: #dc3545;
 }
 
 .book-form label {
   display: block;
-  margin-bottom: 4px;
   color: var(--navy-950);
-  font-weight: 800;
+  font-weight: 700;
   font-size: 13px;
+  letter-spacing: 0.3px;
 }
 
 .book-form input,
@@ -1025,9 +1080,20 @@ dd {
 .book-form textarea {
   width: 100%;
   border: 1px solid var(--line);
-  padding: 12px 16px;
+  border-radius: 6px;
+  padding: 14px 16px;
   color: var(--navy-950);
   background: var(--white);
+  font-size: 15px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.book-form input:focus,
+.book-form select:focus,
+.book-form textarea:focus {
+  outline: none;
+  border-color: var(--reef);
+  box-shadow: 0 0 0 3px rgba(29, 154, 154, 0.12);
 }
 
 .book-form input::placeholder {
@@ -1035,8 +1101,303 @@ dd {
 }
 
 .book-form textarea {
-  resize: none;
+  resize: vertical;
   min-height: 120px;
+}
+
+.book-form select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23667385' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 44px;
+}
+
+/* Responsive form layout */
+@media (max-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .booking-form-wrapper {
+    padding: 24px;
+  }
+}
+
+/* ============================================
+   YACHT CARD STYLES - Professional Blog Card Style
+   ============================================ */
+
+.fleet-section {
+  width: min(1240px, calc(100% - 36px));
+  margin: 0 auto;
+  padding: 80px 0;
+}
+
+.yacht-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.yacht-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(3, 24, 43, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.yacht-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(3, 24, 43, 0.16);
+}
+
+/* Image Section */
+.yacht-image-wrapper {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+}
+
+.yacht-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.yacht-card:hover .yacht-image-wrapper img {
+  transform: scale(1.08);
+}
+
+/* Type Badge */
+.yacht-type-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 8px 16px;
+  background: var(--navy-950);
+  color: var(--white);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  z-index: 2;
+}
+
+/* Capacity Badge */
+.yacht-capacity-badge {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+}
+
+.yacht-capacity-badge span {
+  color: var(--navy-950);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* Content Section */
+.yacht-content {
+  display: flex;
+  flex-direction: column;
+  padding: 28px;
+  flex: 1;
+}
+
+.yacht-header {
+  margin-bottom: 16px;
+}
+
+.yacht-tagline {
+  display: inline-block;
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 8px;
+}
+
+.yacht-content h3 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--navy-950);
+  line-height: 1.2;
+}
+
+.yacht-summary {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 0 0 20px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Specs Grid */
+.yacht-specs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.yacht-spec {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  background: var(--mist);
+  border-radius: 10px;
+}
+
+.spec-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.spec-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.spec-label {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.spec-value {
+  color: var(--navy-950);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* Pricing */
+.yacht-pricing {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 20px;
+}
+
+.pricing-label {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.pricing-value {
+  color: var(--reef);
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* Action Buttons */
+.yacht-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 20px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.btn-primary {
+  background: var(--navy-950);
+  color: var(--white);
+  border: 2px solid var(--navy-950);
+}
+
+.btn-primary:hover {
+  background: var(--navy-800);
+  border-color: var(--navy-800);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--navy-950);
+  border: 2px solid var(--navy-950);
+}
+
+.btn-secondary:hover {
+  background: var(--navy-950);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* Responsive Yacht Grid */
+@media (max-width: 1024px) {
+  .yacht-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .yacht-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .yacht-image-wrapper {
+    height: 200px;
+  }
+
+  .yacht-content {
+    padding: 20px;
+  }
+
+  .yacht-content h3 {
+    font-size: 22px;
+  }
+
+  .yacht-specs-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .site-footer {

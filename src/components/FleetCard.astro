@@ -1,32 +1,44 @@
 ---
 const { yacht } = Astro.props;
-const facilities = (yacht.facilities || "").split(",").map(s => s.trim()).filter(Boolean);
 ---
 <article class="yacht-card" data-reveal>
-  <div class="yacht-visual">
-    <span class="yacht-badge">{yacht.type}</span>
+  <div class="yacht-image-wrapper">
+    <span class="yacht-type-badge">{yacht.type}</span>
     <img src={yacht.image || "/uploads/marelune-assets/IMG-20260602-WA0078.jpg"} alt={yacht.name} loading="lazy" />
+    <div class="yacht-capacity-badge">
+      <i class="icon-users"></i>
+      <span>{yacht.capacityDay || "Contact for details"}</span>
+    </div>
   </div>
   <div class="yacht-content">
-    <span class="eyebrow">{yacht.capacityDay || "Contact for details"}</span>
-    <h3>{yacht.name}</h3>
-    <p>{yacht.summary}</p>
-    <div class="yacht-specs">
-      <div class="spec-item">
-        <span class="spec-label">Length</span>
-        <span class="spec-value">{yacht.specLength || "N/A"}</span>
+    <header class="yacht-header">
+      <span class="yacht-tagline">{yacht.tagline || yacht.type}</span>
+      <h3>{yacht.name}</h3>
+    </header>
+    <p class="yacht-summary">{yacht.summary}</p>
+    <div class="yacht-specs-grid">
+      <div class="yacht-spec">
+        <span class="spec-icon">📏</span>
+        <div class="spec-info">
+          <span class="spec-label">Length</span>
+          <span class="spec-value">{yacht.specLength || "N/A"}</span>
+        </div>
       </div>
-      <div class="spec-item">
-        <span class="spec-label">Type</span>
-        <span class="spec-value">{yacht.specType || yacht.type}</span>
+      <div class="yacht-spec">
+        <span class="spec-icon">⚙️</span>
+        <div class="spec-info">
+          <span class="spec-label">Engine</span>
+          <span class="spec-value">{yacht.specMachine?.split(',')[0] || yacht.specType || "N/A"}</span>
+        </div>
       </div>
     </div>
-    <div class="yacht-pricing-preview">
-      <p class="pricing-text">{yacht.pricingNotes || "Contact for pricing"}</p>
+    <div class="yacht-pricing">
+      <span class="pricing-label">Starting from</span>
+      <span class="pricing-value">{yacht.pricingNotes?.split('|')[0]?.trim()?.split(':')[1]?.trim() || "Contact us"}</span>
     </div>
     <div class="yacht-actions">
-      <a href={`/fleet/${yacht.slug}/`} class="button button-dark">View Details</a>
-      <a href="/book/" class="button button-outline">Book Now</a>
+      <a href={`/fleet/${yacht.slug}/`} class="btn btn-primary">View Details</a>
+      <a href="/book/" class="btn btn-secondary">Book Now</a>
     </div>
   </div>
 </article>
