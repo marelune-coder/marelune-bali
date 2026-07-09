@@ -1,44 +1,71 @@
 ---
 const { yacht } = Astro.props;
+
+// Format pricing - take first route price
+const firstPrice = yacht.pricingNotes
+  ?.split('|')[0]
+  ?.trim()
+  ?.split(':')[1]
+  ?.trim()
+  || null;
+
+// Get engine info
+const engine = yacht.specMachine?.split(',')[0]?.trim() || yacht.specType || null;
 ---
 <article class="yacht-card" data-reveal>
-  <div class="yacht-image-wrapper">
-    <span class="yacht-type-badge">{yacht.type}</span>
-    <img src={yacht.image || "/uploads/marelune-assets/IMG-20260602-WA0078.jpg"} alt={yacht.name} loading="lazy" />
-    <div class="yacht-capacity-badge">
-      <i class="icon-users"></i>
-      <span>{yacht.capacityDay || "Contact for details"}</span>
-    </div>
+  <!-- Image Section -->
+  <div class="yacht-card__image">
+    <span class="yacht-card__type">{yacht.type}</span>
+    <img
+      src={yacht.image || "/uploads/marelune-assets/IMG-20260602-WA0078.jpg"}
+      alt={yacht.name}
+      loading="lazy"
+    />
   </div>
-  <div class="yacht-content">
-    <header class="yacht-header">
-      <span class="yacht-tagline">{yacht.tagline || yacht.type}</span>
-      <h3>{yacht.name}</h3>
-    </header>
-    <p class="yacht-summary">{yacht.summary}</p>
-    <div class="yacht-specs-grid">
-      <div class="yacht-spec">
-        <span class="spec-icon">📏</span>
-        <div class="spec-info">
-          <span class="spec-label">Length</span>
-          <span class="spec-value">{yacht.specLength || "N/A"}</span>
-        </div>
+
+  <!-- Content Section -->
+  <div class="yacht-card__body">
+    <!-- Header -->
+    <div class="yacht-card__header">
+      <span class="yacht-card__eyebrow">{yacht.tagline || yacht.type}</span>
+      <h3 class="yacht-card__title">{yacht.name}</h3>
+    </div>
+
+    <!-- Quick Specs -->
+    <div class="yacht-card__specs">
+      <div class="yacht-card__spec">
+        <span class="yacht-card__spec-label">Capacity</span>
+        <span class="yacht-card__spec-value">{yacht.capacityDay || "Contact us"}</span>
       </div>
-      <div class="yacht-spec">
-        <span class="spec-icon">⚙️</span>
-        <div class="spec-info">
-          <span class="spec-label">Engine</span>
-          <span class="spec-value">{yacht.specMachine?.split(',')[0] || yacht.specType || "N/A"}</span>
-        </div>
+      <div class="yacht-card__spec">
+        <span class="yacht-card__spec-label">Length</span>
+        <span class="yacht-card__spec-value">{yacht.specLength || "N/A"}</span>
+      </div>
+      <div class="yacht-card__spec">
+        <span class="yacht-card__spec-label">Engine</span>
+        <span class="yacht-card__spec-value">{engine}</span>
       </div>
     </div>
-    <div class="yacht-pricing">
-      <span class="pricing-label">Starting from</span>
-      <span class="pricing-value">{yacht.pricingNotes?.split('|')[0]?.trim()?.split(':')[1]?.trim() || "Contact us"}</span>
-    </div>
-    <div class="yacht-actions">
-      <a href={`/fleet/${yacht.slug}/`} class="btn btn-primary">View Details</a>
-      <a href="/book/" class="btn btn-secondary">Book Now</a>
+
+    <!-- Description -->
+    <p class="yacht-card__desc">{yacht.summary}</p>
+
+    <!-- Pricing -->
+    {firstPrice && (
+      <div class="yacht-card__pricing">
+        <span class="yacht-card__price-label">Starting from</span>
+        <span class="yacht-card__price">{firstPrice}</span>
+      </div>
+    )}
+
+    <!-- Actions -->
+    <div class="yacht-card__actions">
+      <a href={`/fleet/${yacht.slug}/`} class="yacht-card__btn yacht-card__btn--primary">
+        View Details
+      </a>
+      <a href="/book/" class="yacht-card__btn yacht-card__btn--secondary">
+        Book Now
+      </a>
     </div>
   </div>
 </article>
